@@ -1,0 +1,41 @@
+itemGroup.moreworldgen=More World Gen
+
+CopperOre.name=Copper Ore
+TinOre.name=Tin Ore
+SilverOre.name=Silver Ore
+LeadOre.name=Lead Ore
+NickelOre.name=Nickel Ore
+ChromiumOre.name=Chromium Ore
+AluminiumOre.name=Aluminium Ore
+TitaniumOre.name=Titanium Ore
+PlatinumOre.name=Platinum Ore
+AventurineOre.name=Aventurine Ore
+RubyOre.name=Ruby Ore
+SapphireOre.name=Sapphire Ore
+
+CopperBlock.name=Block of Copper
+TinBlock.name=Block of Tin
+SilverBlock.name=Block of Silver
+LeadBlock.name=Block of Lead
+NickelBlock.name=Block of Nickel
+ChromiumBlock.name=Block of Chromium
+AluminiumBlock.name=Block of Aluminium
+TitaniumBlock.name=Block of Titanium
+PlatinumBlock.name=Block of Platinum
+AventurineBlock.name=Block of Aventurine
+RubyBlock.name=Block of Ruby
+SapphireBlock.name=Block of Sapphire
+
+CopperIngot.name=Copper Ingot
+TinIngot.name=Tin Ingot
+SilverIngot.name=Silver Ingot
+LeadIngot.name=Lead Ingot
+NickelIngot.name=Nickel Ingot
+ChromiumIngot.name=Chromium Ingot
+AluminiumIngot.name=Aluminium Ingot
+TitaniumIngot.name=Titanium Ingot
+PlatinumIngot.name=Platinum Ingot
+
+AventurineGem.name=Aventurine
+RubyGem.name=Ruby
+SapphireGem.name=Sapphire
