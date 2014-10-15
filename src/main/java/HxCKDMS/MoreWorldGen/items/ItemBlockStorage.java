@@ -1,4 +1,4 @@
-package kay.MoreWorldGen.items;
+package HxCKDMS.MoreWorldGen.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -20,10 +20,10 @@ import net.minecraft.util.IIcon;
 11 = Sapphire
 */
 
-public class ItemBlockOre extends ItemBlock {
+public class ItemBlockStorage extends ItemBlock {
     public Block metaBlock;
 
-    public ItemBlockOre(Block block) {
+    public ItemBlockStorage(Block block) {
         super(block);
         metaBlock = block;
         setHasSubtypes(true);
@@ -35,40 +35,40 @@ public class ItemBlockOre extends ItemBlock {
 
         switch(itemStack.getItemDamage()){
             case 0:
-                name = "CopperOre";
+                name = "CopperBlock";
                 break;
             case 1:
-                name = "TinOre";
+                name = "TinBlock";
                 break;
             case 2:
-                name = "SilverOre";
+                name = "SilverBlock";
                 break;
             case 3:
-                name = "LeadOre";
+                name = "LeadBlock";
                 break;
             case 4:
-                name = "NickelOre";
+                name = "NickelBlock";
                 break;
             case 5:
-                name = "ChromiumOre";
+                name = "ChromiumBlock";
                 break;
             case 6:
-                name = "AluminiumOre";
+                name = "AluminiumBlock";
                 break;
             case 7:
-                name = "TitaniumOre";
+                name = "TitaniumBlock";
                 break;
             case 8:
-                name = "PlatinumOre";
+                name = "PlatinumBlock";
                 break;
             case 9:
-                name = "AventurineOre";
+                name = "AventurineBlock";
                 break;
             case 10:
-                name = "RubyOre";
+                name = "RubyBlock";
                 break;
             case 11:
-                name = "SapphireOre";
+                name = "SapphireBlock";
                 break;
             default:
                 name = "error";

@@ -1,10 +1,10 @@
-package kay.MoreWorldGen.registry;
+package HxCKDMS.MoreWorldGen.registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import kay.MoreWorldGen.blocks.BlockOre;
-import kay.MoreWorldGen.creativeTabs.MWGcreativeTab;
-import kay.MoreWorldGen.items.ItemBlockOre;
-import kay.MoreWorldGen.items.ItemBlockStorage;
+import HxCKDMS.MoreWorldGen.blocks.BlockOre;
+import HxCKDMS.MoreWorldGen.creativeTabs.MWGcreativeTab;
+import HxCKDMS.MoreWorldGen.items.ItemBlockOre;
+import HxCKDMS.MoreWorldGen.items.ItemBlockStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 

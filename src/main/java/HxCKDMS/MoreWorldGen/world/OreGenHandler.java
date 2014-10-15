@@ -1,7 +1,7 @@
-package kay.MoreWorldGen.world;
+package HxCKDMS.MoreWorldGen.world;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import kay.MoreWorldGen.registry.BlockRegistry;
+import HxCKDMS.MoreWorldGen.registry.BlockRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -10,7 +10,6 @@ import net.minecraft.world.gen.ChunkProviderHell;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType;
 

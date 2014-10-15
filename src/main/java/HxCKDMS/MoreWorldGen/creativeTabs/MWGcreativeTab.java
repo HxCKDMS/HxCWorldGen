@@ -1,6 +1,6 @@
-package kay.MoreWorldGen.creativeTabs;
+package HxCKDMS.MoreWorldGen.creativeTabs;
 
-import kay.MoreWorldGen.util.Reference;
+import HxCKDMS.MoreWorldGen.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;

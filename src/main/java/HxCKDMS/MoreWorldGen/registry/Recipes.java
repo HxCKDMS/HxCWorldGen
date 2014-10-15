@@ -1,4 +1,4 @@
-package kay.MoreWorldGen.registry;
+package HxCKDMS.MoreWorldGen.registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;

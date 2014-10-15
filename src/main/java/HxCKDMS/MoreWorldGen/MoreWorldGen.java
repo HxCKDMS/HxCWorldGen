@@ -1,17 +1,17 @@
-package kay.MoreWorldGen;
+package HxCKDMS.MoreWorldGen;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import kay.MoreWorldGen.registry.BlockRegistry;
-import kay.MoreWorldGen.registry.ItemRegistry;
-import kay.MoreWorldGen.registry.OreDictionaryRegistry;
-import kay.MoreWorldGen.registry.Recipes;
-import kay.MoreWorldGen.util.LogHelper;
-import kay.MoreWorldGen.util.Reference;
-import kay.MoreWorldGen.world.OreGenHandler;
+import HxCKDMS.MoreWorldGen.registry.BlockRegistry;
+import HxCKDMS.MoreWorldGen.registry.ItemRegistry;
+import HxCKDMS.MoreWorldGen.registry.OreDictionaryRegistry;
+import HxCKDMS.MoreWorldGen.registry.Recipes;
+import HxCKDMS.MoreWorldGen.util.LogHelper;
+import HxCKDMS.MoreWorldGen.util.Reference;
+import HxCKDMS.MoreWorldGen.world.OreGenHandler;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 

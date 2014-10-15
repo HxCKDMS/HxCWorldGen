@@ -1,4 +1,4 @@
-package kay.MoreWorldGen.registry;
+package HxCKDMS.MoreWorldGen.registry;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;

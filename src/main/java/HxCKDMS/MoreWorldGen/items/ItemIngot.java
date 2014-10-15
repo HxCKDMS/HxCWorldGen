@@ -1,8 +1,8 @@
-package kay.MoreWorldGen.items;
+package HxCKDMS.MoreWorldGen.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import kay.MoreWorldGen.util.Reference;
+import HxCKDMS.MoreWorldGen.util.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

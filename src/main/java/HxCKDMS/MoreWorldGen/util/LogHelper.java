@@ -1,4 +1,4 @@
-package kay.MoreWorldGen.util;
+package HxCKDMS.MoreWorldGen.util;
 
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;

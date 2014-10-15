@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.7.10-0.0.1"
-group= "kay.MoreWorldGen"
+group= "HxCKDMS.MoreWorldGen"
 archivesBaseName = "MoreWorldGen"
 
 minecraft {

@@ -1,4 +1,4 @@
-package kay.MoreWorldGen.util;
+package HxCKDMS.MoreWorldGen.util;
 
 public class Reference {
     public static final String MOD_ID = "moreworldgen";
