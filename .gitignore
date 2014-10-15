@@ -1,0 +1,10 @@
+# Created by .gitignore support plugin (hsz.mobi)
+MoreWorldGen.iml
+MoreWorldGen.ipr
+MoreWorldGen.iws
+.classpath
+.project
+eclipse
+.settings
+.gradle
+build
