@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemIngot extends Item {
 
     @SideOnly(Side.CLIENT)
-    public IIcon[] icons;
+    private IIcon[] icons;
 
     public ItemIngot(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
@@ -71,15 +71,15 @@ public class ItemIngot extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
         icons = new IIcon[256];
-        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotCopper");
-        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotTin");
-        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotSilver");
-        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotLead");
-        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotNickel");
-        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotChromium");
-        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotAluminium");
-        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotTitanium");
-        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotPlatinum");
+        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotCopper");
+        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotTin");
+        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotSilver");
+        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotLead");
+        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotNickel");
+        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotChromium");
+        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotAluminium");
+        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotTitanium");
+        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":ingotPlatinum");
     }
 
     @Override

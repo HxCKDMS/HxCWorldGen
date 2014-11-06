@@ -28,7 +28,7 @@ import java.util.List;
 
 public class ItemGem extends Item {
     @SideOnly(Side.CLIENT)
-    public IIcon[] icons;
+    private IIcon[] icons;
 
     public ItemGem(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);

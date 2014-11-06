@@ -30,7 +30,7 @@ import java.util.List;
 
 public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
-    public IIcon[] icons;
+    private IIcon[] icons;
 
     public BlockStorage(Material material, CreativeTabs creativeTabs) {
         super(material);

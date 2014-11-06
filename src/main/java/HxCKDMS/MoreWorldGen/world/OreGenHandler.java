@@ -16,9 +16,6 @@ import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType
 import java.util.Random;
 
 public class OreGenHandler implements IWorldGenerator {
-    public WorldGenerator CopperGen;
-    public static final EventType EVENT_TYPE_COPPER = EnumHelper.addEnum(EventType.class, "COPPER", new Class[0], new Object[0]);
-    public static final EventType EVENT_TYPE_TIN = EnumHelper.addEnum(EventType.class, "TIN", new Class[0], new Object[0]);
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -29,7 +26,6 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosX = (chunkX*16) + random.nextInt(16);
                 int randPosY = random.nextInt(50);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
-                TerrainGen.generateOre(world, random, CopperGen, randPosX, randPosZ, EVENT_TYPE_COPPER);
 
                 new WorldGenMinable(BlockRegistry.blockOre, 0, 6, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
@@ -39,7 +35,6 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosX = (chunkX*16) + random.nextInt(16);
                 int randPosY = random.nextInt(56);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
-                TerrainGen.generateOre(world, random, CopperGen, randPosX, randPosZ, EVENT_TYPE_TIN);
 
                 new WorldGenMinable(BlockRegistry.blockOre, 1, 7, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }

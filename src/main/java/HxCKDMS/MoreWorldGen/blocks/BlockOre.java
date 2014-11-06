@@ -33,7 +33,7 @@ import java.util.Random;
 
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
-    public IIcon[] icons;
+    private IIcon[] icons;
 
     public BlockOre(Material material, CreativeTabs creativeTabs) {
         super(material);
