@@ -64,7 +64,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(18);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 4, 2, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 4, 3, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
                 System.out.println("YourMom X: "+randPosX+"Y: "+randPosY+"Z: "+randPosZ);
             }
 
