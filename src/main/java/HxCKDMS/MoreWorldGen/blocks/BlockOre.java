@@ -61,7 +61,7 @@ public class BlockOre extends Block {
         setHarvestLevel("pickaxe", 2, 11);
 
         //diamond
-        setHarvestLevel("pickaxe", 4, 7);
+        setHarvestLevel("pickaxe", 3, 7);
     }
 
     @Override
