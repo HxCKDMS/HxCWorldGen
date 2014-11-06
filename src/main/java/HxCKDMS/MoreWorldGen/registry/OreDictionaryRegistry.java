@@ -60,7 +60,7 @@ public class OreDictionaryRegistry {
         OreDictionary.registerOre("blockAluminium", new ItemStack(BlockRegistry.blockStorage, 1, 6));
         OreDictionary.registerOre("blockTitanium", new ItemStack(BlockRegistry.blockStorage, 1, 7));
         OreDictionary.registerOre("blockPlatinum", new ItemStack(BlockRegistry.blockStorage, 1, 8));
-        OreDictionary.registerOre("blockAventurine", new ItemStack(BlockRegistry.blockStorage, 1, 9));
+        OreDictionary.registerOre("blockPeridot", new ItemStack(BlockRegistry.blockStorage, 1, 9));
         OreDictionary.registerOre("blockRuby", new ItemStack(BlockRegistry.blockStorage, 1, 10));
         OreDictionary.registerOre("blockSapphire", new ItemStack(BlockRegistry.blockStorage, 1, 11));
 
