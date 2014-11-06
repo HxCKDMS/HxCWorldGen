@@ -20,7 +20,7 @@ public class MoreWorldGen {
     public static MoreWorldGen moreWorldGen;
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
 
         BlockRegistry.preInit();
         ItemRegistry.preInit();
@@ -31,14 +31,13 @@ public class MoreWorldGen {
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event){
+    public void init(FMLInitializationEvent event) {
         OreDictionaryRegistry.init();
         LogHelper.info("Initialization has been completed!");
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event){
+    public void postInit(FMLPostInitializationEvent event) {
         LogHelper.info("Post Initialization has been completed!");
     }
 }
-//test
