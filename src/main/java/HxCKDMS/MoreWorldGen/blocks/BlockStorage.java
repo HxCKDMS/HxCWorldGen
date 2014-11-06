@@ -45,18 +45,18 @@ public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister){
         icons = new IIcon[256];
-        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
-        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":NYI");
+        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockCopper");
+        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockTin");
+        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockSilver");
+        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockLead");
+        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockNickel");
+        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockChromium");
+        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAluminium");
+        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockTitanium");
+        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockPlatinum");
+        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAventurine");
+        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockRuby");
+        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockSapphire");
     }
 
     @Override

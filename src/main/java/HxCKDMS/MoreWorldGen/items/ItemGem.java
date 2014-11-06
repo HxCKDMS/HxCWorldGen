@@ -68,9 +68,9 @@ public class ItemGem extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
         icons = new IIcon[256];
-        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":gemAventurine");
-        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":gemRuby");
-        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":gemSapphire");
+        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":GemAventurine");
+        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":GemRuby");
+        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":GemSapphire");
 
     }
 
