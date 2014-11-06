@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType;
+import org.lwjgl.Sys;
 
 import java.util.Random;
 
@@ -64,6 +65,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
                 new WorldGenMinable(BlockRegistry.blockOre, 4, 2, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                System.out.println("YourMom X: "+randPosX+"Y: "+randPosY+"Z: "+randPosZ);
             }
 
             //Chromium
