@@ -1,4 +1,4 @@
-package HxCKDMS.MoreWorldGen.items;
+package HxCKDMS.HxCWorldGen.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;

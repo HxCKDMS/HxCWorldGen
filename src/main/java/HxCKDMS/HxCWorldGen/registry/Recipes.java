@@ -1,4 +1,4 @@
-package HxCKDMS.MoreWorldGen.registry;
+package HxCKDMS.HxCWorldGen.registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;

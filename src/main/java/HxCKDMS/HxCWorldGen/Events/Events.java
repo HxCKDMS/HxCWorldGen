@@ -1,4 +1,4 @@
-package HxCKDMS.MoreWorldGen.Events;
+package HxCKDMS.HxCWorldGen.Events;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;

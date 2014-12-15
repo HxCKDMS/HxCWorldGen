@@ -1,11 +1,11 @@
-package HxCKDMS.MoreWorldGen.registry;
+package HxCKDMS.HxCWorldGen.registry;
 
-import HxCKDMS.MoreWorldGen.blocks.BlockStorage;
+import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
 import cpw.mods.fml.common.registry.GameRegistry;
-import HxCKDMS.MoreWorldGen.blocks.BlockOre;
-import HxCKDMS.MoreWorldGen.creativeTabs.MWGcreativeTab;
-import HxCKDMS.MoreWorldGen.items.ItemBlockOre;
-import HxCKDMS.MoreWorldGen.items.ItemBlockStorage;
+import HxCKDMS.HxCWorldGen.blocks.BlockOre;
+import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
+import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
+import HxCKDMS.HxCWorldGen.items.ItemBlockStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 

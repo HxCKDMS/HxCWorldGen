@@ -1,7 +1,8 @@
-package HxCKDMS.MoreWorldGen.world;
+package HxCKDMS.HxCWorldGen.world;
 
+import HxCKDMS.HxCWorldGen.Config;
+import HxCKDMS.HxCWorldGen.registry.BlockRegistry;
 import cpw.mods.fml.common.IWorldGenerator;
-import HxCKDMS.MoreWorldGen.registry.BlockRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -12,6 +13,18 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import java.util.Random;
 
 public class OreGenHandler implements IWorldGenerator {
+    public int CopperNodeSize = Config.CopperNodeSize * Config.OreNodeMultiplier;
+    public int TinNodeSize = Config.TinNodeSize * Config.OreNodeMultiplier;
+    public int SilverNodeSize = Config.SilverNodeSize * Config.OreNodeMultiplier;
+    public int LeadNodeSize = Config.LeadNodeSize * Config.OreNodeMultiplier;
+    public int NickelNodeSize = Config.NickelNodeSize * Config.OreNodeMultiplier;
+    public int ChromiumNodeSize = Config.ChromiumNodeSize * Config.OreNodeMultiplier;
+    public int AluminiumNodeSize = Config.AluminiumNodeSize * Config.OreNodeMultiplier;
+    public int TitaniumNodeSize = Config.TitaniumNodeSize * Config.OreNodeMultiplier;
+    public int PlatinumNodeSize = Config.PlatinumNodeSize * Config.OreNodeMultiplier;
+    public int AventurineNodeSize = Config.AventurineNodeSize * Config.OreNodeMultiplier;
+    public int RubyNodeSize = Config.RubyNodeSize * Config.OreNodeMultiplier;
+    public int SapphireNodeSize = Config.SapphireNodeSize * Config.OreNodeMultiplier;
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -23,7 +36,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(50);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 0, 6, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 0, CopperNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //tin
@@ -32,7 +45,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(56);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 1, 7, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 1, TinNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Silver
@@ -41,7 +54,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(18);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 2, 4, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 2, SilverNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Lead
@@ -50,7 +63,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(18);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 3, 4, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 3, LeadNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Nickel
@@ -59,7 +72,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(18);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 4, 3, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 4, NickelNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Chromium
@@ -68,7 +81,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(20);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 5, 3, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 5, ChromiumNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Aluminium
@@ -77,7 +90,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(48);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 6, 4, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 6, AluminiumNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Titanium
@@ -86,7 +99,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(24);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 7, 3, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 7, TitaniumNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Platinum
@@ -95,7 +108,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(10);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 8, 1, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 8, PlatinumNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Aventurine
@@ -104,7 +117,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(28);
                 int randPosZ = (chunkZ * 16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 9, 4, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 9, AventurineNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Ruby
@@ -113,7 +126,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(28);
                 int randPosZ = (chunkZ*16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 10, 4, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 10, RubyNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
 
             //Sapphire
@@ -122,7 +135,7 @@ public class OreGenHandler implements IWorldGenerator {
                 int randPosY = random.nextInt(28);
                 int randPosZ = (chunkZ * 16) + random.nextInt(16);
 
-                new WorldGenMinable(BlockRegistry.blockOre, 11, 4, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockRegistry.blockOre, 11, SapphireNodeSize, Blocks.stone).generate(world, random, randPosX, randPosY, randPosZ);
             }
         }
     }

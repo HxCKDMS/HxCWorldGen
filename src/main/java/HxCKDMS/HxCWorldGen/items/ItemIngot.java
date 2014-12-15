@@ -1,8 +1,8 @@
-package HxCKDMS.MoreWorldGen.items;
+package HxCKDMS.HxCWorldGen.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import HxCKDMS.MoreWorldGen.util.Reference;
+import HxCKDMS.HxCWorldGen.util.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

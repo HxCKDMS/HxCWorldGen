@@ -1,9 +1,9 @@
-package HxCKDMS.MoreWorldGen.registry;
+package HxCKDMS.HxCWorldGen.registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import HxCKDMS.MoreWorldGen.creativeTabs.MWGcreativeTab;
-import HxCKDMS.MoreWorldGen.items.ItemGem;
-import HxCKDMS.MoreWorldGen.items.ItemIngot;
+import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
+import HxCKDMS.HxCWorldGen.items.ItemGem;
+import HxCKDMS.HxCWorldGen.items.ItemIngot;
 import net.minecraft.item.Item;
 
 public class ItemRegistry {
