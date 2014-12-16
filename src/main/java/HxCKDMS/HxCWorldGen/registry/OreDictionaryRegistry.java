@@ -27,7 +27,7 @@ public class OreDictionaryRegistry {
         OreDictionary.registerOre("oreLead", new ItemStack(BlockRegistry.blockOre, 1, 3));
         OreDictionary.registerOre("oreNickel", new ItemStack(BlockRegistry.blockOre, 1, 4));
         OreDictionary.registerOre("oreChromium", new ItemStack(BlockRegistry.blockOre, 1, 5));
-        OreDictionary.registerOre("oreAluminium", new ItemStack(BlockRegistry.blockOre, 1, 6));
+        OreDictionary.registerOre("oreAluminum", new ItemStack(BlockRegistry.blockOre, 1, 6));
         OreDictionary.registerOre("oreTitanium", new ItemStack(BlockRegistry.blockOre, 1, 7));
         OreDictionary.registerOre("orePlatinum", new ItemStack(BlockRegistry.blockOre, 1, 8));
         OreDictionary.registerOre("oreAventurine", new ItemStack(BlockRegistry.blockOre, 1, 9));
@@ -41,7 +41,7 @@ public class OreDictionaryRegistry {
         OreDictionary.registerOre("ingotLead", new ItemStack(ItemRegistry.itemIngot, 1, 3));
         OreDictionary.registerOre("ingotNickel", new ItemStack(ItemRegistry.itemIngot, 1, 4));
         OreDictionary.registerOre("ingotChromium", new ItemStack(ItemRegistry.itemIngot, 1, 5));
-        OreDictionary.registerOre("ingotAluminium", new ItemStack(ItemRegistry.itemIngot, 1, 6));
+        OreDictionary.registerOre("ingotAluminum", new ItemStack(ItemRegistry.itemIngot, 1, 6));
         OreDictionary.registerOre("ingotTitanium", new ItemStack(ItemRegistry.itemIngot, 1, 7));
         OreDictionary.registerOre("ingotPlatinum", new ItemStack(ItemRegistry.itemIngot, 1, 8));
 
@@ -57,7 +57,7 @@ public class OreDictionaryRegistry {
         OreDictionary.registerOre("blockLead", new ItemStack(BlockRegistry.blockStorage, 1, 3));
         OreDictionary.registerOre("blockNickel", new ItemStack(BlockRegistry.blockStorage, 1, 4));
         OreDictionary.registerOre("blockChromium", new ItemStack(BlockRegistry.blockStorage, 1, 5));
-        OreDictionary.registerOre("blockAluminium", new ItemStack(BlockRegistry.blockStorage, 1, 6));
+        OreDictionary.registerOre("blockAluminum", new ItemStack(BlockRegistry.blockStorage, 1, 6));
         OreDictionary.registerOre("blockTitanium", new ItemStack(BlockRegistry.blockStorage, 1, 7));
         OreDictionary.registerOre("blockPlatinum", new ItemStack(BlockRegistry.blockStorage, 1, 8));
         OreDictionary.registerOre("blockPeridot", new ItemStack(BlockRegistry.blockStorage, 1, 9));
