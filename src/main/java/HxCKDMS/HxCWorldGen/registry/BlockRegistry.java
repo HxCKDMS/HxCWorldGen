@@ -1,13 +1,13 @@
 package HxCKDMS.HxCWorldGen.registry;
 
-import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
-import cpw.mods.fml.common.registry.GameRegistry;
 import HxCKDMS.HxCWorldGen.blocks.BlockOre;
+import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
 import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
 import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
 import HxCKDMS.HxCWorldGen.items.ItemBlockStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockRegistry {
     public static Block blockOre = new BlockOre(Material.rock, MWGcreativeTab.moreWorldGenTab);

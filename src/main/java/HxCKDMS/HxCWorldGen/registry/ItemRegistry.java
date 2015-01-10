@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.registry;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
 import HxCKDMS.HxCWorldGen.items.ItemGem;
 import HxCKDMS.HxCWorldGen.items.ItemIngot;

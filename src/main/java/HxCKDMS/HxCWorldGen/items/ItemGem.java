@@ -1,13 +1,12 @@
 package HxCKDMS.HxCWorldGen.items;
 
 import HxCKDMS.HxCWorldGen.util.Reference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
@@ -28,13 +27,15 @@ import java.util.List;
 
 public class ItemGem extends Item {
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
 
     public ItemGem(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
         setMaxDamage(0);
-
+        for(int i=9; i<NAMES.length; i++)
+        {
+            ModelBakery.addVariantName(this, Reference.MOD_ID + ":" + NAMES[i]);
+        }
     }
 
     @Override
@@ -55,7 +56,6 @@ public class ItemGem extends Item {
             default:
                 name = "error";
         }
-
         return name;
     }
 
@@ -66,25 +66,11 @@ public class ItemGem extends Item {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[256];
-        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":GemAventurine");
-        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":GemRuby");
-        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":GemSapphire");
-
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int metadata){
-        return icons[metadata];
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
         for(int i = 9; i < 12; i++){
             list.add(new ItemStack(item,1,i));
         }
     }
+    public static final String[] NAMES = {"CopperIngot","TinIngot","SilverIngot","LeadIngot","NickelIngot","ChromiumIngot","AluminiumIngot","TitaniumIngot","PlatinumIngot","AventurineGem","RubyGem","SapphireGem"};
+
 }

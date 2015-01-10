@@ -1,9 +1,10 @@
 package HxCKDMS.HxCWorldGen.items;
 
+import HxCKDMS.HxCWorldGen.util.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 /*
 0 = Copper
@@ -27,6 +28,10 @@ public class ItemBlockOre extends ItemBlock {
         super(block);
         metaBlock = block;
         setHasSubtypes(true);
+        for(int i=0; i<NAMES.length; i++)
+        {
+            ModelBakery.addVariantName(this, Reference.MOD_ID + ":" + NAMES[i]);
+        }
     }
 
     @Override
@@ -82,9 +87,5 @@ public class ItemBlockOre extends ItemBlock {
     public int getMetadata(int metadata){
         return metadata;
     }
-
-    @Override
-    public IIcon getIconFromDamage(int metadata){
-        return metaBlock.getIcon(2, metadata);
-    }
+    public static final String[] NAMES = {"CopperOre","TinOre","SilverOre","LeadOre","NickelOre","ChromiumOre","AluminiumOre","TitaniumOre","PlatinumOre","AventurineOre","RubyOre","SapphireOre"};
 }

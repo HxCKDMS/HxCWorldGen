@@ -1,17 +1,15 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import HxCKDMS.HxCWorldGen.registry.BlockRegistry;
 import HxCKDMS.HxCWorldGen.registry.ItemRegistry;
-import HxCKDMS.HxCWorldGen.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 import java.util.Random;
@@ -33,63 +31,34 @@ import java.util.Random;
 
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
 
     public BlockOre(Material material, CreativeTabs creativeTabs) {
         super(material);
         setHardness(3F);
         setResistance(5F);
         setCreativeTab(creativeTabs);
-        setBlockName("BlockOre");
+        setUnlocalizedName("BlockOre");
         miningLevel();
     }
 
     private void miningLevel(){
         //stone
-        setHarvestLevel("pickaxe", 1, 0);
-        setHarvestLevel("pickaxe", 1, 1);
-        setHarvestLevel("pickaxe", 1, 6);
+        setHarvestLevel("pickaxe", 1, getStateFromMeta(0));
+        setHarvestLevel("pickaxe", 1, getStateFromMeta(1));
+        setHarvestLevel("pickaxe", 1, getStateFromMeta(6));
 
         //iron
-        setHarvestLevel("pickaxe", 2, 2);
-        setHarvestLevel("pickaxe", 2, 3);
-        setHarvestLevel("pickaxe", 2, 4);
-        setHarvestLevel("pickaxe", 2, 5);
-        setHarvestLevel("pickaxe", 2, 8);
-        setHarvestLevel("pickaxe", 2, 9);
-        setHarvestLevel("pickaxe", 2, 10);
-        setHarvestLevel("pickaxe", 2, 11);
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(2));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(3));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(4));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(5));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(8));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(9));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(10));
+        setHarvestLevel("pickaxe", 2, getStateFromMeta(11));
 
         //diamond
-        setHarvestLevel("pickaxe", 3, 7);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister){
-        icons = new IIcon[256];
-        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":OreCopper");
-        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":OreTin");
-        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":OreSilver");
-        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":OreLead");
-        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":OreNickel");
-        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":OreChromium");
-        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAluminium");
-        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":OreTitanium");
-        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":OrePlatinum");
-        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAventurine");
-        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":OreRuby");
-        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":OreSapphire");
-    }
-
-    @Override
-    public IIcon getIcon(int side, int metadata){
-        return icons[metadata];
-    }
-
-    @Override
-    public int damageDropped(int metadata){
-        return metadata;
+        setHarvestLevel("pickaxe", 3, getStateFromMeta(7));
     }
 
     @Override
@@ -101,7 +70,14 @@ public class BlockOre extends Block {
     }
 
     @Override
-    public Item getItemDropped(int metadata, Random random, int fortune){
+    public int damageDropped(IBlockState state)
+    {
+        return getMetaFromState(state);
+    }
+
+    @Override
+    public Item getItemDropped(IBlockState state, Random random, int fortune){
+        int metadata = this.getMetaFromState(state);
         switch(metadata){
             case 9:
                 return ItemRegistry.itemGem;

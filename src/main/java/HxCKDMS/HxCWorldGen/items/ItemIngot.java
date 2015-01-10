@@ -1,25 +1,27 @@
 package HxCKDMS.HxCWorldGen.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import HxCKDMS.HxCWorldGen.util.Reference;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
 public class ItemIngot extends Item {
 
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
 
     public ItemIngot(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
         setMaxDamage(0);
+        for(int i=0; i<=8; i++)
+        {
+            ModelBakery.addVariantName(this, Reference.MOD_ID + ":" + NAMES[i]);
+        }
     }
 
     @Override
@@ -69,30 +71,11 @@ public class ItemIngot extends Item {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[256];
-        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotCopper");
-        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotTin");
-        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotSilver");
-        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotLead");
-        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotNickel");
-        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotChromium");
-        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotAluminium");
-        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotTitanium");
-        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":IngotPlatinum");
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int metadata){
-        return icons[metadata];
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
         for(int i = 0; i < 9; i++){
             list.add(new ItemStack(item, 1, i));
         }
     }
+    public static final String[] NAMES = {"CopperIngot","TinIngot","SilverIngot","LeadIngot","NickelIngot","ChromiumIngot","AluminiumIngot","TitaniumIngot","PlatinumIngot","AventurineGem","RubyGem","SapphireGem"};
+
 }
