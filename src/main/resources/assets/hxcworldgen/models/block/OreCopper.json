@@ -1,0 +1,22 @@
+# THIS IS THE BLOCK MDOEL FILE. IT GOES IN THE assets/hxcworldgen/models/block/ folder.
+# Made by HxCKDMS
+
+# 0 = Copper
+# 1 = Tin
+# 2 = Silver
+# 3 = Lead
+# 4 = Nickel
+# 5 = Chromium
+# 6 = Aluminium
+# 7 = Titanium
+# 8 = Platinum
+# 9 = Aventurine
+# 10 = Ruby
+# 11 = Sapphire
+
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "hxcworldgen:blocks/OreCopper"
+    }
+}

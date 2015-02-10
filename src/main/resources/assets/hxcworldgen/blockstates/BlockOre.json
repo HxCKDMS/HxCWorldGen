@@ -1,0 +1,32 @@
+# THIS IS THE BLOCKSTATE FILE. IT GOES IN THE assets/hxcworldgen/blockstates/ folder.
+# Created by HxCKDMS
+
+# 0 = Copper
+# 1 = Tin
+# 2 = Silver
+# 3 = Lead
+# 4 = Nickel
+# 5 = Chromium
+# 6 = Aluminium
+# 7 = Titanium
+# 8 = Platinum
+# 9 = Aventurine
+# 10 = Ruby
+# 11 = Sapphire
+
+{
+    "variants": {
+        "normal": { "model": "hxcworldgen:CopperOre" }
+        "Tin": { "model": "hxcworldgen:TinOre" }
+        "Silver": { "model": "hxcworldgen:Silver" }
+        "Lead": { "model": "hxcworldgen:LeadOre" }
+        "Nickel": { "model": "hxcworldgen:NickelOre" }
+        "Chromium": { "model": "hxcworldgen:ChromiumOre" }
+        "Aluminium": { "model": "hxcworldgen:AluminiumOre" }
+        "Titanium": { "model": "hxcworldgen:TitaniumOre" }
+        "Platinum": { "model": "hxcworldgen:PlatinumOre" }
+        "Aventurine": { "model": "hxcworldgen:AvanturineOre" }
+        "Ruby": { "model": "hxcworldgen:RubyOre" }
+        "Sapphire": { "model": "hxcworldgen:SapphireOre" }
+    }
+}

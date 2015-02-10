@@ -1,6 +1,7 @@
 package HxCKDMS.HxCWorldGen;
 
 import HxCKDMS.HxCWorldGen.Events.Events;
+import HxCKDMS.HxCWorldGen.Proxy.CommonProxy;
 import HxCKDMS.HxCWorldGen.registry.BlockRegistry;
 import HxCKDMS.HxCWorldGen.registry.ItemRegistry;
 import HxCKDMS.HxCWorldGen.registry.OreDictionaryRegistry;
@@ -11,6 +12,7 @@ import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -24,10 +26,15 @@ public class HxCWorldGen {
     @Mod.Instance
     public HxCWorldGen HxCWorldGen;
 
-    public static Config Config;
+    @SidedProxy(serverSide = Reference.SERVER_PROXY_LOCATION, clientSide = Reference.CLIENT_PROXY_LOCATION)
+    public static CommonProxy proxy;
 
+    public static Config Config;
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        BlockRegistry.preInit();
+        ItemRegistry.preInit();
+        Recipes.PreInit();
 
         Config = new Config(new Configuration(event.getSuggestedConfigurationFile()));
         GameRegistry.registerWorldGenerator(new OreGenHandler(), 1);
@@ -37,9 +44,7 @@ public class HxCWorldGen {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        BlockRegistry.preInit();
-        ItemRegistry.preInit();
-        Recipes.PreInit();
+        proxy.init();
         OreDictionaryRegistry.init();
         MinecraftForge.EVENT_BUS.register(new Events());
         LogHelper.info(Level.INFO, "Initialization has been completed!");
