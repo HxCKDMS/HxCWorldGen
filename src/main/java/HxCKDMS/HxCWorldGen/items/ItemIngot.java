@@ -1,5 +1,8 @@
 package HxCKDMS.HxCWorldGen.items;
 
+import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
+import HxCKDMS.HxCCore.Api.HxCRegistry;
+import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import HxCKDMS.HxCWorldGen.util.Reference;
@@ -11,13 +14,14 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
+@HxCRegistry(unlocalizedName = "ItemIngot", registryType = EnumHxCRegistryType.ITEM)
 public class ItemIngot extends Item {
 
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public ItemIngot(CreativeTabs creativeTabs){
-        setCreativeTab(creativeTabs);
+    public ItemIngot(){
+        setCreativeTab(MWGcreativeTab.moreWorldGenTab);
         setHasSubtypes(true);
         setMaxDamage(0);
     }

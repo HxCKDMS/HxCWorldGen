@@ -1,10 +1,14 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
+import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
+import HxCKDMS.HxCCore.Api.HxCRegistry;
+import HxCKDMS.HxCCore.Registry.ModRegistry;
+import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
+import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
+import HxCKDMS.HxCWorldGen.items.ItemGem;
+import HxCKDMS.HxCWorldGen.util.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import HxCKDMS.HxCWorldGen.registry.BlockRegistry;
-import HxCKDMS.HxCWorldGen.registry.ItemRegistry;
-import HxCKDMS.HxCWorldGen.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -31,16 +35,16 @@ import java.util.Random;
 11 = Sapphire
 */
 
+@HxCRegistry(unlocalizedName = "BlockOre", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockOre.class)
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public BlockOre(Material material, CreativeTabs creativeTabs) {
-        super(material);
+    public BlockOre() {
+        super(Material.rock);
         setHardness(3F);
         setResistance(5F);
-        setCreativeTab(creativeTabs);
-        setBlockName("BlockOre");
+        setCreativeTab(MWGcreativeTab.moreWorldGenTab);
         miningLevel();
     }
 
@@ -104,13 +108,13 @@ public class BlockOre extends Block {
     public Item getItemDropped(int metadata, Random random, int fortune){
         switch(metadata){
             case 9:
-                return ItemRegistry.itemGem;
+                return ModRegistry.itemRegistry.get(ItemGem.class);
             case 10:
-                return ItemRegistry.itemGem;
+                return ModRegistry.itemRegistry.get(ItemGem.class);
             case 11:
-                return ItemRegistry.itemGem;
+                return ModRegistry.itemRegistry.get(ItemGem.class);
             default:
-                return Item.getItemFromBlock(BlockRegistry.blockOre);
+                return Item.getItemFromBlock(ModRegistry.blockRegistry.get(BlockOre.class));
         }
     }
 }

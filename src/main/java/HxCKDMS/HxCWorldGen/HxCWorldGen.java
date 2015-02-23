@@ -1,11 +1,9 @@
 package HxCKDMS.HxCWorldGen;
 
+import HxCKDMS.HxCCore.Utils.LogHelper;
 import HxCKDMS.HxCWorldGen.Events.Events;
-import HxCKDMS.HxCWorldGen.registry.BlockRegistry;
-import HxCKDMS.HxCWorldGen.registry.ItemRegistry;
 import HxCKDMS.HxCWorldGen.registry.OreDictionaryRegistry;
 import HxCKDMS.HxCWorldGen.registry.Recipes;
-import HxCKDMS.HxCCore.Utils.LogHelper;
 import HxCKDMS.HxCWorldGen.util.Reference;
 import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import cpw.mods.fml.common.Mod;
@@ -28,9 +26,6 @@ public class HxCWorldGen {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
-        BlockRegistry.preInit();
-        ItemRegistry.preInit();
         Recipes.PreInit();
         Config = new Config(new Configuration(event.getSuggestedConfigurationFile()));
         GameRegistry.registerWorldGenerator(new OreGenHandler(), 1);

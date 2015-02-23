@@ -1,5 +1,8 @@
 package HxCKDMS.HxCWorldGen.items;
 
+import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
+import HxCKDMS.HxCCore.Api.HxCRegistry;
+import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
 import HxCKDMS.HxCWorldGen.util.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -26,12 +29,13 @@ import java.util.List;
 11 = Sapphire
 */
 
+@HxCRegistry(unlocalizedName = "ItemGem", registryType = EnumHxCRegistryType.ITEM)
 public class ItemGem extends Item {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public ItemGem(CreativeTabs creativeTabs){
-        setCreativeTab(creativeTabs);
+    public ItemGem(){
+        setCreativeTab(MWGcreativeTab.moreWorldGenTab);
         setHasSubtypes(true);
         setMaxDamage(0);
 
