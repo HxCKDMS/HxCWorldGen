@@ -5,7 +5,7 @@ import HxCKDMS.HxCWorldGen.registry.BlockRegistry;
 import HxCKDMS.HxCWorldGen.registry.ItemRegistry;
 import HxCKDMS.HxCWorldGen.registry.OreDictionaryRegistry;
 import HxCKDMS.HxCWorldGen.registry.Recipes;
-import HxCKDMS.HxCWorldGen.util.LogHelper;
+import HxCKDMS.HxCCore.Utils.LogHelper;
 import HxCKDMS.HxCWorldGen.util.Reference;
 import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import cpw.mods.fml.common.Mod;
@@ -18,7 +18,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import java.util.logging.Level;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
 
 public class HxCWorldGen {
     @Mod.Instance
