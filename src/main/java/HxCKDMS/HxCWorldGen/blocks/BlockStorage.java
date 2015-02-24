@@ -1,7 +1,7 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
 import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
-import HxCKDMS.HxCCore.Api.HxCRegistry;
+import HxCKDMS.HxCCore.Api.HxCCommonRegistry;
 import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
 import HxCKDMS.HxCWorldGen.items.ItemBlockStorage;
 import HxCKDMS.HxCWorldGen.util.Reference;
@@ -32,7 +32,7 @@ import java.util.List;
 11 = Sapphire
 */
 
-@HxCRegistry(unlocalizedName = "BlockStorage", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockStorage.class)
+@HxCCommonRegistry(unlocalizedName = "BlockStorage", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockStorage.class)
 public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;

@@ -1,11 +1,11 @@
 package HxCKDMS.HxCWorldGen.items;
 
 import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
-import HxCKDMS.HxCCore.Api.HxCRegistry;
+import HxCKDMS.HxCCore.Api.HxCCommonRegistry;
 import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
+import HxCKDMS.HxCWorldGen.util.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import HxCKDMS.HxCWorldGen.util.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
-@HxCRegistry(unlocalizedName = "ItemIngot", registryType = EnumHxCRegistryType.ITEM)
+@HxCCommonRegistry(unlocalizedName = "ItemIngot", registryType = EnumHxCRegistryType.ITEM)
 public class ItemIngot extends Item {
 
     @SideOnly(Side.CLIENT)

@@ -1,8 +1,8 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
 import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
-import HxCKDMS.HxCCore.Api.HxCRegistry;
-import HxCKDMS.HxCCore.Registry.ModRegistry;
+import HxCKDMS.HxCCore.Api.HxCCommonRegistry;
+import HxCKDMS.HxCCore.Registry.CommonModRegistry;
 import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
 import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
 import HxCKDMS.HxCWorldGen.items.ItemGem;
@@ -35,7 +35,7 @@ import java.util.Random;
 11 = Sapphire
 */
 
-@HxCRegistry(unlocalizedName = "BlockOre", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockOre.class)
+@HxCCommonRegistry(unlocalizedName = "BlockOre", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockOre.class)
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
@@ -108,13 +108,13 @@ public class BlockOre extends Block {
     public Item getItemDropped(int metadata, Random random, int fortune){
         switch(metadata){
             case 9:
-                return ModRegistry.itemRegistry.get(ItemGem.class);
+                return CommonModRegistry.itemRegistry.get(ItemGem.class);
             case 10:
-                return ModRegistry.itemRegistry.get(ItemGem.class);
+                return CommonModRegistry.itemRegistry.get(ItemGem.class);
             case 11:
-                return ModRegistry.itemRegistry.get(ItemGem.class);
+                return CommonModRegistry.itemRegistry.get(ItemGem.class);
             default:
-                return Item.getItemFromBlock(ModRegistry.blockRegistry.get(BlockOre.class));
+                return Item.getItemFromBlock(CommonModRegistry.blockRegistry.get(BlockOre.class));
         }
     }
 }
