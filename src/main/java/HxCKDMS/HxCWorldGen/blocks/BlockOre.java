@@ -1,11 +1,5 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
-import HxCKDMS.HxCCore.Api.HxCCommonRegistry;
-import HxCKDMS.HxCCore.Registry.CommonModRegistry;
-import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
-import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
-import HxCKDMS.HxCWorldGen.items.ItemGem;
 import HxCKDMS.HxCWorldGen.util.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,6 +13,9 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 import java.util.Random;
+
+import static HxCKDMS.HxCWorldGen.registry.ModRegistry.blockOre;
+import static HxCKDMS.HxCWorldGen.registry.ModRegistry.itemGem;
 
 /*
 0 = Copper
@@ -35,16 +32,15 @@ import java.util.Random;
 11 = Sapphire
 */
 
-@HxCCommonRegistry(unlocalizedName = "BlockOre", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockOre.class)
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public BlockOre() {
-        super(Material.rock);
+    public BlockOre(Material material, CreativeTabs creativeTabs) {
+        super(material);
         setHardness(3F);
         setResistance(5F);
-        setCreativeTab(MWGcreativeTab.moreWorldGenTab);
+        setCreativeTab(creativeTabs);
         miningLevel();
     }
 
@@ -108,13 +104,13 @@ public class BlockOre extends Block {
     public Item getItemDropped(int metadata, Random random, int fortune){
         switch(metadata){
             case 9:
-                return CommonModRegistry.itemRegistry.get(ItemGem.class);
+                return itemGem;
             case 10:
-                return CommonModRegistry.itemRegistry.get(ItemGem.class);
+                return itemGem;
             case 11:
-                return CommonModRegistry.itemRegistry.get(ItemGem.class);
+                return itemGem;
             default:
-                return Item.getItemFromBlock(CommonModRegistry.blockRegistry.get(BlockOre.class));
+                return Item.getItemFromBlock(blockOre);
         }
     }
 }

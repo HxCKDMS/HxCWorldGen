@@ -1,9 +1,5 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
-import HxCKDMS.HxCCore.Api.HxCCommonRegistry;
-import HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab;
-import HxCKDMS.HxCWorldGen.items.ItemBlockStorage;
 import HxCKDMS.HxCWorldGen.util.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,17 +28,16 @@ import java.util.List;
 11 = Sapphire
 */
 
-@HxCCommonRegistry(unlocalizedName = "BlockStorage", registryType = EnumHxCRegistryType.BLOCK, itemBlock = ItemBlockStorage.class)
 public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public BlockStorage() {
-        super(Material.iron);
+    public BlockStorage(Material material, CreativeTabs creativeTabs) {
+        super(material);
         setHardness(3F);
         setResistance(5F);
         setStepSound(Block.soundTypeMetal);
-        setCreativeTab(MWGcreativeTab.moreWorldGenTab);
+        setCreativeTab(creativeTabs);
     }
 
     @Override

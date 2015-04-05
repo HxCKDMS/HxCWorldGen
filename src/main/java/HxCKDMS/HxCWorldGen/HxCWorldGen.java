@@ -1,17 +1,12 @@
 package HxCKDMS.HxCWorldGen;
 
 import HxCKDMS.HxCCore.Utils.LogHelper;
-import HxCKDMS.HxCWorldGen.Events.Events;
-import HxCKDMS.HxCWorldGen.registry.OreDictionaryRegistry;
-import HxCKDMS.HxCWorldGen.registry.Recipes;
+import HxCKDMS.HxCWorldGen.registry.ModRegistry;
 import HxCKDMS.HxCWorldGen.util.Reference;
-import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 
 import java.util.logging.Level;
@@ -26,17 +21,16 @@ public class HxCWorldGen {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Recipes.PreInit();
         Config = new Config(new Configuration(event.getSuggestedConfigurationFile()));
-        GameRegistry.registerWorldGenerator(new OreGenHandler(), 1);
+        ModRegistry.preInit();
 
         LogHelper.info(Level.INFO, "Pre Initialization has been completed!");
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        OreDictionaryRegistry.init();
-        MinecraftForge.EVENT_BUS.register(new Events());
+        ModRegistry.init();
+
         LogHelper.info(Level.INFO, "Initialization has been completed!");
     }
 
