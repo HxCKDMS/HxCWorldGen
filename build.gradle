@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.0b"
+version = "1.7.10-1.1"
 group= "HxCKDMS.HxCWorldGen"
 archivesBaseName = "HxCWorldGen"
 
@@ -27,7 +27,7 @@ minecraft {
 }
 
 dependencies {
-    runtime files('libs/HxCCore-1.7.10-1.2-dev.jar')
+    runtime files('libs/HxCCore-1.7.10-1.4-dev.jar')
 }
 
 processResources

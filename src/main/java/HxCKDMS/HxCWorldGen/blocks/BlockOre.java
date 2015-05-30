@@ -17,20 +17,24 @@ import java.util.Random;
 import static HxCKDMS.HxCWorldGen.registry.ModRegistry.blockOre;
 import static HxCKDMS.HxCWorldGen.registry.ModRegistry.itemGem;
 
-/*
-0 = Copper
-1 = Tin
-2 = Silver
-3 = Lead
-4 = Nickel
-5 = Chromium
-6 = Aluminium
-7 = Titanium
-8 = Platinum
-9 = Aventurine
-10 = Ruby
-11 = Sapphire
-*/
+
+/**
+ 0 = Copper
+ 1 = Tin
+ 2 = Silver
+ 3 = Lead
+ 4 = Nickel
+ 5 = Chromium
+ 6 = Aluminium
+ 7 = Titanium / Ilmenite
+ 8 = Platinum
+ 9 = Aventurine
+ 10 = Ruby
+ 11 = Sapphire
+ 12 = Rutile //blocks
+ 12 = Zircon //items
+ 13 = Zirconia //items
+ **/
 
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
@@ -75,11 +79,12 @@ public class BlockOre extends Block {
         icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":OreNickel");
         icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":OreChromium");
         icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAluminium");
-        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":OreTitanium");
+        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":OreIlmenite");
         icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":OrePlatinum");
         icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAventurine");
         icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":OreRuby");
         icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":OreSapphire");
+        icons[12] = iconRegister.registerIcon(Reference.MOD_ID + ":OreRutile");
     }
 
     @Override

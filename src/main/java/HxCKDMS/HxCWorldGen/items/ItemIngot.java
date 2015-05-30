@@ -13,6 +13,24 @@ import java.util.List;
 
 public class ItemIngot extends Item {
 
+/**
+ 0 = Copper
+ 1 = Tin
+ 2 = Silver
+ 3 = Lead
+ 4 = Nickel
+ 5 = Chromium
+ 6 = Aluminium
+ 7 = Titanium / Ilmenite
+ 8 = Platinum
+ 9 = Aventurine
+ 10 = Ruby
+ 11 = Sapphire
+ 12 = Rutile //blocks
+ 12 = Zircon //items
+ 13 = Zirconia //items
+ **/
+
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
@@ -53,6 +71,9 @@ public class ItemIngot extends Item {
                 break;
             case 8:
                 name = "PlatinumIngot";
+                break;
+            case 13:
+                name = "Zirconia";
                 break;
             default:
                 name = "error";

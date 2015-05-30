@@ -5,20 +5,23 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-/*
-0 = Copper
-1 = Tin
-2 = Silver
-3 = Lead
-4 = Nickel
-5 = Chromium
-6 = Aluminium
-7 = Titanium
-8 = Platinum
-9 = Aventurine
-10 = Ruby
-11 = Sapphire
-*/
+/**
+ 0 = Copper
+ 1 = Tin
+ 2 = Silver
+ 3 = Lead
+ 4 = Nickel
+ 5 = Chromium
+ 6 = Aluminium
+ 7 = Titanium / Ilmenite
+ 8 = Platinum
+ 9 = Aventurine
+ 10 = Ruby
+ 11 = Sapphire
+ 12 = Rutile //blocks
+ 12 = Zircon //items
+ 13 = Zirconia //items
+ **/
 
 public class ItemBlockOre extends ItemBlock {
     public Block metaBlock;
@@ -56,7 +59,7 @@ public class ItemBlockOre extends ItemBlock {
                 name = "AluminiumOre";
                 break;
             case 7:
-                name = "TitaniumOre";
+                name = "IlmeniteOre";
                 break;
             case 8:
                 name = "PlatinumOre";
@@ -69,6 +72,9 @@ public class ItemBlockOre extends ItemBlock {
                 break;
             case 11:
                 name = "SapphireOre";
+                break;
+            case 12:
+                name = "RutileOre";
                 break;
             default:
                 name = "error";

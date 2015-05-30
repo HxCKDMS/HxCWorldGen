@@ -70,6 +70,9 @@ public class ItemBlockStorage extends ItemBlock {
             case 11:
                 name = "SapphireBlock";
                 break;
+            case 12:
+                name = "ZirconBlock";
+                break;
             default:
                 name = "error";
                 break;

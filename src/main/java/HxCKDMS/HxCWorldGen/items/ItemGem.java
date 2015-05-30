@@ -11,20 +11,23 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
-/*
-0 = Copper
-1 = Tin
-2 = Silver
-3 = Lead
-4 = Nickel
-5 = Chromium
-6 = Aluminium
-7 = Titanium
-8 = Platinum
-9 = Aventurine
-10 = Ruby
-11 = Sapphire
-*/
+/**
+ 0 = Copper
+ 1 = Tin
+ 2 = Silver
+ 3 = Lead
+ 4 = Nickel
+ 5 = Chromium
+ 6 = Aluminium
+ 7 = Titanium / Ilmenite
+ 8 = Platinum
+ 9 = Aventurine
+ 10 = Ruby
+ 11 = Sapphire
+ 12 = Rutile //blocks
+ 12 = Zircon //items
+ 13 = Zirconia //items
+ **/
 
 public class ItemGem extends Item {
     @SideOnly(Side.CLIENT)
@@ -51,6 +54,9 @@ public class ItemGem extends Item {
                 break;
             case 11:
                 name = "SapphireGem";
+                break;
+            case 12:
+                name = "Zircon";
                 break;
             default:
                 name = "error";

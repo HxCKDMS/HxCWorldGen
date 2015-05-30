@@ -4,47 +4,47 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config
 {
-    public boolean DebugMode;
-
     public static int OreNodeMultiplier;
 
-    public static int CopperNodeSize;
-    public static int TinNodeSize;
-    public static int SilverNodeSize;
-    public static int LeadNodeSize;
-    public static int NickelNodeSize;
-    public static int ChromiumNodeSize;
-    public static int AluminiumNodeSize;
-    public static int TitaniumNodeSize;
-    public static int PlatinumNodeSize;
-    public static int AventurineNodeSize;
-    public static int RubyNodeSize;
-    public static int SapphireNodeSize;
+    public static int CopperNodeSize, TinNodeSize, SilverNodeSize, LeadNodeSize, NickelNodeSize, ChromiumNodeSize, AluminiumNodeSize, TitaniumNodeSize, PlatinumNodeSize, AventurineNodeSize, RubyNodeSize, SapphireNodeSize, RutileNodeSize;
 
-    public Config(Configuration config)
-    {
+    public static String Copper, Tin, Silver, Lead, Nickel, Chromium, Aluminium, Titanium, Platinum, Aventurine, Ruby, Sapphire, Rutile;
+
+    public Config(Configuration config){
         config.load();
+        config.setCategoryComment("OreGenSizes", "These are the sizes of the Ore nodes that generate. Set to 0 to disable this ore from generating");
 
-        DebugMode = config.get("DEBUG", "Debug Mode Enable?", false).getBoolean(false);
+        OreNodeMultiplier = config.getInt("NodeMultiplier", "OreGenSizes", 1, 0, 16, "Node size multiplier.(this is multiplied by the below values set to 0 to disable ore gen))");
+        CopperNodeSize = config.getInt("Copper node Size", "OreGenSizes", 6, 0, 16, "");
+        TinNodeSize = config.getInt("Tin node Size", "OreGenSizes", 7, 0, 16, "");
+        SilverNodeSize = config.getInt("Silver node Size", "OreGenSizes", 4, 0, 16, "");
+        LeadNodeSize = config.getInt("Lead node Size", "OreGenSizes", 4, 0, 16, "");
+        NickelNodeSize = config.getInt("Nickel node Size", "OreGenSizes", 3, 0, 16, "");
+        ChromiumNodeSize = config.getInt("Chromium node Size", "OreGenSizes", 3, 0, 16, "");
+        AluminiumNodeSize = config.getInt("Aluminium node Size", "OreGenSizes", 4, 0, 16, "");
+        TitaniumNodeSize = config.getInt("Ilmenite(Titanium) node Size", "OreGenSizes", 3, 0, 16, "");
+        PlatinumNodeSize = config.getInt("Platinum node Size", "OreGenSizes", 1, 0, 16, "");
+        AventurineNodeSize = config.getInt("Aventurine(Peridot) node Size", "OreGenSizes", 4, 0, 16, "");
+        RubyNodeSize = config.getInt("Ruby node Size", "OreGenSizes", 4, 0, 16, "");
+        SapphireNodeSize = config.getInt("Sapphire node Size", "OreGenSizes", 4, 0, 16, "");
+        RutileNodeSize = config.getInt("Rutile node Size", "OreGenSizes", 2, 0, 16, "");
 
-        OreNodeMultiplier = config.get("Ore Node Size Multiplier", "Node size multiplier.(this is multiplied by the below values set to 0 to disable ore gen))", 1, "Don't Exceed 16").getInt();
+        config.setCategoryComment("OreGenOres","These are the ores to use in generating the ore nodes. DO NOT LEAVE BLANK!!!");
 
-        CopperNodeSize = config.get("Ore Node Sizes", "Copper node Size", 6, "Don't Exceed 16").getInt();
-        TinNodeSize = config.get("Ore Node Sizes", "Tin node Size", 7, "Don't Exceed 16").getInt();
-        SilverNodeSize = config.get("Ore Node Sizes", "Silver node Size", 4, "Don't Exceed 16").getInt();
-        LeadNodeSize = config.get("Ore Node Sizes", "Lead node Size", 4, "Don't Exceed 16").getInt();
-        NickelNodeSize = config.get("Ore Node Sizes", "Nickel node Size", 3, "Don't Exceed 16").getInt();
-        ChromiumNodeSize = config.get("Ore Node Sizes", "Chromium node Size", 3, "Don't Exceed 16").getInt();
-        AluminiumNodeSize = config.get("Ore Node Sizes", "Aluminium node Size", 4, "Don't Exceed 16").getInt();
-        TitaniumNodeSize = config.get("Ore Node Sizes", "Titanium node Size", 3, "Don't Exceed 16").getInt();
-        PlatinumNodeSize = config.get("Ore Node Sizes", "Platinum node Size", 1, "Don't Exceed 16").getInt();
-        AventurineNodeSize = config.get("Ore Node Sizes", "Aventurine(Peridot) node Size", 4, "Don't Exceed 16").getInt();
-        RubyNodeSize = config.get("Ore Node Sizes", "Ruby node Size", 4, "Don't Exceed 16").getInt();
-        SapphireNodeSize = config.get("Ore Node Sizes", "Sapphire node Size", 4, "Don't Exceed 16").getInt();
+        Copper = config.getString("Copper", "OreGenOres", "<HxCWorldGen:blockOre:0>", "Default <HxCWorldGen:blockOre:0> Don't change this comment.");
+        Tin = config.getString("Tin", "OreGenOres", "<HxCWorldGen:blockOre:1>", "Default <HxCWorldGen:blockOre:1> Don't change this comment.");
+        Silver = config.getString("Silver", "OreGenOres", "<HxCWorldGen:blockOre:2>", "Default <HxCWorldGen:blockOre:2> Don't change this comment.");
+        Lead = config.getString("Lead", "OreGenOres", "<HxCWorldGen:blockOre:3>", "Default <HxCWorldGen:blockOre:3> Don't change this comment.");
+        Nickel = config.getString("Nickel", "OreGenOres", "<HxCWorldGen:blockOre:4>", "Default <HxCWorldGen:blockOre:4> Don't change this comment.");
+        Chromium = config.getString("Chromium", "OreGenOres", "<HxCWorldGen:blockOre:5>", "Default <HxCWorldGen:blockOre:5> Don't change this comment.");
+        Aluminium = config.getString("Aluminium", "OreGenOres", "<HxCWorldGen:blockOre:6>", "Default <HxCWorldGen:blockOre:6> Don't change this comment.");
+        Titanium = config.getString("Titanium", "OreGenOres", "<HxCWorldGen:blockOre:7>", "Default <HxCWorldGen:blockOre:7> Don't change this comment.");
+        Platinum = config.getString("Platinum", "OreGenOres", "<HxCWorldGen:blockOre:8>", "Default <HxCWorldGen:blockOre:8> Don't change this comment.");
+        Aventurine = config.getString("Aventurine", "OreGenOres", "<HxCWorldGen:blockOre:9>", "Default <HxCWorldGen:blockOre:9> Don't change this comment.");
+        Ruby = config.getString("Ruby", "OreGenOres", "<HxCWorldGen:blockOre:10>", "Default <HxCWorldGen:blockOre:10> Don't change this comment.");
+        Sapphire = config.getString("Sapphire", "OreGenOres", "<HxCWorldGen:blockOre:11>", "Default <HxCWorldGen:blockOre:11> Don't change this comment.");
+        Rutile = config.getString("Rutile", "OreGenOres", "<HxCWorldGen:blockOre:12>", "Default <HxCWorldGen:blockOre:12> Don't change this comment.");
 
-        if(config.hasChanged())
-        {
-            config.save();
-        }
+        if(config.hasChanged()) config.save();
     }
 }
