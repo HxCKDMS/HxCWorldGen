@@ -44,8 +44,11 @@ public class OreGenHandler implements IWorldGenerator {
             case 12 : oreString = Config.Rutile; nodeSize = Config.RutileNodeSize * Config.OreNodeMultiplier; break;
             default : oreString = Config.Copper; nodeSize = Config.CopperNodeSize * Config.OreNodeMultiplier; break;
         }
+        int blockMeta = Integer.parseInt(oreString.substring(oreString.length()-3, oreString.length()-1).replaceAll(":", ""));
+        oreString = oreString.replace(">", "").replace("<", "");
+        while (oreString.charAt(oreString.length()-1) != ':') {oreString = oreString.substring(0, oreString.length()-1);}
+        oreString = oreString.substring(0, oreString.length()-1);
         Block oreBlock = Block.getBlockFromName(oreString);
-        int blockMeta = Integer.getInteger(oreString.substring(oreString.length()-2, oreString.length()-1).replaceAll(":", ""));
         return new WorldGenMinable(oreBlock, blockMeta, nodeSize, Blocks.stone);
     }
 }
