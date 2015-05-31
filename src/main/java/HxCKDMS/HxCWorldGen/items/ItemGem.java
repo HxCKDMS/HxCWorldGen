@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.items;
 
-import HxCKDMS.HxCWorldGen.util.Reference;
+import HxCKDMS.HxCWorldGen.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;

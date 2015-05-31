@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCWorldGen.util.Reference;
+import HxCKDMS.HxCWorldGen.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -66,12 +66,18 @@ public class BlockOre extends Block {
 
         //diamond
         setHarvestLevel("pickaxe", 3, 7);
+        setHarvestLevel("pickaxe", 3, 12);
+    }
+
+    @Override
+    public int getRenderType() {
+        return Reference.ORE_RENDER_ID;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister){
-        icons = new IIcon[256];
+        icons = new IIcon[16];
         icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":OreCopper");
         icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":OreTin");
         icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":OreSilver");
@@ -85,10 +91,12 @@ public class BlockOre extends Block {
         icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":OreRuby");
         icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":OreSapphire");
         icons[12] = iconRegister.registerIcon(Reference.MOD_ID + ":OreRutile");
+        icons[13] = iconRegister.registerIcon("minecraft:stone");
     }
 
     @Override
-    public IIcon getIcon(int side, int metadata){
+    public IIcon getIcon(int side, int metadata) {
+        if (side == 0) return icons[13];
         return icons[metadata];
     }
 
