@@ -17,7 +17,7 @@ public class OreGenHandler implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         if(!(chunkGenerator instanceof ChunkProviderEnd) && !(chunkGenerator instanceof ChunkProviderHell)){
             for (int oreID = 0; oreID < 12; oreID++) {
-                for(int i = 0; i < 5; i++){
+                for (int i = 0; i < 5; i++) {
                     int randPosX = (chunkX*16) + random.nextInt(16);
                     int randPosY = random.nextInt(50);
                     int randPosZ = (chunkZ*16) + random.nextInt(16);
@@ -44,8 +44,8 @@ public class OreGenHandler implements IWorldGenerator {
             case 12 : oreString = Config.Rutile; nodeSize = Config.RutileNodeSize * Config.OreNodeMultiplier; break;
             default : oreString = Config.Copper; nodeSize = Config.CopperNodeSize * Config.OreNodeMultiplier; break;
         }
-        int blockMeta = Integer.parseInt(oreString.substring(oreString.length()-3, oreString.length()-1).replaceAll(":", ""));
-        oreString = oreString.replace(">", "").replace("<", "");
+        int blockMeta = Integer.parseInt(oreString.substring(oreString.length() - 3, oreString.length() - 1).replaceAll(":", ""));
+        oreString = oreString.replace("<", "").replace(">", "");
         while (oreString.charAt(oreString.length()-1) != ':') {oreString = oreString.substring(0, oreString.length()-1);}
         oreString = oreString.substring(0, oreString.length()-1);
         Block oreBlock = Block.getBlockFromName(oreString);
