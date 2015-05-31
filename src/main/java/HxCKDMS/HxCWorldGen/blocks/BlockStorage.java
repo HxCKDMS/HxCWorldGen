@@ -1,6 +1,7 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCWorldGen.Reference;
+import HxCKDMS.HxCWorldGen.libs.Reference;
+import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -46,20 +47,13 @@ public class BlockStorage extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister){
-        icons = new IIcon[256];
-        icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockCopper");
-        icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockTin");
-        icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockSilver");
-        icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockLead");
-        icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockNickel");
-        icons[5] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockChromium");
-        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAluminium");
-        icons[7] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockTitanium");
-        icons[8] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockPlatinum");
-        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAventurine");
-        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockRuby");
-        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockSapphire");
-        icons[12] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockZirconium");
+        icons = new IIcon[1];
+        icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("blockStorage"));
+    }
+
+    @Override
+    public int getRenderType() {
+        return Reference.BLOCK_RENDER_ID;
     }
 
     @Override

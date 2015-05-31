@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.world;
 
-import HxCKDMS.HxCWorldGen.Config;
+import HxCKDMS.HxCWorldGen.libs.Config;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -30,25 +30,25 @@ public class OreGenHandler implements IWorldGenerator {
     public WorldGenMinable getOre (int ore) {
         String oreString; int nodeSize;
         switch (ore) {
-            case 1 : oreString = Config.Tin; nodeSize = Config.TinNodeSize * Config.OreNodeMultiplier; break;
-            case 2 : oreString = Config.Silver; nodeSize = Config.SilverNodeSize * Config.OreNodeMultiplier; break;
-            case 3 : oreString = Config.Lead; nodeSize = Config.LeadNodeSize * Config.OreNodeMultiplier; break;
-            case 4 : oreString = Config.Nickel; nodeSize = Config.NickelNodeSize * Config.OreNodeMultiplier; break;
-            case 5 : oreString = Config.Chromium; nodeSize = Config.ChromiumNodeSize * Config.OreNodeMultiplier; break;
-            case 6 : oreString = Config.Aluminium; nodeSize = Config.AluminiumNodeSize * Config.OreNodeMultiplier; break;
-            case 7 : oreString = Config.Titanium; nodeSize = Config.TitaniumNodeSize * Config.OreNodeMultiplier; break;
-            case 8 : oreString = Config.Platinum; nodeSize = Config.PlatinumNodeSize * Config.OreNodeMultiplier; break;
-            case 9 : oreString = Config.Aventurine; nodeSize = Config.AventurineNodeSize * Config.OreNodeMultiplier; break;
-            case 10 : oreString = Config.Sapphire; nodeSize = Config.SapphireNodeSize * Config.OreNodeMultiplier; break;
-            case 11 : oreString = Config.Ruby; nodeSize = Config.RubyNodeSize * Config.OreNodeMultiplier; break;
-            case 12 : oreString = Config.Rutile; nodeSize = Config.RutileNodeSize * Config.OreNodeMultiplier; break;
-            default : oreString = Config.Copper; nodeSize = Config.CopperNodeSize * Config.OreNodeMultiplier; break;
+            case 1 : oreString = Config.Tin; break;
+            case 2 : oreString = Config.Silver; break;
+            case 3 : oreString = Config.Lead; break;
+            case 4 : oreString = Config.Nickel; break;
+            case 5 : oreString = Config.Chromium; break;
+            case 6 : oreString = Config.Aluminium; break;
+            case 7 : oreString = Config.Titanium; break;
+            case 8 : oreString = Config.Platinum; break;
+            case 9 : oreString = Config.Aventurine; break;
+            case 10 : oreString = Config.Sapphire; break;
+            case 11 : oreString = Config.Ruby; break;
+            case 12 : oreString = Config.Rutile; break;
+            default : oreString = Config.Copper; break;
         }
-        int blockMeta = Integer.parseInt(oreString.substring(oreString.length() - 3, oreString.length() - 1).replaceAll(":", ""));
         oreString = oreString.replace("<", "").replace(">", "");
-        while (oreString.charAt(oreString.length()-1) != ':') {oreString = oreString.substring(0, oreString.length()-1);}
-        oreString = oreString.substring(0, oreString.length()-1);
-        Block oreBlock = Block.getBlockFromName(oreString);
+        String[] strings = oreString.split(":");
+        nodeSize = Integer.parseInt(Config.NodeSizes[ore]) * Config.OreNodeMultiplier;
+        int blockMeta = Integer.parseInt(strings[2]);
+        Block oreBlock = Block.getBlockFromName(strings[0] + ":" + strings[1]);
         return new WorldGenMinable(oreBlock, blockMeta, nodeSize, Blocks.stone);
     }
 }

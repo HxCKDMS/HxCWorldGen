@@ -1,5 +1,7 @@
 package HxCKDMS.HxCWorldGen;
 
+import HxCKDMS.HxCWorldGen.libs.Config;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.proxy.IProxy;
 import HxCKDMS.HxCWorldGen.registry.ModRegistry;
 import cpw.mods.fml.common.Mod;
@@ -18,7 +20,7 @@ public class HxCWorldGen {
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
-    public static Config Config;
+    public static HxCKDMS.HxCWorldGen.libs.Config Config;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

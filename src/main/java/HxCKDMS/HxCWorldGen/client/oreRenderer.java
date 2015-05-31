@@ -1,7 +1,8 @@
 package HxCKDMS.HxCWorldGen.client;
 
-import HxCKDMS.HxCWorldGen.Config;
-import HxCKDMS.HxCWorldGen.Reference;
+import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.Config;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.proxy.ClientProxy;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
@@ -53,37 +54,37 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
 
         // Start drawing outer layer of the block.
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(colours(metadata)[0], colours(metadata)[1], colours(metadata)[2]);
+        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
         tessellator.setNormal(0.0F, -1.0F, 0.0F);
         renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(colours(metadata)[0], colours(metadata)[1], colours(metadata)[2]);
+        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
         renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(colours(metadata)[0], colours(metadata)[1], colours(metadata)[2]);
+        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, -1.0F);
         renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(colours(metadata)[0], colours(metadata)[1], colours(metadata)[2]);
+        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, 1.0F);
         renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(colours(metadata)[0], colours(metadata)[1], colours(metadata)[2]);
+        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
         tessellator.setNormal(-1.0F, 0.0F, 0.0F);
         renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(colours(metadata)[0], colours(metadata)[1], colours(metadata)[2]);
+        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
         tessellator.setNormal(1.0F, 0.0F, 0.0F);
         renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
@@ -139,7 +140,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
             tessellator.addVertexWithUV(min, max, max, icon.getMaxU(), icon.getMinV());
         } else {
             IIcon icon = block.getIcon(6, 0);
-            tessellator.setColorOpaque(colours(meta)[0], colours(meta)[1], colours(meta)[2]);
+            tessellator.setColorOpaque(Colours.colour(meta)[0], Colours.colour(meta)[1], Colours.colour(meta)[2]);
 
             tessellator.addVertexWithUV(0, 1, 1, icon.getMinU(), icon.getMinV());
             tessellator.addVertexWithUV(1, 1, 1, icon.getMinU(), icon.getMaxV());
@@ -184,25 +185,5 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
     @Override
     public int getRenderId() {
         return Reference.ORE_RENDER_ID;
-    }
-
-    public static int[] colours(int meta) {
-        int[] colours;
-        switch (meta) {
-            case 1 : colours = new int[]{250, 250, 250}; break;
-            case 2 : colours = new int[]{200, 240, 255}; break;
-            case 3 : colours = new int[]{80, 40, 100}; break;
-            case 4 : colours = new int[]{200, 200, 152}; break;
-            case 5 : colours = new int[]{240, 255, 255}; break;
-            case 6 : colours = new int[]{210, 250, 255}; break;
-            case 7 : colours = new int[]{133, 95, 90}; break;
-            case 8 : colours = new int[]{160, 250, 255}; break;
-            case 9 : colours = new int[]{0, 160, 120}; break;
-            case 10 : colours = new int[]{180, 50, 70}; break;
-            case 11 : colours = new int[]{30, 120, 200}; break;
-            case 12 : colours = new int[]{100, 56, 18}; break;
-            default : colours = new int[]{174, 105, 41}; break;
-        }
-        return colours;
     }
 }

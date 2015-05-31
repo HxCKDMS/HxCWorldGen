@@ -1,37 +1,29 @@
-package HxCKDMS.HxCWorldGen;
+package HxCKDMS.HxCWorldGen.libs;
 
 import net.minecraftforge.common.config.Configuration;
 
 public class Config
 {
+    private String[] dummy;
+    public static String[] NodeSizes;
     public static boolean forceNormal;
 
-    public static int OreNodeMultiplier, CopperNodeSize, TinNodeSize, SilverNodeSize, LeadNodeSize, NickelNodeSize, ChromiumNodeSize, AluminiumNodeSize, TitaniumNodeSize, PlatinumNodeSize, AventurineNodeSize, RubyNodeSize, SapphireNodeSize, RutileNodeSize;
+    public static int OreNodeMultiplier, ResourceSize;
 
-    public static String OreTexture, Copper, Tin, Silver, Lead, Nickel, Chromium, Aluminium, Titanium, Platinum, Aventurine, Ruby, Sapphire, Rutile;
+    public static String Copper, Tin, Silver, Lead, Nickel, Chromium, Aluminium, Titanium, Platinum, Aventurine, Ruby, Sapphire, Rutile;
 
     public Config(Configuration config){
         config.load();
         config.setCategoryComment("OreGenSizes", "These are the sizes of the Ore nodes that generate. Set to 0 to disable this ore from generating");
         forceNormal = config.getBoolean("DisableForcedGrey", "Features", false, "enable this to remove my forcing of grey stone");
+        ResourceSize = config.getInt("Resolution", "Features", 16, 0, 64, "0, 16, 32, 64 only supported values select 0 if you want my special handling (IE get from default resources from resource pack)");
 
         OreNodeMultiplier = config.getInt("NodeMultiplier", "OreGenSizes", 1, 0, 16, "Node size multiplier.(this is multiplied by the below values set to 0 to disable ore gen))");
-        CopperNodeSize = config.getInt("Copper node Size", "OreGenSizes", 6, 0, 16, "");
-        TinNodeSize = config.getInt("Tin node Size", "OreGenSizes", 7, 0, 16, "");
-        SilverNodeSize = config.getInt("Silver node Size", "OreGenSizes", 4, 0, 16, "");
-        LeadNodeSize = config.getInt("Lead node Size", "OreGenSizes", 4, 0, 16, "");
-        NickelNodeSize = config.getInt("Nickel node Size", "OreGenSizes", 3, 0, 16, "");
-        ChromiumNodeSize = config.getInt("Chromium node Size", "OreGenSizes", 3, 0, 16, "");
-        AluminiumNodeSize = config.getInt("Aluminium node Size", "OreGenSizes", 4, 0, 16, "");
-        TitaniumNodeSize = config.getInt("Ilmenite(Titanium) node Size", "OreGenSizes", 3, 0, 16, "");
-        PlatinumNodeSize = config.getInt("Platinum node Size", "OreGenSizes", 1, 0, 16, "");
-        AventurineNodeSize = config.getInt("Aventurine(Peridot) node Size", "OreGenSizes", 4, 0, 16, "");
-        RubyNodeSize = config.getInt("Ruby node Size", "OreGenSizes", 4, 0, 16, "");
-        SapphireNodeSize = config.getInt("Sapphire node Size", "OreGenSizes", 4, 0, 16, "");
-        RutileNodeSize = config.getInt("Rutile node Size", "OreGenSizes", 2, 0, 16, "");
+        dummy = config.getStringList("Dummy", "OreGenSizes", new String[]{"Copper", "Tin", "Silver", "Lead", "Nickel", "Chromium", "Aluminium", "Titanium", "Platinum", "Aventurine", "Ruby", "Sapphire", "Rutile"}, "This is the list of ores in the order of which you're changing the below values DON'T MODIFY THIS");
+        NodeSizes = config.getStringList("Copper node Size", "OreGenSizes", new String[]{"6", "7", "4", "4", "3", "3", "4", "3", "1", "4", "4", "4", "2"}, "min 0, max 16");
 
         config.setCategoryComment("OreGenOres","These are the ores to use in generating the ore nodes. DO NOT LEAVE BLANK!!!");
-        OreTexture = config.getString("OreTexture", "Features", "ore", "use ore, 32ore, tore only supported values ATM");
+
         Copper = config.getString("Copper", "OreGenOres", "<HxCWorldGen:blockOre:0>", "Default <HxCWorldGen:blockOre:0> Don't change this comment.");
         Tin = config.getString("Tin", "OreGenOres", "<HxCWorldGen:blockOre:1>", "Default <HxCWorldGen:blockOre:1> Don't change this comment.");
         Silver = config.getString("Silver", "OreGenOres", "<HxCWorldGen:blockOre:2>", "Default <HxCWorldGen:blockOre:2> Don't change this comment.");

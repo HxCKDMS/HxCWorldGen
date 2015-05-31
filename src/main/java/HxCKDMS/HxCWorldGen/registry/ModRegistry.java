@@ -4,8 +4,7 @@ import HxCKDMS.HxCWorldGen.blocks.BlockOre;
 import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
 import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
 import HxCKDMS.HxCWorldGen.items.ItemBlockStorage;
-import HxCKDMS.HxCWorldGen.items.ItemGem;
-import HxCKDMS.HxCWorldGen.items.ItemIngot;
+import HxCKDMS.HxCWorldGen.items.ItemResource;
 import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -39,9 +38,7 @@ import static HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab.moreWorldGenTab;
 public class ModRegistry {
     public static Block blockOre = new BlockOre(Material.rock, moreWorldGenTab);
     public static Block blockStorage = new BlockStorage(Material.iron, moreWorldGenTab);
-
-    public static Item itemGem = new ItemGem(moreWorldGenTab);
-    public static Item itemIngot = new ItemIngot(moreWorldGenTab);
+    public static Item itemResource = new ItemResource(moreWorldGenTab);
 
     public static void preInit(){
         registerBlocks();
@@ -60,8 +57,7 @@ public class ModRegistry {
     }
 
     private static void registerItems(){
-        GameRegistry.registerItem(itemGem, "ItemGem");
-        GameRegistry.registerItem(itemIngot, "ItemIngot");
+        GameRegistry.registerItem(itemResource, "itemResource");
     }
 
     private static void registerRecipes(){
@@ -81,34 +77,34 @@ public class ModRegistry {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, 12), "iii", "iii", "iii", 'i', "gemZircon"));
 
         //unblocking
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 0), "blockCopper"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 1), "blockTin"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 2), "blockSilver"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 3), "blockLead"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 4), "blockNickel"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 5), "blockChromium"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 6), "blockAluminum"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 7), "blockTitanium"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemIngot, 9, 8), "blockPlatinum"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemGem, 9, 9), "blockPeridot"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemGem, 9, 10), "blockRuby"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemGem, 9, 11), "blockSapphire"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemGem, 9, 12), "blockZircon"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 0), "blockCopper"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 1), "blockTin"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 2), "blockSilver"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 3), "blockLead"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 4), "blockNickel"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 5), "blockChromium"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 6), "blockAluminum"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 7), "blockTitanium"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 8), "blockPlatinum"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 9), "blockPeridot"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 10), "blockRuby"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 11), "blockSapphire"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, 12), "blockZircon"));
 
         //smelting
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 0), new ItemStack(itemIngot, 1, 0), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 1), new ItemStack(itemIngot, 1, 1), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 2), new ItemStack(itemIngot, 1, 2), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 3), new ItemStack(itemIngot, 1, 3), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 4), new ItemStack(itemIngot, 1, 4), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 5), new ItemStack(itemIngot, 1, 5), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 6), new ItemStack(itemIngot, 1, 6), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 7), new ItemStack(itemIngot, 1, 7), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 8), new ItemStack(itemIngot, 1, 8), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 9), new ItemStack(itemGem, 1, 9), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 10), new ItemStack(itemGem, 1, 10), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 11), new ItemStack(itemGem, 1, 11), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 12), new ItemStack(itemGem, 1, 7), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 0), new ItemStack(itemResource, 1, 0), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 1), new ItemStack(itemResource, 1, 1), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 2), new ItemStack(itemResource, 1, 2), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 3), new ItemStack(itemResource, 1, 3), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 4), new ItemStack(itemResource, 1, 4), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 5), new ItemStack(itemResource, 1, 5), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 6), new ItemStack(itemResource, 1, 6), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 7), new ItemStack(itemResource, 1, 7), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 8), new ItemStack(itemResource, 1, 8), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 9), new ItemStack(itemResource, 1, 9), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 10), new ItemStack(itemResource, 1, 10), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 11), new ItemStack(itemResource, 1, 11), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, 12), new ItemStack(itemResource, 1, 7), 10F);
     }
 
     private static void registerOreDictionary(){
@@ -128,22 +124,21 @@ public class ModRegistry {
         OreDictionary.registerOre("oreRutile", new ItemStack(blockOre, 1, 12));
 
         //ingots
-        OreDictionary.registerOre("ingotCopper", new ItemStack(itemIngot, 1, 0));
-        OreDictionary.registerOre("ingotTin", new ItemStack(itemIngot, 1, 1));
-        OreDictionary.registerOre("ingotSilver", new ItemStack(itemIngot, 1, 2));
-        OreDictionary.registerOre("ingotLead", new ItemStack(itemIngot, 1, 3));
-        OreDictionary.registerOre("ingotNickel", new ItemStack(itemIngot, 1, 4));
-        OreDictionary.registerOre("ingotChromium", new ItemStack(itemIngot, 1, 5));
-        OreDictionary.registerOre("ingotAluminum", new ItemStack(itemIngot, 1, 6));
-        OreDictionary.registerOre("ingotTitanium", new ItemStack(itemIngot, 1, 7));
-        OreDictionary.registerOre("ingotPlatinum", new ItemStack(itemIngot, 1, 8));
-        OreDictionary.registerOre("ingotZirconia", new ItemStack(itemIngot, 1, 13));
-
+        OreDictionary.registerOre("ingotCopper", new ItemStack(itemResource, 1, 0));
+        OreDictionary.registerOre("ingotTin", new ItemStack(itemResource, 1, 1));
+        OreDictionary.registerOre("ingotSilver", new ItemStack(itemResource, 1, 2));
+        OreDictionary.registerOre("ingotLead", new ItemStack(itemResource, 1, 3));
+        OreDictionary.registerOre("ingotNickel", new ItemStack(itemResource, 1, 4));
+        OreDictionary.registerOre("ingotChromium", new ItemStack(itemResource, 1, 5));
+        OreDictionary.registerOre("ingotAluminum", new ItemStack(itemResource, 1, 6));
+        OreDictionary.registerOre("ingotTitanium", new ItemStack(itemResource, 1, 7));
+        OreDictionary.registerOre("ingotPlatinum", new ItemStack(itemResource, 1, 8));
+        OreDictionary.registerOre("ingotZirconia", new ItemStack(itemResource, 1, 13));
         //gems
-        OreDictionary.registerOre("gemPeridot", new ItemStack(itemGem, 1, 9));
-        OreDictionary.registerOre("gemRuby", new ItemStack(itemGem, 1, 10));
-        OreDictionary.registerOre("gemSapphire", new ItemStack(itemGem, 1, 11));
-        OreDictionary.registerOre("gemZircon", new ItemStack(itemGem, 1, 12));
+        OreDictionary.registerOre("gemPeridot", new ItemStack(itemResource, 1, 9));
+        OreDictionary.registerOre("gemRuby", new ItemStack(itemResource, 1, 10));
+        OreDictionary.registerOre("gemSapphire", new ItemStack(itemResource, 1, 11));
+        OreDictionary.registerOre("gemZircon", new ItemStack(itemResource, 1, 12));
 
         //Storage blocks
         OreDictionary.registerOre("blockCopper", new ItemStack(blockStorage, 1, 0));

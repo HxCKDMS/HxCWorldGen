@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.items;
 
-import HxCKDMS.HxCWorldGen.Reference;
+import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 import java.util.List;
+
+public class ItemResource extends Item {
 
 /**
  0 = Copper
@@ -29,37 +31,35 @@ import java.util.List;
  13 = Zirconia //items
  **/
 
-public class ItemGem extends Item {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public ItemGem(CreativeTabs creativeTabs){
+    public ItemResource(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
         setMaxDamage(0);
-
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack){
-
         String name;
 
         switch(itemStack.getItemDamage()){
-            case 9:
-                name = "AventurineGem";
-                break;
-            case 10:
-                name = "RubyGem";
-                break;
-            case 11:
-                name = "SapphireGem";
-                break;
-            case 12:
-                name = "Zircon";
-                break;
-            default:
-                name = "error";
+            case 0: name = "CopperIngot"; break;
+            case 1: name = "TinIngot"; break;
+            case 2: name = "SilverIngot"; break;
+            case 3: name = "LeadIngot"; break;
+            case 4: name = "NickelIngot"; break;
+            case 5: name = "ChromiumIngot"; break;
+            case 6: name = "AluminiumIngot"; break;
+            case 7: name = "TitaniumIngot"; break;
+            case 8: name = "PlatinumIngot"; break;
+            case 9: name = "AventurineGem"; break;
+            case 10: name = "RubyGem"; break;
+            case 11: name = "SapphireGem"; break;
+            case 12: name = "Zircon"; break;
+            case 13: name = "Zirconia"; break;
+            default: name = "error"; break;
         }
 
         return name;
@@ -73,11 +73,10 @@ public class ItemGem extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[256];
-        icons[9] = iconRegister.registerIcon(Reference.MOD_ID + ":GemAventurine");
-        icons[10] = iconRegister.registerIcon(Reference.MOD_ID + ":GemRuby");
-        icons[11] = iconRegister.registerIcon(Reference.MOD_ID + ":GemSapphire");
-
+        icons = new IIcon[14];
+        for (int i = 0; i < 9; i++) icons[i] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
+        for (int j = 10; j < 12; j++) icons[j] = iconRegister.registerIcon(TextureHandler.getTexturePath("gem"));
+        icons[13] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
     }
 
     @Override
@@ -89,8 +88,8 @@ public class ItemGem extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 9; i < 12; i++){
-            list.add(new ItemStack(item,1,i));
+        for(int i = 0; i < 9; i++){
+            list.add(new ItemStack(item, 1, i));
         }
     }
 }

@@ -1,7 +1,7 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCWorldGen.Config;
-import HxCKDMS.HxCWorldGen.Reference;
+import HxCKDMS.HxCWorldGen.libs.Reference;
+import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import HxCKDMS.HxCWorldGen.proxy.ClientProxy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Random;
 
 import static HxCKDMS.HxCWorldGen.registry.ModRegistry.blockOre;
-import static HxCKDMS.HxCWorldGen.registry.ModRegistry.itemGem;
+import static HxCKDMS.HxCWorldGen.registry.ModRegistry.itemResource;
 
 
 /**
@@ -91,7 +91,7 @@ public class BlockOre extends Block {
         return true;
     }
 
-    private void miningLevel(){
+    private void miningLevel() {
         //stone
         setHarvestLevel("pickaxe", 1, 0);
         setHarvestLevel("pickaxe", 1, 1);
@@ -128,10 +128,10 @@ public class BlockOre extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister){
+    public void registerBlockIcons(IIconRegister iconRegister) {
         icons = new IIcon[7];
         for (int i = 0; i < 6; i++) icons[i] = iconRegister.registerIcon("minecraft:stone");
-        icons[6] = iconRegister.registerIcon(Reference.MOD_ID + ":" + Config.OreTexture);
+        icons[6] = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
     }
 
     /**
@@ -156,21 +156,21 @@ public class BlockOre extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 12; i++){
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
+        for(int i = 0; i < 12; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }
 
     @Override
     public Item getItemDropped(int metadata, Random random, int fortune){
-        switch(metadata){
+        switch(metadata) {
             case 9:
-                return itemGem;
+                return itemResource;
             case 10:
-                return itemGem;
+                return itemResource;
             case 11:
-                return itemGem;
+                return itemResource;
             default:
                 return Item.getItemFromBlock(blockOre);
         }

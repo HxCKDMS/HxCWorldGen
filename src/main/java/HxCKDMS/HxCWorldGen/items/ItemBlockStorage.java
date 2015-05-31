@@ -3,7 +3,6 @@ package HxCKDMS.HxCWorldGen.items;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 /*
 0 = Copper
@@ -84,10 +83,5 @@ public class ItemBlockStorage extends ItemBlock {
     @Override
     public int getMetadata(int metadata){
         return metadata;
-    }
-
-    @Override
-    public IIcon getIconFromDamage(int metadata){
-        return metaBlock.getIcon(2, metadata);
     }
 }
