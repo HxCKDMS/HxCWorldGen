@@ -46,6 +46,12 @@ public class BlockOre extends Block {
         setResistance(5F);
         setCreativeTab(creativeTabs);
         miningLevel();
+        setLightLevel(7f);
+    }
+
+    @Override
+    public boolean renderAsNormalBlock() {
+        return false;
     }
 
     private void miningLevel(){

@@ -22,7 +22,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
 
     public static void render(Block block, int x, int y, int z, int meta){
         Tessellator tessellator = Tessellator.instance;
-        double min = 0.05, max = 0.95;
+        double min = 0.001, max = 0.999;
         tessellator.addTranslation(x, y, z);
 
         //TOP
