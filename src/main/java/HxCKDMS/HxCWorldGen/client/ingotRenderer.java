@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 public class ingotRenderer implements IItemRenderer {
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return false;
+        return true;
     }
 
     @Override
@@ -22,15 +22,15 @@ public class ingotRenderer implements IItemRenderer {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-        GL11.glDepthMask(true);
-        GL11.glDisable(GL11.GL_BLEND);
 
         IIcon icon = item.getIconIndex();
         int metadata = item.getItemDamageForDisplay();
-
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
-        tessellator.setTextureUV(0, 1);
+        tessellator.addVertexWithUV(0, 2, 1, icon.getMinU(), icon.getMaxV());
+        tessellator.addVertexWithUV(4, 2, 1, icon.getMaxU(), icon.getMaxV());
+        tessellator.addVertexWithUV(4, 1, 1, icon.getMaxU(), icon.getMinV());
+        tessellator.addVertexWithUV(1, 1, 1, icon.getMinU(), icon.getMinV());
         tessellator.draw();
 
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
