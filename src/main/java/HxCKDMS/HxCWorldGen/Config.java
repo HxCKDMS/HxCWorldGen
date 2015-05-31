@@ -4,15 +4,16 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config
 {
-    public static int OreNodeMultiplier;
+    public static boolean forceNormal;
 
-    public static int CopperNodeSize, TinNodeSize, SilverNodeSize, LeadNodeSize, NickelNodeSize, ChromiumNodeSize, AluminiumNodeSize, TitaniumNodeSize, PlatinumNodeSize, AventurineNodeSize, RubyNodeSize, SapphireNodeSize, RutileNodeSize;
+    public static int OreNodeMultiplier, CopperNodeSize, TinNodeSize, SilverNodeSize, LeadNodeSize, NickelNodeSize, ChromiumNodeSize, AluminiumNodeSize, TitaniumNodeSize, PlatinumNodeSize, AventurineNodeSize, RubyNodeSize, SapphireNodeSize, RutileNodeSize;
 
-    public static String Copper, Tin, Silver, Lead, Nickel, Chromium, Aluminium, Titanium, Platinum, Aventurine, Ruby, Sapphire, Rutile;
+    public static String OreTexture, Copper, Tin, Silver, Lead, Nickel, Chromium, Aluminium, Titanium, Platinum, Aventurine, Ruby, Sapphire, Rutile;
 
     public Config(Configuration config){
         config.load();
         config.setCategoryComment("OreGenSizes", "These are the sizes of the Ore nodes that generate. Set to 0 to disable this ore from generating");
+        forceNormal = config.getBoolean("DisableForcedGrey", "Features", false, "enable this to remove my forcing of grey stone");
 
         OreNodeMultiplier = config.getInt("NodeMultiplier", "OreGenSizes", 1, 0, 16, "Node size multiplier.(this is multiplied by the below values set to 0 to disable ore gen))");
         CopperNodeSize = config.getInt("Copper node Size", "OreGenSizes", 6, 0, 16, "");
@@ -30,7 +31,7 @@ public class Config
         RutileNodeSize = config.getInt("Rutile node Size", "OreGenSizes", 2, 0, 16, "");
 
         config.setCategoryComment("OreGenOres","These are the ores to use in generating the ore nodes. DO NOT LEAVE BLANK!!!");
-
+        OreTexture = config.getString("OreTexture", "Features", "ore", "use ore, 32ore, tore only supported values ATM");
         Copper = config.getString("Copper", "OreGenOres", "<HxCWorldGen:blockOre:0>", "Default <HxCWorldGen:blockOre:0> Don't change this comment.");
         Tin = config.getString("Tin", "OreGenOres", "<HxCWorldGen:blockOre:1>", "Default <HxCWorldGen:blockOre:1> Don't change this comment.");
         Silver = config.getString("Silver", "OreGenOres", "<HxCWorldGen:blockOre:2>", "Default <HxCWorldGen:blockOre:2> Don't change this comment.");

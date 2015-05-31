@@ -5,6 +5,8 @@ import HxCKDMS.HxCWorldGen.client.oreRenderer;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy implements IProxy {
+    public static int renderPass;
+
     @Override
     public void preInit() {
         initRendering();
