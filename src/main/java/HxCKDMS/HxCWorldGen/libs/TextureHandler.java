@@ -38,8 +38,8 @@ public class TextureHandler {
             /*return mod + size + resource;*/
         }
         if (resource.equals("metalBlock")) {
-            if (doSpecial) return "minecraft:iron_block";
-            return mod + size + resource;
+            /*if (doSpecial)*/ return "minecraft:iron_block";
+            /*return mod + size + resource;*/
         }
         if (resource.equals("gemBlock")) {
             if (doSpecial) return "minecraft:diamond_block";
