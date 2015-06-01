@@ -52,11 +52,11 @@ public class Colours {
             case 6 : colours = new int[]{210, 250, 255}; break;
             case 7 : colours = new int[]{133, 95, 90}; break;
             case 8 : colours = new int[]{160, 250, 255}; break;
-            case 9 : colours = new int[]{0, 160, 120}; break;
-            case 10 : colours = new int[]{200, 10, 10}; break;
+            case 9 : colours = new int[]{0, 120, 120}; break;
+            case 10 : colours = new int[]{180, 0, 0}; break;
             case 11 : colours = new int[]{30, 120, 200}; break;
-            case 12 : colours = new int[]{100, 56, 18}; break;
-            case 13 : colours = new int[]{190, 170, 140}; break;
+            case 12 : colours = new int[]{20, 160, 210}; break;
+            case 13 : colours = new int[]{190, 195, 198}; break;
             default : colours = new int[]{174, 105, 41}; break;
         }
         return colours;

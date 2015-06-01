@@ -59,7 +59,7 @@ public class BlockStorage extends Block {
 
     @Override
     public IIcon getIcon(int side, int metadata){
-        if (metadata < 12) return icons[0];
+        if (metadata < 13) return icons[0];
         return icons[1];
     }
 
@@ -71,7 +71,7 @@ public class BlockStorage extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 12; i++){
+        for(int i = 0; i < 13; i++){
             list.add(new ItemStack(item, 1, i));
         }
     }

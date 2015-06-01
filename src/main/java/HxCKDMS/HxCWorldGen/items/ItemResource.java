@@ -78,10 +78,11 @@ public class ItemResource extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[14];
+        icons = new IIcon[15];
         for (int i = 0; i < 9; i++) icons[i] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
-        for (int j = 10; j < 12; j++) icons[j] = iconRegister.registerIcon(TextureHandler.getTexturePath("gem"));
+        for (int j = 9; j <= 12; j++) icons[j] = iconRegister.registerIcon(TextureHandler.getTexturePath("gem"));
         icons[13] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
+        icons[14] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
     }
 
     @Override
@@ -93,7 +94,7 @@ public class ItemResource extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 13; i++){
+        for(int i = 0; i < 14; i++){
             list.add(new ItemStack(item, 1, i));
         }
     }

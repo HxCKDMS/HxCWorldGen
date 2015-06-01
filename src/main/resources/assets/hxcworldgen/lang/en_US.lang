@@ -7,11 +7,12 @@ LeadOre.name=Lead Ore
 NickelOre.name=Nickel Ore
 ChromiumOre.name=Chromium Ore
 AluminiumOre.name=Aluminium Ore
-TitaniumOre.name=Titanium Ore
+IlmeniteOre.name=Ilmenite Ore
 PlatinumOre.name=Platinum Ore
 AventurineOre.name=Aventurine Ore
 RubyOre.name=Ruby Ore
 SapphireOre.name=Sapphire Ore
+RutileOre.name=Rutile Ore
 
 CopperBlock.name=Block of Copper
 TinBlock.name=Block of Tin
@@ -25,6 +26,7 @@ PlatinumBlock.name=Block of Platinum
 AventurineBlock.name=Block of Aventurine
 RubyBlock.name=Block of Ruby
 SapphireBlock.name=Block of Sapphire
+ZirconBlock.name=Block of Zircon
 
 CopperIngot.name=Copper Ingot
 TinIngot.name=Tin Ingot
@@ -35,7 +37,9 @@ ChromiumIngot.name=Chromium Ingot
 AluminiumIngot.name=Aluminium Ingot
 TitaniumIngot.name=Titanium Ingot
 PlatinumIngot.name=Platinum Ingot
+Zirconia.name=Ceramic Zirconia
 
 AventurineGem.name=Aventurine
 RubyGem.name=Ruby
 SapphireGem.name=Sapphire
+Zircon.name=Zircon
