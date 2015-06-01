@@ -42,7 +42,7 @@ public class TextureHandler {
             return mod + size + resource;
         }
         if (resource.equals("gemBlock")) {
-            if (doSpecial) return "minecraft:emerald_block";
+            if (doSpecial) return "minecraft:diamond_block";
             return mod + size + resource;
         }
         return "minecraft:cake_top";

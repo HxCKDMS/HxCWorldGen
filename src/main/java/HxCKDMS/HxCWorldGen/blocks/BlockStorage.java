@@ -59,7 +59,7 @@ public class BlockStorage extends Block {
 
     @Override
     public IIcon getIcon(int side, int metadata){
-        if (metadata < 13) return icons[0];
+        if (metadata < 9) return icons[0];
         return icons[1];
     }
 
