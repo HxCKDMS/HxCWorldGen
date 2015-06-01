@@ -24,8 +24,8 @@ public class HxCWorldGen {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        proxy.preInit();
         Config = new Config(new Configuration(event.getSuggestedConfigurationFile()));
+        proxy.preInit();
         ModRegistry.preInit();
     }
 

@@ -18,37 +18,37 @@ public class blockRenderer implements ISimpleBlockRenderingHandler {
         GL11.glEnable(GL11.GL_BLEND);
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(metadata)[0], Colours.blockColour(metadata)[1], Colours.blockColour(metadata)[2]);
         tessellator.setNormal(0.0F, -1.0F, 0.0F);
         renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, metadata));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(metadata)[0], Colours.blockColour(metadata)[1], Colours.blockColour(metadata)[2]);
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
         renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, metadata));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(metadata)[0], Colours.blockColour(metadata)[1], Colours.blockColour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, -1.0F);
         renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, metadata));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(metadata)[0], Colours.blockColour(metadata)[1], Colours.blockColour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, 1.0F);
         renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, metadata));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(metadata)[0], Colours.blockColour(metadata)[1], Colours.blockColour(metadata)[2]);
         tessellator.setNormal(-1.0F, 0.0F, 0.0F);
         renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, metadata));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(metadata)[0], Colours.blockColour(metadata)[1], Colours.blockColour(metadata)[2]);
         tessellator.setNormal(1.0F, 0.0F, 0.0F);
         renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, metadata));
         tessellator.draw();
@@ -68,7 +68,7 @@ public class blockRenderer implements ISimpleBlockRenderingHandler {
 
         double min = 0, max = 1;
         IIcon icon = block.getIcon(0, meta);
-        tessellator.setColorOpaque(Colours.colour(meta)[0], Colours.colour(meta)[1], Colours.colour(meta)[2]);
+        tessellator.setColorOpaque(Colours.blockColour(meta)[0], Colours.blockColour(meta)[1], Colours.blockColour(meta)[2]);
 
         tessellator.addVertexWithUV(min, max, max, icon.getMinU(), icon.getMinV());
         tessellator.addVertexWithUV(max, max, max, icon.getMinU(), icon.getMaxV());

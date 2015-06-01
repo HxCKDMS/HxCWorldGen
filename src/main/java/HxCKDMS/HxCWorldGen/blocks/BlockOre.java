@@ -91,7 +91,7 @@ public class BlockOre extends Block {
         return true;
     }
 
-    private void miningLevel() {
+    private void miningLevel(){
         //stone
         setHarvestLevel("pickaxe", 1, 0);
         setHarvestLevel("pickaxe", 1, 1);

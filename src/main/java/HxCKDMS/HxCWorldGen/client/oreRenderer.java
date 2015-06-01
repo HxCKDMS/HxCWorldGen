@@ -54,37 +54,37 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
 
         // Start drawing outer layer of the block.
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, -1.0F, 0.0F);
         renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
         renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, -1.0F);
         renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, 1.0F);
         renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(-1.0F, 0.0F, 0.0F);
         renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.colour(metadata)[0], Colours.colour(metadata)[1], Colours.colour(metadata)[2]);
+        tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(1.0F, 0.0F, 0.0F);
         renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(6, 0));
         tessellator.draw();
@@ -101,7 +101,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
 
     public static void render(Block block, int x, int y, int z, int meta, RenderBlocks renderer){
         Tessellator tessellator = Tessellator.instance;
-        double min = 0.005, max = 0.995;
+        double min = 0, max = 1;
         tessellator.addTranslation(x, y, z);
 
         if (ClientProxy.renderPass == 0) {
@@ -140,7 +140,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
             tessellator.addVertexWithUV(min, max, max, icon.getMaxU(), icon.getMinV());
         } else {
             IIcon icon = block.getIcon(6, 0);
-            tessellator.setColorOpaque(Colours.colour(meta)[0], Colours.colour(meta)[1], Colours.colour(meta)[2]);
+            tessellator.setColorOpaque(Colours.oreColour(meta)[0], Colours.oreColour(meta)[1], Colours.oreColour(meta)[2]);
 
             tessellator.addVertexWithUV(0, 1, 1, icon.getMinU(), icon.getMinV());
             tessellator.addVertexWithUV(1, 1, 1, icon.getMinU(), icon.getMaxV());

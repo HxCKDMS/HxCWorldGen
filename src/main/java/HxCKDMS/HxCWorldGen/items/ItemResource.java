@@ -12,7 +12,6 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class ItemResource extends Item {
-
 /**
  0 = Copper
  1 = Tin
@@ -30,9 +29,13 @@ public class ItemResource extends Item {
  12 = Zircon //items
  13 = Zirconia //items
  **/
-
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
+
+    @Override
+    public int getColorFromItemStack(ItemStack stack, int meta) {
+        return 0xfffff;
+    }
 
     public ItemResource(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
