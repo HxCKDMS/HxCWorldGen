@@ -30,12 +30,12 @@ public class TextureHandler {
             return mod + size + resource;
         }
         if (resource.equals("ingot")) {
-            if (doSpecial) return "minecraft:iron_ingot";
-            return mod + size + resource;
+            /*if (doSpecial) */return "minecraft:iron_ingot";
+            /*return mod + size + resource;*/
         }
         if (resource.equals("gem")) {
-            if (doSpecial) return "minecraft:diamond";
-            return mod + size + resource;
+            /*if (doSpecial)*/ return "minecraft:diamond";
+            /*return mod + size + resource;*/
         }
         if (resource.equals("metalBlock")) {
             if (doSpecial) return "minecraft:iron_block";
