@@ -1,5 +1,6 @@
 package HxCKDMS.HxCWorldGen.items;
 
+import HxCKDMS.HxCWorldGen.libs.Colours;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -34,7 +35,8 @@ public class ItemResource extends Item {
 
     @Override
     public int getColorFromItemStack(ItemStack stack, int meta) {
-        return 0xfffff;
+        int[] colors = Colours.resourceColour(stack.getItemDamageForDisplay());
+        return getIntFromColor(colors[0], colors[1], colors[2]);
     }
 
     public ItemResource(CreativeTabs creativeTabs){
@@ -91,8 +93,16 @@ public class ItemResource extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 13; i++){
             list.add(new ItemStack(item, 1, i));
         }
+    }
+
+    public int getIntFromColor(int Red, int Green, int Blue){
+        Red = (Red << 16) & 0x00FF0000;
+        Green = (Green << 8) & 0x0000FF00;
+        Blue = Blue & 0x000000FF;
+        //0xFF000000 for 100% Alpha.
+        return 0xFF000000 | Red | Green | Blue;
     }
 }

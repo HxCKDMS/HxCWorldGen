@@ -3,7 +3,7 @@ package HxCKDMS.HxCWorldGen;
 import HxCKDMS.HxCWorldGen.libs.Config;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.proxy.IProxy;
-import HxCKDMS.HxCWorldGen.registry.ModRegistry;
+import HxCKDMS.HxCWorldGen.libs.ModRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

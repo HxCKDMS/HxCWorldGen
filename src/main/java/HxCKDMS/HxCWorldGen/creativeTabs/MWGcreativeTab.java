@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.creativeTabs;
 
-import HxCKDMS.HxCWorldGen.registry.ModRegistry;
+import HxCKDMS.HxCWorldGen.libs.ModRegistry;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

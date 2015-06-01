@@ -1,4 +1,4 @@
-package HxCKDMS.HxCWorldGen.registry;
+package HxCKDMS.HxCWorldGen.libs;
 
 import HxCKDMS.HxCWorldGen.blocks.BlockOre;
 import HxCKDMS.HxCWorldGen.blocks.BlockStorage;

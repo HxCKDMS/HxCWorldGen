@@ -1,13 +1,10 @@
 package HxCKDMS.HxCWorldGen.proxy;
 
 import HxCKDMS.HxCWorldGen.client.blockRenderer;
-import HxCKDMS.HxCWorldGen.client.ingotRenderer;
 import HxCKDMS.HxCWorldGen.client.oreRenderer;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
-import HxCKDMS.HxCWorldGen.registry.ModRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 public class ClientProxy implements IProxy {
     public static int renderPass;
@@ -33,6 +30,5 @@ public class ClientProxy implements IProxy {
         RenderingRegistry.registerBlockHandler(Reference.ORE_RENDER_ID, new oreRenderer());
         Reference.BLOCK_RENDER_ID = RenderingRegistry.getNextAvailableRenderId();
         RenderingRegistry.registerBlockHandler(Reference.BLOCK_RENDER_ID, new blockRenderer());
-        MinecraftForgeClient.registerItemRenderer(ModRegistry.itemResource, new ingotRenderer());
     }
 }

@@ -19,8 +19,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 import java.util.Random;
 
-import static HxCKDMS.HxCWorldGen.registry.ModRegistry.blockOre;
-import static HxCKDMS.HxCWorldGen.registry.ModRegistry.itemResource;
+import static HxCKDMS.HxCWorldGen.libs.ModRegistry.blockOre;
+import static HxCKDMS.HxCWorldGen.libs.ModRegistry.itemResource;
 
 
 /**
@@ -157,7 +157,7 @@ public class BlockOre extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for(int i = 0; i < 12; i++) {
+        for(int i = 0; i < 13; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }
