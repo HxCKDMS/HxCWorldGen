@@ -12,7 +12,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
-
 public class HxCWorldGen {
     @Mod.Instance
     public HxCWorldGen HxCWorldGen;
@@ -21,7 +20,7 @@ public class HxCWorldGen {
     public static IProxy proxy;
 
     public static HxCKDMS.HxCWorldGen.libs.Config Config;
-
+    /**Great coding song https://www.youtube.com/watch?v=6dOP5W_k_gw**/
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         Config = new Config(new Configuration(event.getSuggestedConfigurationFile()));
