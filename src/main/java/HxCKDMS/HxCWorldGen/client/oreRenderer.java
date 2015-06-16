@@ -1,7 +1,6 @@
 package HxCKDMS.HxCWorldGen.client;
 
 import HxCKDMS.HxCWorldGen.libs.Colours;
-import HxCKDMS.HxCWorldGen.libs.Config;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.proxy.ClientProxy;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -95,19 +94,17 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-        render(block, x, y, z, world.getBlockMetadata(x, y, z), renderer);
+        render(block, x, y, z, world.getBlockMetadata(x, y, z), renderer, world);
         return true;
     }
 
-    public static void render(Block block, int x, int y, int z, int meta, RenderBlocks renderer){
+    public static void render(Block block, int x, int y, int z, int meta, RenderBlocks renderer, IBlockAccess world){
         Tessellator tessellator = Tessellator.instance;
         double min = 0, max = 1;
         tessellator.addTranslation(x, y, z);
 
         if (ClientProxy.renderPass == 0) {
             IIcon icon = block.getIcon(0, 0);
-
-            if (!Config.forceNormal) {tessellator.setColorOpaque(220, 220, 220);}
 
             tessellator.addVertexWithUV(min, max, max, icon.getMinU(), icon.getMinV());
             tessellator.addVertexWithUV(max, max, max, icon.getMinU(), icon.getMaxV());
@@ -140,6 +137,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
             tessellator.addVertexWithUV(min, max, max, icon.getMaxU(), icon.getMinV());
         } else {
             IIcon icon = block.getIcon(6, 0);
+
             tessellator.setColorOpaque(Colours.oreColour(meta)[0], Colours.oreColour(meta)[1], Colours.oreColour(meta)[2]);
 
             tessellator.addVertexWithUV(0, 1, 1, icon.getMinU(), icon.getMinV());

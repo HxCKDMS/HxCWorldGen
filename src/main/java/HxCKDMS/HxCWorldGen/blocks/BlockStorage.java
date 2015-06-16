@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCWorldGen.libs.Reference;
+import HxCKDMS.HxCWorldGen.libs.Colours;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -36,6 +36,12 @@ public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
+    @Override
+    public int getRenderColor(int meta) {
+        int[] colours = Colours.blockColour(meta);
+        return getIntFromColor(colours[0], colours[1], colours[2]);
+    }
+
     public BlockStorage(Material material, CreativeTabs creativeTabs) {
         super(material);
         setHardness(3F);
@@ -50,11 +56,6 @@ public class BlockStorage extends Block {
         icons = new IIcon[2];
         icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("metalBlock"));
         icons[1] = iconRegister.registerIcon(TextureHandler.getTexturePath("gemBlock"));
-    }
-
-    @Override
-    public int getRenderType() {
-        return Reference.BLOCK_RENDER_ID;
     }
 
     @Override
@@ -74,5 +75,13 @@ public class BlockStorage extends Block {
         for(int i = 0; i < 13; i++){
             list.add(new ItemStack(item, 1, i));
         }
+    }
+
+    public int getIntFromColor(int Red, int Green, int Blue){
+        Red = (Red << 16) & 0x00FF0000;
+        Green = (Green << 8) & 0x0000FF00;
+        Blue = Blue & 0x000000FF;
+        //0xFF000000 for 100% Alpha.
+        return 0xFF000000 | Red | Green | Blue;
     }
 }

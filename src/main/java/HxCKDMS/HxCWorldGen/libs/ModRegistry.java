@@ -2,9 +2,7 @@ package HxCKDMS.HxCWorldGen.libs;
 
 import HxCKDMS.HxCWorldGen.blocks.BlockOre;
 import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
-import HxCKDMS.HxCWorldGen.items.ItemBlockOre;
-import HxCKDMS.HxCWorldGen.items.ItemBlockStorage;
-import HxCKDMS.HxCWorldGen.items.ItemResource;
+import HxCKDMS.HxCWorldGen.items.*;
 import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -39,6 +37,8 @@ public class ModRegistry {
     public static Block blockOre = new BlockOre(Material.rock, moreWorldGenTab);
     public static Block blockStorage = new BlockStorage(Material.iron, moreWorldGenTab);
     public static Item itemResource = new ItemResource(moreWorldGenTab);
+    public static Item itemOreChunk = new ItemOreChunk(moreWorldGenTab);
+    public static Item itemFragment = new ItemResourcePiece(moreWorldGenTab);
 
     public static void preInit(){
         registerBlocks();
@@ -58,6 +58,8 @@ public class ModRegistry {
 
     private static void registerItems(){
         GameRegistry.registerItem(itemResource, "itemResource");
+        GameRegistry.registerItem(itemOreChunk, "itemOreChunk");
+        GameRegistry.registerItem(itemFragment, "itemFragment");
     }
 
     private static void registerRecipes(){

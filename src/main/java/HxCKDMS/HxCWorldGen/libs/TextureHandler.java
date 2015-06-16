@@ -17,11 +17,10 @@ public class TextureHandler {
             case 64 : size = c; break;
             default : size = ""; break;
         }
-        if (size.isEmpty()) {
+        if (size.isEmpty())
             doSpecial = true;
-        } else {
-            doSpecial = false;
-        }
+        else
+          doSpecial = false;
     }
 
     public static String getTexturePath(String resource) {
@@ -34,7 +33,7 @@ public class TextureHandler {
             /*return mod + size + resource;*/
         }
         if (resource.equals("gem")) {
-            /*if (doSpecial)*/ return "minecraft:diamond";
+            /*if (doSpecial)*/ return mod + "gem";
             /*return mod + size + resource;*/
         }
         if (resource.equals("metalBlock")) {
@@ -44,6 +43,18 @@ public class TextureHandler {
         if (resource.equals("gemBlock")) {
             if (doSpecial) return "minecraft:diamond_block";
             return mod + size + resource;
+        }
+        if (resource.equals("chunk")) {
+//            /*if (doSpecial)*/ return "minecraft:iron_block";
+            return mod + "oreChunk2";
+        }
+        if (resource.equals("nugget")) {
+//            if (doSpecial) return "minecraft:diamond_block";
+            return mod + "16" + resource;
+        }
+        if (resource.equals("fragment")) {
+//            /*if (doSpecial)*/ return "minecraft:iron_block";
+            return mod+"16Frag2"/*mod + size + resource*/;
         }
         return "minecraft:cake_top";
     }
