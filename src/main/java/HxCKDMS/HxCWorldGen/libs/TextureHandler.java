@@ -33,7 +33,7 @@ public class TextureHandler {
             /*return mod + size + resource;*/
         }
         if (resource.equals("gem")) {
-            /*if (doSpecial)*/ return mod + "gem";
+            /*if (doSpecial)*/ return "minecraft:diamond";
             /*return mod + size + resource;*/
         }
         if (resource.equals("metalBlock")) {

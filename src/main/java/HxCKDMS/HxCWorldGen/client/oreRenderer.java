@@ -14,7 +14,6 @@ import org.lwjgl.opengl.GL11;
 public class oreRenderer implements ISimpleBlockRenderingHandler {
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
         // Create the Tessellator and prepare OpenGL.
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -172,8 +171,6 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
         }
         tessellator.addTranslation(-x, -y, -z);
     }
-
-
 
     @Override
     public boolean shouldRender3DInInventory(int modelId) {
