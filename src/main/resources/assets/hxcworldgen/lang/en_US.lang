@@ -43,3 +43,34 @@ AventurineGem.name=Aventurine
 RubyGem.name=Ruby
 SapphireGem.name=Sapphire
 Zircon.name=Zircon
+
+CopperNugget.name=Copper Nugget
+TinNugget.name=Tin Nugget
+SilverNugget.name=Silver Nugget
+LeadNugget.name=Lead Nugget
+NickelNugget.name=Nickel Nugget
+ChromiumNugget.name=Chromium Nugget
+AluminiumNugget.name=Aluminium Nugget
+TitaniumNugget.name=Titanium Nugget
+PlatinumNugget.name=Platinum Nugget
+Zirconia.name=Ceramic Zirconia
+
+AventurineFragment.name=Aventurine
+RubyFragment.name=Ruby
+SapphireFragment.name=Sapphire
+ZirconFragment.name=Zircon
+
+CopperChunk.name=Copper Chunk
+TinChunk.name=Tin Chunk
+SilverChunk.name=Silver Chunk
+LeadChunk.name=Lead Chunk
+NickelChunk.name=Nickel Chunk
+ChromiumChunk.name=Chromium Chunk
+AluminiumChunk.name=Aluminium Chunk
+TitaniumChunk.name=Titanium Chunk
+PlatinumChunk.name=Platinum Chunk
+Zirconia.name=Ceramic Zirconia
+
+AventurineChunk.name=Aventurine
+RubyChunk.name=Ruby
+SapphireChunk.name=Sapphire

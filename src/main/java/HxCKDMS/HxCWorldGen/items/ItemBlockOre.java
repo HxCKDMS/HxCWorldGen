@@ -35,7 +35,7 @@ public class ItemBlockOre extends ItemBlock {
     public String getUnlocalizedName(ItemStack itemStack){
         String name;
 
-        switch(itemStack.getItemDamage()){
+        switch(itemStack.getCurrentDurability()){
             case 0:
                 name = "CopperOre";
                 break;

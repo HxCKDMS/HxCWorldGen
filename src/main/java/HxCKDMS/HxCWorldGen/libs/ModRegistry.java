@@ -66,15 +66,22 @@ public class ModRegistry {
         //blocking
         for (int i = 0; i < 12; i++)
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', Reference.RESOURCES[i]));
+        for (int i = 0; i < 12; i++)
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', Reference.PIECES[i]));
 
         //unblocking
         for (int i = 0; i < 12; i++)
             GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), Reference.BLOCKS[i]));
+        for (int i = 0; i < 12; i++)
+            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), Reference.RESOURCES[i]));
 
         //smelting
         for (int i = 0; i < 11; i++)
             GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
         GameRegistry.addSmelting(new ItemStack(blockOre, 1, 12), new ItemStack(itemResource, 1, 7), 10F);
+        for (int i = 0; i < 12; i++)
+            GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, i), new ItemStack(itemFragment, 6, i), 10F);
+        GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, 12), new ItemStack(itemFragment, 6, 7), 10F);
     }
 
     private static void registerOreDictionary(){
@@ -82,9 +89,13 @@ public class ModRegistry {
         for (int i = 0; i < 12; i++)
             OreDictionary.registerOre(Reference.ORES[i], new ItemStack(blockOre, 1, i));
 
+        OreDictionary.registerOre("oreAluminum", new ItemStack(blockOre, 1, 6));
+
         //ingots
         for (int i = 0; i < 13; i++)
             OreDictionary.registerOre(Reference.RESOURCES[i], new ItemStack(itemResource, 1, i));
+        for (int i = 0; i < 13; i++)
+            OreDictionary.registerOre(Reference.PIECES[i], new ItemStack(itemFragment, 1, i));
 
         //Storage blocks
         for (int i = 0; i < 12; i++)

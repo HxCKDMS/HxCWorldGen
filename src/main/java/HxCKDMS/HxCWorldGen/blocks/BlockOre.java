@@ -20,9 +20,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 import java.util.Random;
 
-import static HxCKDMS.HxCWorldGen.libs.ModRegistry.blockOre;
-import static HxCKDMS.HxCWorldGen.libs.ModRegistry.itemFragment;
-import static HxCKDMS.HxCWorldGen.libs.ModRegistry.itemResource;
+import static HxCKDMS.HxCWorldGen.libs.ModRegistry.*;
 
 
 /**
@@ -130,7 +128,7 @@ public class BlockOre extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    public void registerIcons(IIconRegister iconRegister) {
         icons = new IIcon[7];
         for (int i = 0; i < 6; i++) icons[i] = iconRegister.registerIcon("minecraft:stone");
         icons[6] = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
@@ -176,7 +174,7 @@ public class BlockOre extends Block {
     @Override
     public Item getItemDropped(int metadata, Random random, int fortune){
         if (Configurations.enableFragments) {
-            return itemFragment;
+            return itemOreChunk;
         }
         else
             switch(metadata) {

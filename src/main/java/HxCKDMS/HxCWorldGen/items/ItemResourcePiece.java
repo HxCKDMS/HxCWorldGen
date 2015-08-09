@@ -33,21 +33,21 @@ public class ItemResourcePiece extends Item {
 
     @Override
     public int getColorFromItemStack(ItemStack stack, int meta) {
-        int[] colors = Colours.resourceColour(stack.getItemDamageForDisplay());
+        int[] colors = Colours.resourceColour(stack.getCurrentDurability());
         return getIntFromColor(colors[0], colors[1], colors[2]);
     }
 
     public ItemResourcePiece(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
-        setMaxDamage(0);
+        setMaxDurability(0);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack){
         String name;
 
-        switch(itemStack.getItemDamage()){
+        switch(itemStack.getCurrentDurability()){
             case 0: name = "CopperNugget"; break;
             case 1: name = "TinNugget"; break;
             case 2: name = "SilverNugget"; break;

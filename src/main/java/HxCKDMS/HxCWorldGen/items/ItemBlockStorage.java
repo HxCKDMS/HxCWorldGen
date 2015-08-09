@@ -32,7 +32,7 @@ public class ItemBlockStorage extends ItemBlock {
     public String getUnlocalizedName(ItemStack itemStack){
         String name;
 
-        switch(itemStack.getItemDamage()){
+        switch(itemStack.getCurrentDurability()){
             case 0:
                 name = "CopperBlock";
                 break;

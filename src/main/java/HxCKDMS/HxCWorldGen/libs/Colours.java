@@ -1,9 +1,12 @@
 package HxCKDMS.HxCWorldGen.libs;
 
+import HxCKDMS.HxCCore.api.Configuration.Config;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class Colours {
+    @Config.Map
     public static HashMap<String, String> Colours = new LinkedHashMap<>();
 
     static {
@@ -20,15 +23,15 @@ public class Colours {
         Colours.put("Sapphire", "200, 10, 10");
         Colours.put("Ruby", "30, 120, 200");
         Colours.put("Rutile", "100, 56, 18");
-        Colours.put("Titanium", "70, 40, 60");
-        Colours.put("Zircon", "20, 160, 210");
+        Colours.put("Titanium", "190, 210, 215");
+        Colours.put("Zircon", "150, 140, 130");
         Colours.put("Zirconia", "190, 195, 198");
     }
 
     private static int[] getColours(String key) {
         String[] tmp = Colours.get(key).split(", ");
         int[] tmp2 = new int[3];
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             tmp2[i] = Integer.parseInt(tmp[i]);
         }
         return tmp2;

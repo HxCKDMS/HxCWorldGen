@@ -106,9 +106,10 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
         if (ClientProxy.renderPass == 0) {
             IIcon icon = block.getIcon(0, 0);
 
-            if (Configurations.forceNormalRendering)
+            if (Configurations.forceNormalRendering) {
                 tessellator.setColorOpaque(200, 200, 200);
-
+            }
+//            renderer.renderBlockAllFaces(Blocks.stone, x, y, z);
             tessellator.addVertexWithUV(min, max, max, icon.getMinU(), icon.getMinV());
             tessellator.addVertexWithUV(max, max, max, icon.getMinU(), icon.getMaxV());
             tessellator.addVertexWithUV(max, max, min, icon.getMaxU(), icon.getMaxV());

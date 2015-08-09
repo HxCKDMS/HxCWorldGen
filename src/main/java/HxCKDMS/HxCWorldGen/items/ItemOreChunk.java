@@ -33,21 +33,21 @@ public class ItemOreChunk extends Item {
 
     @Override
     public int getColorFromItemStack(ItemStack stack, int meta) {
-        int[] colors = Colours.oreColour(stack.getItemDamageForDisplay());
+        int[] colors = Colours.oreColour(stack.getCurrentDurability());
         return getIntFromColor(colors[0], colors[1], colors[2]);
     }
 
     public ItemOreChunk(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
-        setMaxDamage(0);
+        setMaxDurability(0);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack){
         String name;
 
-        switch(itemStack.getItemDamage()){
+        switch(itemStack.getCurrentDurability()){
             case 0: name = "CopperChunk"; break;
             case 1: name = "TinChunk"; break;
             case 2: name = "SilverChunk"; break;

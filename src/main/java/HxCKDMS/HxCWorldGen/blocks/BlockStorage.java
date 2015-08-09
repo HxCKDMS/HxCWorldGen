@@ -52,7 +52,7 @@ public class BlockStorage extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister){
+    public void registerIcons(IIconRegister iconRegister){
         icons = new IIcon[2];
         icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("metalBlock"));
         icons[1] = iconRegister.registerIcon(TextureHandler.getTexturePath("gemBlock"));
