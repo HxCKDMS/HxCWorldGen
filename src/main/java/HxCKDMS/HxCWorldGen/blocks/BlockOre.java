@@ -1,5 +1,6 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
+import HxCKDMS.HxCWorldGen.libs.Configurations;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import HxCKDMS.HxCWorldGen.proxy.ClientProxy;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 import static HxCKDMS.HxCWorldGen.libs.ModRegistry.blockOre;
+import static HxCKDMS.HxCWorldGen.libs.ModRegistry.itemFragment;
 import static HxCKDMS.HxCWorldGen.libs.ModRegistry.itemResource;
 
 
@@ -163,16 +165,29 @@ public class BlockOre extends Block {
     }
 
     @Override
-    public Item getItemDropped(int metadata, Random random, int fortune){
-        switch(metadata) {
-            case 9:
-                return itemResource;
-            case 10:
-                return itemResource;
-            case 11:
-                return itemResource;
-            default:
-                return Item.getItemFromBlock(blockOre);
+    public int quantityDroppedWithBonus(int fortune, Random rand) {
+        if (Configurations.enableFragments) {
+            if (Configurations.FragmentsToIngots)return rand.nextInt(fortune) +1;
+            else return rand.nextInt(fortune + 3) +1;
         }
+        else return 1;
+    }
+
+    @Override
+    public Item getItemDropped(int metadata, Random random, int fortune){
+        if (Configurations.enableFragments) {
+            return itemFragment;
+        }
+        else
+            switch(metadata) {
+                case 9:
+                    return itemResource;
+                case 10:
+                    return itemResource;
+                case 11:
+                    return itemResource;
+                default:
+                    return Item.getItemFromBlock(blockOre);
+            }
     }
 }

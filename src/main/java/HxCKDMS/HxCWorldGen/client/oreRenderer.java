@@ -1,6 +1,7 @@
 package HxCKDMS.HxCWorldGen.client;
 
 import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.proxy.ClientProxy;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -104,6 +105,9 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
 
         if (ClientProxy.renderPass == 0) {
             IIcon icon = block.getIcon(0, 0);
+
+            if (Configurations.forceNormalRendering)
+                tessellator.setColorOpaque(200, 200, 200);
 
             tessellator.addVertexWithUV(min, max, max, icon.getMinU(), icon.getMinV());
             tessellator.addVertexWithUV(max, max, max, icon.getMinU(), icon.getMaxV());

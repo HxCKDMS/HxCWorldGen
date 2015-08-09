@@ -11,7 +11,7 @@ public class TextureHandler {
     private static boolean doSpecial;
 
     public static void preInit() {
-        switch (Config.ResourceSize) {
+        switch (Configurations.ResourceSize) {
             case 16 : size = a; break;
             case 32 : size = b; break;
             case 64 : size = c; break;

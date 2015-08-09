@@ -1,6 +1,7 @@
 package HxCKDMS.HxCWorldGen.world;
 
-import HxCKDMS.HxCWorldGen.libs.Config;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -30,23 +31,22 @@ public class OreGenHandler implements IWorldGenerator {
     public WorldGenMinable getOre (int ore) {
         String oreString; int nodeSize;
         switch (ore) {
-            case 1 : oreString = Config.Tin; break;
-            case 2 : oreString = Config.Silver; break;
-            case 3 : oreString = Config.Lead; break;
-            case 4 : oreString = Config.Nickel; break;
-            case 5 : oreString = Config.Chromium; break;
-            case 6 : oreString = Config.Aluminium; break;
-            case 7 : oreString = Config.Titanium; break;
-            case 8 : oreString = Config.Platinum; break;
-            case 9 : oreString = Config.Aventurine; break;
-            case 10 : oreString = Config.Sapphire; break;
-            case 11 : oreString = Config.Ruby; break;
-            case 12 : oreString = Config.Rutile; break;
-            default : oreString = Config.Copper; break;
+            case 1 : oreString = Configurations.Ores.get("Tin"); break;
+            case 2 : oreString = Configurations.Ores.get("Silver"); break;
+            case 3 : oreString = Configurations.Ores.get("Lead"); break;
+            case 4 : oreString = Configurations.Ores.get("Nickel"); break;
+            case 5 : oreString = Configurations.Ores.get("Chromium"); break;
+            case 6 : oreString = Configurations.Ores.get("Aluminium"); break;
+            case 7 : oreString = Configurations.Ores.get("Titanium"); break;
+            case 8 : oreString = Configurations.Ores.get("Platinum"); break;
+            case 9 : oreString = Configurations.Ores.get("Aventurine"); break;
+            case 10 : oreString = Configurations.Ores.get("Sapphire"); break;
+            case 11 : oreString = Configurations.Ores.get("Ruby"); break;
+            case 12 : oreString = Configurations.Ores.get("Rutile"); break;
+            default : oreString = Configurations.Ores.get("Copper"); break;
         }
-        oreString = oreString.replace("<", "").replace(">", "");
         String[] strings = oreString.split(":");
-        nodeSize = Integer.parseInt(Config.NodeSizes[ore]) * Config.OreNodeMultiplier;
+        nodeSize = Configurations.nodeSizes.get(Reference.ORES[ore].replace("ore", "")) * Configurations.OreNodeSizeMultiplier;
         int blockMeta = Integer.parseInt(strings[2]);
         Block oreBlock = Block.getBlockFromName(strings[0] + ":" + strings[1]);
         return new WorldGenMinable(oreBlock, blockMeta, nodeSize, Blocks.stone);
