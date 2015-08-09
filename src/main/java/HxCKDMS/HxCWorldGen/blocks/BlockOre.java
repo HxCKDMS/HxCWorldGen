@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -169,6 +170,11 @@ public class BlockOre extends Block {
             else return rand.nextInt(fortune + 3) +1;
         }
         else return 1;
+    }
+
+    @Override
+    public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
+        return true;
     }
 
     @Override

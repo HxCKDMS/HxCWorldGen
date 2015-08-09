@@ -53,7 +53,6 @@ ChromiumNugget.name=Chromium Nugget
 AluminiumNugget.name=Aluminium Nugget
 TitaniumNugget.name=Titanium Nugget
 PlatinumNugget.name=Platinum Nugget
-Zirconia.name=Ceramic Zirconia
 
 AventurineFragment.name=Aventurine
 RubyFragment.name=Ruby
@@ -69,8 +68,7 @@ ChromiumChunk.name=Chromium Chunk
 AluminiumChunk.name=Aluminium Chunk
 TitaniumChunk.name=Titanium Chunk
 PlatinumChunk.name=Platinum Chunk
-Zirconia.name=Ceramic Zirconia
 
-AventurineChunk.name=Aventurine
-RubyChunk.name=Ruby
-SapphireChunk.name=Sapphire
+AventurineChunk.name=Aventurine Chunk
+RubyChunk.name=Ruby Chunk
+SapphireChunk.name=Sapphire Chunk
