@@ -44,6 +44,6 @@ public class HxCWorldGen {
     public void registerNewConfigSys(HxCConfig config) {
         config.registerCategory(new Category("General", "General Configs"));
         config.handleConfig(Configurations.class, new File(HxCCore.HxCConfigDir, "HxCWorldGen.cfg"));
-        config.handleConfig(Colours.class, new File("HxCWorldGen_Colours.cfg"));
+        config.handleConfig(Colours.class, new File(HxCCore.HxCConfigDir, "HxCWorldGen_Colours.cfg"));
     }
 }
