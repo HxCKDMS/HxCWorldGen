@@ -13,10 +13,13 @@ public class Configurations {
     public static HashMap<String, Integer> nodeSizes = new LinkedHashMap<>();
 
     @Config.Boolean
-    public static boolean forceNormalRendering = true, enableFragments = true, FragmentsToIngots;
+    public static boolean forceNormalRendering = true, enableFragments = true, enableTinkerMaterials = true, FragmentsToIngots;
 
     @Config.Integer(description = "0 = try to blend with resource pack, 16/32/64 are my resources")
     public static int ResourceSize = 32;
+
+    @Config.Integer
+    public static int TConstructStartingID = 240;
 
     @Config.Integer
     public static int OreNodeSizeMultiplier = 1;

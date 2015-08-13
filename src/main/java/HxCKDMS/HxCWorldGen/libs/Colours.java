@@ -2,6 +2,7 @@ package HxCKDMS.HxCWorldGen.libs;
 
 import HxCKDMS.HxCCore.api.Configuration.Config;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -28,13 +29,21 @@ public class Colours {
         Colours.put("Zirconia", "190, 195, 198");
     }
 
-    private static int[] getColours(String key) {
+    public static int[] getColours(String key) {
         String[] tmp = Colours.get(key).split(", ");
         int[] tmp2 = new int[3];
         for (int i = 0; i < 3; i++) {
             tmp2[i] = Integer.parseInt(tmp[i]);
         }
         return tmp2;
+    }
+
+    public static int getColourFromRGB(int[] rgb) {
+        return getColourFromRGB(rgb[0], rgb[1], rgb[2]);
+    }
+
+    public static int getColourFromRGB(int red, int green, int blue) {
+        return new Color(red, green, blue).getRGB();
     }
 
     public static int[] oreColour(int meta) {

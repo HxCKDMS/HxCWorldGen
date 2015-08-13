@@ -72,3 +72,16 @@ PlatinumChunk.name=Platinum Chunk
 AventurineChunk.name=Aventurine Chunk
 RubyChunk.name=Ruby Chunk
 SapphireChunk.name=Sapphire Chunk
+
+material.tin=Tin
+material.silver=Silver
+material.lead=Lead
+material.nickel=Nickel
+material.chromium=Chromium
+material.aluminium=Aluminium
+material.titanium=Titanium
+material.platinum=Platinum
+material.aventurine=Peridot
+material.ruby=Ruby
+material.sapphire=Sapphire
+material.zirconia=Cubic Zirconia

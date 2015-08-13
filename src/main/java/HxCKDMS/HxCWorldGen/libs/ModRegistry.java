@@ -76,7 +76,7 @@ public class ModRegistry {
             GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), Reference.RESOURCES[i]));
 
         //smelting
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < 12; i++)
             GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
         GameRegistry.addSmelting(new ItemStack(blockOre, 1, 12), new ItemStack(itemResource, 1, 7), 10F);
         for (int i = 0; i < 12; i++)
