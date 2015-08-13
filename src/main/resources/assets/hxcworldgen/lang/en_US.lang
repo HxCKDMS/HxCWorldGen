@@ -67,11 +67,13 @@ NickelChunk.name=Nickel Chunk
 ChromiumChunk.name=Chromium Chunk
 AluminiumChunk.name=Aluminium Chunk
 TitaniumChunk.name=Titanium Chunk
+IlmeniteChunk.name=Ilmenite Chunk
 PlatinumChunk.name=Platinum Chunk
 
 AventurineChunk.name=Aventurine Chunk
 RubyChunk.name=Ruby Chunk
 SapphireChunk.name=Sapphire Chunk
+RutileChunk.name=Rutile Chunk
 
 material.tin=Tin
 material.silver=Silver
