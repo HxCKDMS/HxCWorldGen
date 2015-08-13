@@ -15,6 +15,17 @@ buildscript {
     }
 }
 
+repositories {
+    maven {
+        name "CB Maven FS"
+        url "http://chickenbones.net/maven/"
+    }
+    maven {
+        name "DVS1 Maven FS'"
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+}
+
 apply plugin: 'forge'
 
 sourceCompatibility = JavaVersion.VERSION_1_7
@@ -28,6 +39,10 @@ minecraft {
     version = "1.7.10-10.13.4.1448-1.7.10"
     runDir = "eclipse"
     mappings = "stable_12"
+}
+
+dependencies {
+    compile "tconstruct:TConstruct:1.7.10-1.8.6b.build977:deobf"
 }
 
 processResources

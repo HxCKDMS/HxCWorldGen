@@ -7,8 +7,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import tconstruct.library.TConstructRegistry;
+import tconstruct.smeltery.TinkerSmeltery;
 
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -47,6 +48,7 @@ public class TConstructMessages {
                 else registerZirconia(data);
             }
         }
+        registerTinkerRecipes();
         LogHelper.info("Completed registering Tinkers' Materials", Reference.MOD_NAME);
     }
 
@@ -70,14 +72,7 @@ public class TConstructMessages {
         FMLInterModComms.sendMessage("TConstruct", "addMaterial", newMatTag);
 
         if (!fluids.contains(obs[15])) {
-            try {
-                Class<?> c = Class.forName("tconstruct.smeltery.TinkerSmeltery");
-                Method m = c.getDeclaredMethod("registerFluid", String.class);
-                m.invoke(null, (String) obs[15]);
-            } catch (Exception e) {
-                LogHelper.fatal("A fatal error occurred in registering things to tinkers'.", Reference.MOD_NAME);
-                e.printStackTrace();
-            }
+            TinkerSmeltery.registerFluid((String) obs[15]);
         }
 
         NBTTagCompound newPartBuilderMat = new NBTTagCompound();
@@ -104,7 +99,7 @@ public class TConstructMessages {
         (new ItemStack(ModRegistry.blockStorage, 1, (int)obs[16])).writeToNBT(item);
         tag.setTag("Block", item);
         (new FluidStack(FluidRegistry.getFluid(obs[15] + ".molten"), 144)).writeToNBT(tag);
-        tag.setInteger("Temperature", (int)obs[17]);
+        tag.setInteger("Temperature", (int) obs[17]);
         FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
     }
 
@@ -114,7 +109,7 @@ public class TConstructMessages {
         NBTTagCompound newMatTag = new NBTTagCompound();
         newMatTag.setInteger("Id", ID + (int) obs[0]);
         newMatTag.setString("Name", (String) obs[1]);
-        newMatTag.setInteger("HarvestLevel", (int)obs[2]);
+        newMatTag.setInteger("HarvestLevel", (int) obs[2]);
         newMatTag.setInteger("Durability", (int) obs[3]);
         newMatTag.setInteger("MiningSpeed", (int) obs[4]);
         newMatTag.setInteger("Attack", (int)obs[5]);
@@ -140,7 +135,7 @@ public class TConstructMessages {
         /* This part adds mappigs, so that you can convert items to toolparts in the Part Builder.
            Stone Parts are used as the baseline for what exists */
         NBTTagCompound tag = new NBTTagCompound();
-        tag.setInteger("MaterialId", ID+13);
+        tag.setInteger("MaterialId", ID + 13);
         item = new NBTTagCompound();
         (new ItemStack(ModRegistry.itemResource, 1, 13)).writeToNBT(item);
         tag.setTag("Item", item);
@@ -150,5 +145,71 @@ public class TConstructMessages {
         tag.setTag("Shard", item);
         tag.setInteger("Value", 1);
         FMLInterModComms.sendMessage("TConstruct", "addPartBuilderMaterial", tag);
+    }
+
+    public static void registerTinkerRecipes() {
+        for (int i = 0; i < 9; i++) {
+            ItemStack stack = new ItemStack(ModRegistry.itemResource, 1, i);
+            ItemStack nstack = new ItemStack(ModRegistry.itemFragment, 1, i);
+            FluidStack fstack, nfstack;
+            if (stack.getUnlocalizedName().replace("Ingot", "").equalsIgnoreCase("aluminium")) fstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144);
+            else fstack = new FluidStack(FluidRegistry.getFluid(stack.getUnlocalizedName().replace("Ingot", "").toLowerCase() + ".molten"), 144);
+            if (nstack.getUnlocalizedName().replace("Nugget", "").equalsIgnoreCase("aluminium")) nfstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144/9);
+            else nfstack = new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Nugget", "").toLowerCase() + ".molten"), 144/9);
+            TConstructRegistry.getTableCasting().addCastingRecipe(stack, fstack, new ItemStack(TinkerSmeltery.metalPattern, 1, 0), false, 20, null);
+            TConstructRegistry.getTableCasting().addCastingRecipe(nstack, nfstack, new ItemStack(TinkerSmeltery.metalPattern, 1, 27), false, 20, null);
+        }
+        for (int i = 9; i < 12; i++) {
+            ItemStack stack = new ItemStack(ModRegistry.itemResource, 1, i);
+            ItemStack nstack = new ItemStack(ModRegistry.itemFragment, 1, i);
+            TConstructRegistry.getTableCasting().addCastingRecipe(stack, new FluidStack(FluidRegistry.getFluid(stack.getUnlocalizedName().replace("Gem", "").toLowerCase() + ".molten"), 144), new ItemStack(TinkerSmeltery.metalPattern, 1, 26), false, 20, null);
+            TConstructRegistry.getTableCasting().addCastingRecipe(nstack, new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Fragment", "").toLowerCase() + ".molten"), 144/9), new ItemStack(TinkerSmeltery.metalPattern, 1, 27), false, 20, null);
+        }
+
+        NBTTagCompound tag;
+        NBTTagCompound item;
+        for (int i = 0; i < 12; i++) {
+            tag = new NBTTagCompound();
+            item = new NBTTagCompound();
+            ItemStack stack = new ItemStack(ModRegistry.itemOreChunk, 1, i);
+            stack.writeToNBT(item);
+            tag.setTag("Item", item);
+            item = new NBTTagCompound();
+            (new ItemStack(ModRegistry.blockStorage, 1, i)).writeToNBT(item);
+            tag.setTag("Block", item);
+            String fluid;
+            if (stack.getUnlocalizedName().replace("Chunk", "").equalsIgnoreCase("aluminium")) fluid = "aluminum.molten";
+            else fluid = stack.getUnlocalizedName().replace("Chunk", "").toLowerCase() + ".molten";
+            (new FluidStack(FluidRegistry.getFluid(fluid), 72)).writeToNBT(tag);
+            tag.setInteger("Temperature", 400);
+            FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+
+            tag = new NBTTagCompound();
+            item = new NBTTagCompound();
+
+            stack = new ItemStack(ModRegistry.itemFragment, 1, i);
+            stack.writeToNBT(item);
+            tag.setTag("Item", item);
+            item = new NBTTagCompound();
+            (new ItemStack(ModRegistry.blockStorage, 1, i)).writeToNBT(item);
+            tag.setTag("Block", item);
+            if (stack.getUnlocalizedName().replace("Nugget", "").replace("Fragment", "").equalsIgnoreCase("aluminium"))fluid = "aluminum.molten";
+            else fluid = stack.getUnlocalizedName().replace("Nugget", "").replace("Fragment", "").toLowerCase() + ".molten";
+            (new FluidStack(FluidRegistry.getFluid(fluid), 144/9)).writeToNBT(tag);
+            tag.setInteger("Temperature", 400);
+            FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+        }
+
+        tag = new NBTTagCompound();
+        item = new NBTTagCompound();
+        ItemStack stack = new ItemStack(ModRegistry.itemOreChunk, 1, 12);
+        stack.writeToNBT(item);
+        tag.setTag("Item", item);
+        item = new NBTTagCompound();
+        (new ItemStack(ModRegistry.blockStorage, 1, 7)).writeToNBT(item);
+        tag.setTag("Block", item);
+        (new FluidStack(FluidRegistry.getFluid("titanium.molten"), 72)).writeToNBT(tag);
+        tag.setInteger("Temperature", 400);
+        FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
     }
 }

@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["karelmikie3";"DrZed"],
   "credits": "karelmikie3, DrZed",
-  "logoFile": "",
+  "logoFile": "assets/hxcenchants/textures/HxCWorldGen.jpeg",
   "screenshots": [],
   "dependencies": []
 }
