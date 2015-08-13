@@ -9,10 +9,14 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class TConstructMessages {
     private static int ID = Configurations.TConstructStartingID;
+
+    private static final List<String> fluids = Arrays.asList("aluminum", "copper", "tin", "silver", "lead", "nickel", "platinum");
 
     public static void registerTinkerMats() {
         LogHelper.info("Tinkers' Construct Detected! Registering Tinkers' Materials!", Reference.MOD_NAME);
@@ -35,9 +39,9 @@ public class TConstructMessages {
                 data[12] = Float.parseFloat(mat.get("Bow_ProjectileSpeed"));
                 data[13] = Float.parseFloat(mat.get("Projectile_Mass"));
                 data[14] = Float.parseFloat(mat.get("Projectile_Fragility"));
-                if (!mat.get("Name").equalsIgnoreCase("Aluminium"))data[15] = mat.get("Name".toLowerCase());
-                else data[15] = "Aluminum";
-                data[16] = mat.get("Id") + 1;
+                if (!mat.get("Name").equalsIgnoreCase("Aluminium"))data[15] = mat.get("Name").toLowerCase();
+                else data[15] = "aluminum";
+                data[16] = Integer.parseInt(mat.get("Id")) + 1;
                 data[17] = Integer.parseInt(mat.get("Temperature"));
                 if (!mat.get("Name").equalsIgnoreCase("Zirconia"))registerTinkerMat(data);
                 else registerZirconia(data);
@@ -65,14 +69,24 @@ public class TConstructMessages {
         newMatTag.setFloat("Projectile_Fragility", (float) obs[14]);
         FMLInterModComms.sendMessage("TConstruct", "addMaterial", newMatTag);
 
-        try {
-            Class<?> c = Class.forName("TinkerSmeltery.class");
-            Method m = c.getDeclaredMethod("registerFluid", String.class);
-            m.invoke(null, (String)obs[15]);
-        } catch (Exception e) {
-            LogHelper.warn("An error occurred in registering things to tinkers'.", Reference.MOD_NAME);
-            e.printStackTrace();
+        if (!fluids.contains(obs[15])) {
+            try {
+                Class<?> c = Class.forName("tconstruct.smeltery.TinkerSmeltery");
+                Method m = c.getDeclaredMethod("registerFluid", String.class);
+                m.invoke(null, (String) obs[15]);
+            } catch (Exception e) {
+                LogHelper.fatal("A fatal error occurred in registering things to tinkers'.", Reference.MOD_NAME);
+                e.printStackTrace();
+            }
         }
+
+        NBTTagCompound newPartBuilderMat = new NBTTagCompound();
+        newPartBuilderMat.setInteger("MaterialId", ID + (int) obs[0]);
+        newPartBuilderMat.setInteger("Value", 1);
+        NBTTagCompound item = new NBTTagCompound();
+        (new ItemStack(ModRegistry.itemResource, 1, (int) obs[16])).writeToNBT(item);
+        newPartBuilderMat.setTag("Item", item);
+        FMLInterModComms.sendMessage("TConstruct", "addMaterialItem", newPartBuilderMat);
 
 /* This part adds Smeltery casting. Give it a liquid, and which material to output. BAM toolpart casting. */
         NBTTagCompound tag = new NBTTagCompound();
@@ -83,7 +97,7 @@ public class TConstructMessages {
 
 /* Smelting Block*/
         tag = new NBTTagCompound();
-        NBTTagCompound item = new NBTTagCompound();
+        item = new NBTTagCompound();
         (new ItemStack(ModRegistry.itemResource, 1, (int)obs[16])).writeToNBT(item);
         tag.setTag("Item", item);
         item = new NBTTagCompound();

@@ -21,8 +21,8 @@ public class Colours {
         Colours.put("Ilmenite", "133, 95, 90");
         Colours.put("Platinum", "160, 250, 255");
         Colours.put("Aventurine", "0, 160, 120");
-        Colours.put("Sapphire", "200, 10, 10");
-        Colours.put("Ruby", "30, 120, 200");
+        Colours.put("Sapphire", "30, 120, 200");
+        Colours.put("Ruby", "200, 10, 10");
         Colours.put("Rutile", "100, 56, 18");
         Colours.put("Titanium", "190, 210, 215");
         Colours.put("Zircon", "150, 140, 130");
@@ -58,8 +58,8 @@ public class Colours {
             case 7 : colours = getColours("Ilmenite"); break;
             case 8 : colours = getColours("Platinum"); break;
             case 9 : colours = getColours("Aventurine"); break;
-            case 10 : colours = getColours("Sapphire"); break;
-            case 11 : colours = getColours("Ruby"); break;
+            case 10 : colours = getColours("Ruby"); break;
+            case 11 : colours = getColours("Sapphire"); break;
             case 12 : colours = getColours("Rutile"); break;
             default : colours = getColours("Copper"); break;
         }
@@ -77,8 +77,8 @@ public class Colours {
             case 7 : colours = getColours("Ilmenite"); break;
             case 8 : colours = getColours("Platinum"); break;
             case 9 : colours = getColours("Aventurine"); break;
-            case 10 : colours = getColours("Sapphire"); break;
-            case 11 : colours = getColours("Ruby"); break;
+            case 10 : colours = getColours("Ruby"); break;
+            case 11 : colours = getColours("Sapphire"); break;
             case 12 : colours = getColours("Zircon"); break;
             default : colours = getColours("Copper"); break;
         }
@@ -96,8 +96,8 @@ public class Colours {
             case 7 : colours = getColours("Titanium"); break;
             case 8 : colours = getColours("Platinum"); break;
             case 9 : colours = getColours("Aventurine"); break;
-            case 10 : colours = getColours("Sapphire"); break;
-            case 11 : colours = getColours("Ruby"); break;
+            case 10 : colours = getColours("Ruby"); break;
+            case 11 : colours = getColours("Sapphire"); break;
             case 12 : colours = getColours("Zircon"); break;
             case 13 : colours = getColours("Zirconia"); break;
             default : colours = getColours("Copper"); break;
