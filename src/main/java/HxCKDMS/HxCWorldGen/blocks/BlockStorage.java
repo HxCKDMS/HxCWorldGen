@@ -71,6 +71,7 @@ public class BlockStorage extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings("unchecked")
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
         for(int i = 0; i < 13; i++){
             list.add(new ItemStack(item, 1, i));

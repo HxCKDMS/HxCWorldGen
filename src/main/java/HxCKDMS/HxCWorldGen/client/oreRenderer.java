@@ -12,10 +12,10 @@ import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
 public class oreRenderer implements ISimpleBlockRenderingHandler {
-    private IIcon stoneIcon = Blocks.stone.getIcon(0, 0);
-
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
+        IIcon stoneIcon = Blocks.stone.getIcon(0, 0);
+
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 
