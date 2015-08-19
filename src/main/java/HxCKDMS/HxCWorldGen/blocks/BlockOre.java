@@ -80,7 +80,7 @@ public class BlockOre extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        icons = new IIcon[1];
+        icons = new IIcon[6];
         icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
     }
 
