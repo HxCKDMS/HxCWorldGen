@@ -54,37 +54,37 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, -1.0F, 0.0F);
-        renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, 0));
+        renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
-        renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, 0));
+        renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, -1.0F);
-        renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, 0));
+        renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(0.0F, 0.0F, 1.0F);
-        renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, 0));
+        renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(-1.0F, 0.0F, 0.0F);
-        renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, 0));
+        renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, 0));
         tessellator.draw();
 
         tessellator.startDrawingQuads();
         tessellator.setColorOpaque(Colours.oreColour(metadata)[0], Colours.oreColour(metadata)[1], Colours.oreColour(metadata)[2]);
         tessellator.setNormal(1.0F, 0.0F, 0.0F);
-        renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, 0));
+        renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, 0));
         tessellator.draw();
 
         GL11.glTranslatef(0.5F, 0.5F, 0.5F);
@@ -97,7 +97,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
     }
 
     public static void render(Block block, int x, int y, int z, int meta, RenderBlocks renderer){
-        IIcon icon = block.getIcon(1, 0);
+        IIcon icon = block.getIcon(0, 0);
         renderer.renderStandardBlock(Blocks.stone, x, y, z);
         renderer.setOverrideBlockTexture(icon);
         renderer.renderStandardBlockWithColorMultiplier(Blocks.stone, x, y, z, Colours.oreColour(meta)[0] / 255F, Colours.oreColour(meta)[1] / 255F, Colours.oreColour(meta)[2] / 255F);
