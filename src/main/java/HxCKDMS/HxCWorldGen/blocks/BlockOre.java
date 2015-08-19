@@ -3,7 +3,6 @@ package HxCKDMS.HxCWorldGen.blocks;
 import HxCKDMS.HxCWorldGen.libs.Configurations;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
-import HxCKDMS.HxCWorldGen.proxy.ClientProxy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -14,9 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.List;
 import java.util.Random;
@@ -54,44 +51,6 @@ public class BlockOre extends Block {
         miningLevel();
     }
 
-    @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    /**
-     * Forces torch placement on top.
-     */
-    @Override
-    public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
-        return true;
-    }
-
-    /**
-     * Makes the block properly interact with AO.
-     */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean isBlockNormalCube() {
-        return true;
-    }
-
-    /**
-     * Forces Redstone conduction.
-     */
-    @Override
-    public boolean shouldCheckWeakPower(IBlockAccess world, int x, int y, int z, int side) {
-        return true;
-    }
-
-    /**
-     * Forces torch placement on sides.
-     */
-    @Override
-    public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side) {
-        return true;
-    }
-
     private void miningLevel(){
         //stone
         setHarvestLevel("pickaxe", 1, 0);
@@ -118,31 +77,11 @@ public class BlockOre extends Block {
         return Reference.ORE_RENDER_ID;
     }
 
-    /**
-     * Makes the block render on both passes.
-     */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderBlockPass() {
-        return 1;
-    }
-
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        icons = new IIcon[7];
-        for (int i = 0; i < 6; i++) icons[i] = iconRegister.registerIcon("minecraft:stone");
-        icons[6] = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
-    }
-
-    /**
-     * Makes the block render on both passes.
-     */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean canRenderInPass(int pass) {
-        ClientProxy.renderPass = pass;
-        return true;
+        icons = new IIcon[1];
+        icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
     }
 
     @Override
