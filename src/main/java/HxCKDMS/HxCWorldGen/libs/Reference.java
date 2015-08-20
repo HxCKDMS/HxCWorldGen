@@ -10,6 +10,7 @@ public class Reference {
     public static final String SERVER_PROXY_CLASS = "HxCKDMS.HxCWorldGen.proxy.ServerProxy";
 
     public static int ORE_RENDER_ID = 0;
+    public static int BLOCK_RENDER_ID = 1;
 
     public static final String[] ORES = new String[]{"oreCopper", "oreTin", "oreSilver", "oreLead", "oreNickel", "oreChromium",
             "oreAluminium", "oreTitanium", "orePlatinum", "oreAventurine", "oreRuby", "oreSapphire", "oreRutile"};

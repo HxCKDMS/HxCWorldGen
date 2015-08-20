@@ -65,25 +65,6 @@ public class Colours {
         }
         return colours;
     }
-    public static int[] blockColour(int meta) {
-        int[] colours;
-        switch (meta) {
-            case 1 : colours = getColours("Tin"); break;
-            case 2 : colours = getColours("Silver"); break;
-            case 3 : colours = getColours("Lead"); break;
-            case 4 : colours = getColours("Nickel"); break;
-            case 5 : colours = getColours("Chromium"); break;
-            case 6 : colours = getColours("Aluminium"); break;
-            case 7 : colours = getColours("Ilmenite"); break;
-            case 8 : colours = getColours("Platinum"); break;
-            case 9 : colours = getColours("Aventurine"); break;
-            case 10 : colours = getColours("Ruby"); break;
-            case 11 : colours = getColours("Sapphire"); break;
-            case 12 : colours = getColours("Zircon"); break;
-            default : colours = getColours("Copper"); break;
-        }
-        return colours;
-    }
     public static int[] resourceColour(int meta) {
         int[] colours;
         switch (meta) {

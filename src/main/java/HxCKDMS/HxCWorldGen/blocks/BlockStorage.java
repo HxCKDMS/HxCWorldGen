@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
-import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -37,9 +37,8 @@ public class BlockStorage extends Block {
     private IIcon[] icons;
 
     @Override
-    public int getRenderColor(int meta) {
-        int[] colours = Colours.blockColour(meta);
-        return getIntFromColor(colours[0], colours[1], colours[2]);
+    public int getRenderType() {
+        return Reference.ORE_RENDER_ID;
     }
 
     public BlockStorage(Material material, CreativeTabs creativeTabs) {

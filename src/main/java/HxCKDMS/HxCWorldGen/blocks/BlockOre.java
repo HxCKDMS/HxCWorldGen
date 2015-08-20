@@ -74,7 +74,7 @@ public class BlockOre extends Block {
 
     @Override
     public int getRenderType() {
-        return Reference.ORE_RENDER_ID;
+        return Reference.BLOCK_RENDER_ID;
     }
 
     @Override
