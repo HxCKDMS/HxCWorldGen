@@ -6,7 +6,6 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
@@ -14,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class BlockRenderer implements ISimpleBlockRenderingHandler {
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-        IIcon icon = Blocks.iron_block.getIcon(0, 0);
+        IIcon icon = block.getIcon(0, metadata);
 
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -65,12 +64,8 @@ public class BlockRenderer implements ISimpleBlockRenderingHandler {
     }
 
     public static void render(Block block, int x, int y, int z, int meta, RenderBlocks renderer){
-        IIcon icon = block.getIcon(0, 0);
-        renderer.renderStandardBlock(Blocks.iron_block, x, y, z);
-        renderer.setOverrideBlockTexture(icon);
-        renderer.renderStandardBlockWithColorMultiplier(Blocks.iron_block, x, y, z, Colours.resourceColour(meta)[0] / 255F, Colours.resourceColour(meta)[1] / 255F, Colours.resourceColour(meta)[2] / 255F);
-        renderer.clearOverrideBlockTexture();
-}
+        renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, Colours.resourceColour(meta)[0] / 255F, Colours.resourceColour(meta)[1] / 255F, Colours.resourceColour(meta)[2] / 255F);
+    }
 
     @Override
     public boolean shouldRender3DInInventory(int modelId) {
