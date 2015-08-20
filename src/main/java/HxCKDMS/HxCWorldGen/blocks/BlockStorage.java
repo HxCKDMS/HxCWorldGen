@@ -38,7 +38,7 @@ public class BlockStorage extends Block {
 
     @Override
     public int getRenderType() {
-        return Reference.ORE_RENDER_ID;
+        return Reference.BLOCK_RENDER_ID;
     }
 
     public BlockStorage(Material material, CreativeTabs creativeTabs) {
