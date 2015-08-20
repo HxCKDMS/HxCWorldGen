@@ -161,7 +161,7 @@ public class TConstructMessages {
             else bfstack = new FluidStack(FluidRegistry.getFluid(bstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 144*9);
             TConstructRegistry.getTableCasting().addCastingRecipe(stack, fstack, new ItemStack(TinkerSmeltery.metalPattern, 1, 0), false, 20, null);
             TConstructRegistry.getTableCasting().addCastingRecipe(nstack, nfstack, new ItemStack(TinkerSmeltery.metalPattern, 1, 27), false, 20, null);
-            TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, bfstack, null, false, 20, null);
+            TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, bfstack, null, false, 120, null);
         }
         for (int i = 9; i < 12; i++) {
             ItemStack stack = new ItemStack(ModRegistry.itemResource, 1, i);
@@ -169,7 +169,7 @@ public class TConstructMessages {
             ItemStack bstack = new ItemStack(ModRegistry.blockStorage, 1, i);
             TConstructRegistry.getTableCasting().addCastingRecipe(stack, new FluidStack(FluidRegistry.getFluid(stack.getUnlocalizedName().replace("Gem", "").toLowerCase() + ".molten"), 144), new ItemStack(TinkerSmeltery.metalPattern, 1, 26), false, 20, null);
             TConstructRegistry.getTableCasting().addCastingRecipe(nstack, new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Fragment", "").toLowerCase() + ".molten"), 144/9), new ItemStack(TinkerSmeltery.metalPattern, 1, 27), false, 20, null);
-            TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 144/9), null, false, 20, null);
+            TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, new FluidStack(FluidRegistry.getFluid(bstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 144/9), null, false, 20, null);
         }
 
         NBTTagCompound tag;
