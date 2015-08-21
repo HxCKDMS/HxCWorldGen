@@ -58,9 +58,9 @@ public class ModRegistry {
 
     private static void registerItems(){
         GameRegistry.registerItem(itemResource, "itemResource");
-        GameRegistry.registerItem(itemOreChunk, "itemOreChunk");
-        if (Configurations.enableFragments)
-            GameRegistry.registerItem(itemFragment, "itemFragment");
+        GameRegistry.registerItem(itemFragment, "itemFragment");
+        if (Configurations.enableOreChunks)
+            GameRegistry.registerItem(itemOreChunk, "itemOreChunk");
     }
 
     private static void registerRecipes(){
@@ -81,7 +81,7 @@ public class ModRegistry {
             GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
         GameRegistry.addSmelting(new ItemStack(blockOre, 1, 12), new ItemStack(itemResource, 1, 7), 10F);
 
-        if (Configurations.enableFragments) {
+        if (Configurations.enableOreChunks) {
             for (int i = 0; i < 12; i++)
                 GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, i), new ItemStack(itemFragment, 6, i), 10F);
             GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, 12), new ItemStack(itemFragment, 6, 7), 10F);

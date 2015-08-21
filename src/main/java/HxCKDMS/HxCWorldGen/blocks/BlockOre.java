@@ -105,7 +105,7 @@ public class BlockOre extends Block {
 
     @Override
     public int quantityDroppedWithBonus(int fortune, Random rand) {
-        if (Configurations.enableFragments) {
+        if (Configurations.enableOreChunks) {
             if (Configurations.FragmentsToIngots)return rand.nextInt(fortune) +1;
             else return rand.nextInt(fortune + 3) +1;
         }
@@ -119,7 +119,7 @@ public class BlockOre extends Block {
 
     @Override
     public Item getItemDropped(int metadata, Random random, int fortune){
-        if (Configurations.enableFragments) {
+        if (Configurations.enableOreChunks) {
             return itemOreChunk;
         }
         else
