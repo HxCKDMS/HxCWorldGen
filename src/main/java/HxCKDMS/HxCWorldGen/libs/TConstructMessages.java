@@ -174,22 +174,25 @@ public class TConstructMessages {
 
         NBTTagCompound tag;
         NBTTagCompound item;
+        ItemStack stack;
+        String fluid;
         for (int i = 0; i < 12; i++) {
-            tag = new NBTTagCompound();
-            item = new NBTTagCompound();
-            ItemStack stack = new ItemStack(ModRegistry.itemOreChunk, 1, i);
-            stack.writeToNBT(item);
-            tag.setTag("Item", item);
-            item = new NBTTagCompound();
-            (new ItemStack(ModRegistry.blockStorage, 1, i)).writeToNBT(item);
-            tag.setTag("Block", item);
-            String fluid;
-            if (stack.getUnlocalizedName().replace("Chunk", "").equalsIgnoreCase("aluminium")) fluid = "aluminum.molten";
-            else fluid = stack.getUnlocalizedName().replace("Chunk", "").toLowerCase() + ".molten";
-            (new FluidStack(FluidRegistry.getFluid(fluid), 144)).writeToNBT(tag);
-            tag.setInteger("Temperature", 400);
-            FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
-
+            if (Configurations.enableFragments) {
+                tag = new NBTTagCompound();
+                item = new NBTTagCompound();
+                stack = new ItemStack(ModRegistry.itemOreChunk, 1, i);
+                stack.writeToNBT(item);
+                tag.setTag("Item", item);
+                item = new NBTTagCompound();
+                (new ItemStack(ModRegistry.blockStorage, 1, i)).writeToNBT(item);
+                tag.setTag("Block", item);
+                if (stack.getUnlocalizedName().replace("Chunk", "").equalsIgnoreCase("aluminium"))
+                    fluid = "aluminum.molten";
+                else fluid = stack.getUnlocalizedName().replace("Chunk", "").toLowerCase() + ".molten";
+                (new FluidStack(FluidRegistry.getFluid(fluid), 144)).writeToNBT(tag);
+                tag.setInteger("Temperature", 400);
+                FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+            }
             tag = new NBTTagCompound();
             item = new NBTTagCompound();
 
@@ -206,16 +209,18 @@ public class TConstructMessages {
             FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
         }
 
-        tag = new NBTTagCompound();
-        item = new NBTTagCompound();
-        ItemStack stack = new ItemStack(ModRegistry.itemOreChunk, 1, 12);
-        stack.writeToNBT(item);
-        tag.setTag("Item", item);
-        item = new NBTTagCompound();
-        (new ItemStack(ModRegistry.blockStorage, 1, 7)).writeToNBT(item);
-        tag.setTag("Block", item);
-        (new FluidStack(FluidRegistry.getFluid("titanium.molten"), 144)).writeToNBT(tag);
-        tag.setInteger("Temperature", 400);
-        FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+        if (Configurations.enableFragments) {
+            tag = new NBTTagCompound();
+            item = new NBTTagCompound();
+            stack = new ItemStack(ModRegistry.itemOreChunk, 1, 12);
+            stack.writeToNBT(item);
+            tag.setTag("Item", item);
+            item = new NBTTagCompound();
+            (new ItemStack(ModRegistry.blockStorage, 1, 7)).writeToNBT(item);
+            tag.setTag("Block", item);
+            (new FluidStack(FluidRegistry.getFluid("titanium.molten"), 144)).writeToNBT(tag);
+            tag.setInteger("Temperature", 400);
+            FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+        }
     }
 }
