@@ -41,7 +41,7 @@ import static HxCKDMS.HxCWorldGen.libs.ModRegistry.*;
 
 public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
+    private IIcon icon;
 
     public BlockOre(Material material, CreativeTabs creativeTabs) {
         super(material);
@@ -80,13 +80,12 @@ public class BlockOre extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        icons = new IIcon[6];
-        icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
+        icon = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
     }
 
     @Override
     public IIcon getIcon(int side, int metadata) {
-        return icons[side];
+        return icon;
     }
 
     @Override
