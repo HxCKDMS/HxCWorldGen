@@ -17,7 +17,7 @@ public class Colours {
         Colours.put("Lead", "160, 150, 160");
         Colours.put("Nickel", "200, 200, 152");
         Colours.put("Chromium", "210, 250, 255");
-        Colours.put("Aluminium", "250, 250, 255");
+        Colours.put("Aluminium", "235, 235, 240");
         Colours.put("Ilmenite", "133, 95, 90");
         Colours.put("Platinum", "160, 250, 255");
         Colours.put("Aventurine", "0, 160, 120");

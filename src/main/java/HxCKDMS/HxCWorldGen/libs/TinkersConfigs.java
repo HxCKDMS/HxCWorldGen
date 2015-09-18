@@ -23,7 +23,7 @@ public class TinkersConfigs {
         TinData.put("Name", "Tin"); // string
         TinData.put("HarvestLevel", "1"); //int
         TinData.put("Durability", "250"); //int
-        TinData.put("MiningSpeed", "100"); //int
+        TinData.put("MiningSpeed", "400"); //int
         TinData.put("Attack", "2"); //int
         TinData.put("HandleModifier", "0.9"); //float
         TinData.put("Reinforced", "0"); //int
@@ -41,7 +41,7 @@ public class TinkersConfigs {
         SilverData.put("Name", "Silver");
         SilverData.put("HarvestLevel", "2");
         SilverData.put("Durability", "450");
-        SilverData.put("MiningSpeed", "250");
+        SilverData.put("MiningSpeed", "350");
         SilverData.put("Attack", "1");
         SilverData.put("HandleModifier", "0.2");
         SilverData.put("Reinforced", "0");
@@ -77,7 +77,7 @@ public class TinkersConfigs {
         NickelData.put("Name", "Nickel");
         NickelData.put("HarvestLevel", "3");
         NickelData.put("Durability", "750");
-        NickelData.put("MiningSpeed", "250");
+        NickelData.put("MiningSpeed", "750");
         NickelData.put("Attack", "3");
         NickelData.put("HandleModifier", "1.5");
         NickelData.put("Reinforced", "1");
@@ -95,7 +95,7 @@ public class TinkersConfigs {
         ChromiumData.put("Name", "Chromium");
         ChromiumData.put("HarvestLevel", "3");
         ChromiumData.put("Durability", "2000");
-        ChromiumData.put("MiningSpeed", "300");
+        ChromiumData.put("MiningSpeed", "600");
         ChromiumData.put("Attack", "3");
         ChromiumData.put("HandleModifier", "2.5");
         ChromiumData.put("Reinforced", "2");
@@ -112,7 +112,7 @@ public class TinkersConfigs {
         AluminiumData.put("Id", "5");
         AluminiumData.put("Name", "Aluminium");
         AluminiumData.put("HarvestLevel", "2");
-        AluminiumData.put("Durability", "550");
+        AluminiumData.put("Durability", "500");
         AluminiumData.put("MiningSpeed", "225");
         AluminiumData.put("Attack", "1");
         AluminiumData.put("HandleModifier", "1.1");
@@ -120,7 +120,7 @@ public class TinkersConfigs {
         AluminiumData.put("Stonebound", "0");
         AluminiumData.put("Style", "gray");
         AluminiumData.put("Color", "0x00000000");
-        AluminiumData.put("Bow_DrawSpeed", "300");
+        AluminiumData.put("Bow_DrawSpeed", "500");
         AluminiumData.put("Bow_ProjectileSpeed", "1.0");
         AluminiumData.put("Projectile_Mass", "0.4");
         AluminiumData.put("Projectile_Fragility", "0.6");
@@ -131,7 +131,7 @@ public class TinkersConfigs {
         TitaniumData.put("Name", "Titanium");
         TitaniumData.put("HarvestLevel", "5");
         TitaniumData.put("Durability", "2500");
-        TitaniumData.put("MiningSpeed", "250");
+        TitaniumData.put("MiningSpeed", "550");
         TitaniumData.put("Attack", "3");
         TitaniumData.put("HandleModifier", "2.5");
         TitaniumData.put("Reinforced", "3");
@@ -149,7 +149,7 @@ public class TinkersConfigs {
         PlatinumData.put("Name", "Platinum");
         PlatinumData.put("HarvestLevel", "3");
         PlatinumData.put("Durability", "800");
-        PlatinumData.put("MiningSpeed", "400");
+        PlatinumData.put("MiningSpeed", "1200");
         PlatinumData.put("Attack", "3");
         PlatinumData.put("HandleModifier", "1.5");
         PlatinumData.put("Reinforced", "1");
@@ -165,9 +165,9 @@ public class TinkersConfigs {
         AventurineData.put("Enabled", "true");
         AventurineData.put("Id", "8");
         AventurineData.put("Name", "Aventurine");
-        AventurineData.put("HarvestLevel", "3");
+        AventurineData.put("HarvestLevel", "4");
         AventurineData.put("Durability", "3000");
-        AventurineData.put("MiningSpeed", "400");
+        AventurineData.put("MiningSpeed", "1200");
         AventurineData.put("Attack", "3");
         AventurineData.put("HandleModifier", "2.0");
         AventurineData.put("Reinforced", "2");
@@ -184,9 +184,9 @@ public class TinkersConfigs {
         RubyData.put("Id", "9");
         RubyData.put("Name", "Ruby");
         RubyData.put("HarvestLevel", "3");
-        RubyData.put("Durability", "2000");
-        RubyData.put("MiningSpeed", "400");
-        RubyData.put("Attack", "3");
+        RubyData.put("Durability", "2500");
+        RubyData.put("MiningSpeed", "1600");
+        RubyData.put("Attack", "5");
         RubyData.put("HandleModifier", "2.0");
         RubyData.put("Reinforced", "2");
         RubyData.put("Stonebound", "0");
@@ -201,11 +201,11 @@ public class TinkersConfigs {
         SapphireData.put("Enabled", "true");
         SapphireData.put("Id", "10");
         SapphireData.put("Name", "Sapphire");
-        SapphireData.put("HarvestLevel", "3");
+        SapphireData.put("HarvestLevel", "4");
         SapphireData.put("Durability", "2000");
-        SapphireData.put("MiningSpeed", "400");
+        SapphireData.put("MiningSpeed", "1200");
         SapphireData.put("Attack", "3");
-        SapphireData.put("HandleModifier", "2.0");
+        SapphireData.put("HandleModifier", "2.5");
         SapphireData.put("Reinforced", "2");
         SapphireData.put("Stonebound", "0");
         SapphireData.put("Style", "green");
@@ -221,8 +221,8 @@ public class TinkersConfigs {
         ZirconiaData.put("Name", "Zirconia");
         ZirconiaData.put("HarvestLevel", "6");
         ZirconiaData.put("Durability", "3500");
-        ZirconiaData.put("MiningSpeed", "400");
-        ZirconiaData.put("Attack", "4");
+        ZirconiaData.put("MiningSpeed", "1400");
+        ZirconiaData.put("Attack", "5");
         ZirconiaData.put("HandleModifier", "3.0");
         ZirconiaData.put("Reinforced", "5");
         ZirconiaData.put("Stonebound", "0");
