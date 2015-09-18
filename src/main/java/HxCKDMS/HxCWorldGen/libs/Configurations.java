@@ -12,10 +12,13 @@ public class Configurations {
     @Config.Map
     public static HashMap<String, Integer> nodeSizes = new LinkedHashMap<>();
 
-    @Config.Boolean
-    public static boolean enableOreChunks = true, enableTinkerMaterials = true, FragmentsToIngots;
+    @Config.String
+    public static String oreResource = "ore";
 
-    @Config.Integer(description = "0 = try to blend with resource pack, 16/32/64 are my resources")
+    @Config.Boolean
+    public static boolean enableOreChunks = true, enableTinkerMaterials = true, FragmentsToIngots, tryToBlendIn;
+
+    @Config.Integer(description = "16/32/64 are my resources")
     public static int ResourceSize = 32;
 
     @Config.Integer
