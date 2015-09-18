@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 
 import java.util.List;
 
-public class ItemOreChunk extends Item {
+public class ItemDust extends Item {
 /**
  0 = Copper
  1 = Tin
@@ -26,10 +26,10 @@ public class ItemOreChunk extends Item {
  9 = Aventurine
  10 = Ruby
  11 = Sapphire
- 12 = Rutile
+ 12 = Zircon
  **/
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
+    private IIcon icon;
 
     @Override
     public int getColorFromItemStack(ItemStack stack, int meta) {
@@ -37,7 +37,7 @@ public class ItemOreChunk extends Item {
         return getIntFromColor(colors[0], colors[1], colors[2]);
     }
 
-    public ItemOreChunk(CreativeTabs creativeTabs){
+    public ItemDust(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
         setMaxDurability(0);
@@ -48,22 +48,22 @@ public class ItemOreChunk extends Item {
         String name;
 
         switch(itemStack.getCurrentDurability()){
-            case 0: name = "CopperChunk"; break;
-            case 1: name = "TinChunk"; break;
-            case 2: name = "SilverChunk"; break;
-            case 3: name = "LeadChunk"; break;
-            case 4: name = "NickelChunk"; break;
-            case 5: name = "ChromiumChunk"; break;
-            case 6: name = "AluminiumChunk"; break;
-            case 7: name = "IlmeniteChunk"; break;
-            case 8: name = "PlatinumChunk"; break;
-            case 9: name = "AventurineChunk"; break;
-            case 10: name = "RubyChunk"; break;
-            case 11: name = "SapphireChunk"; break;
-            case 12: name = "RutileChunk"; break;
+            case 0: name = "CopperDust"; break;
+            case 1: name = "TinDust"; break;
+            case 2: name = "SilverDust"; break;
+            case 3: name = "LeadDust"; break;
+            case 4: name = "NickelDust"; break;
+            case 5: name = "ChromiumDust"; break;
+            case 6: name = "AluminiumDust"; break;
+            case 7: name = "IlmeniteDust"; break;
+            case 8: name = "PlatinumDust"; break;
+            case 9: name = "AventurineDust"; break;
+            case 10: name = "RubyDust"; break;
+            case 11: name = "SapphireDust"; break;
+            case 12: name = "RutileDust"; break;
+            case 13: name = "ZirconiumDust"; break;
             default: name = "error"; break;
         }
-
         return name;
     }
 
@@ -75,20 +75,19 @@ public class ItemOreChunk extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[13];
-        for (int i = 0; i < 13; i++) icons[i] = iconRegister.registerIcon(TextureHandler.getTexturePath("chunk"));
+        icon = iconRegister.registerIcon(TextureHandler.getTexturePath("dust"));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int metadata){
-        return icons[metadata];
+        return icon;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 13; i++){
+        for(int i = 0; i < 14; i++){
             list.add(new ItemStack(item, 1, i));
         }
     }

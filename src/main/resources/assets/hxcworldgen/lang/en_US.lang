@@ -87,3 +87,20 @@ material.aventurine=Peridot
 material.ruby=Ruby
 material.sapphire=Sapphire
 material.zirconia=Cubic Zirconia
+
+CopperDust.name=Copper Dust
+TinDust.name=Tin Dust
+SilverDust.name=Silver Dust
+LeadDust.name=Lead Dust
+NickelDust.name=Nickel Dust
+ChromiumDust.name=Chromium Dust
+AluminiumDust.name=Aluminium Dust
+TitaniumDust.name=Titanium Dust
+IlmeniteDust.name=Ilmenite Dust
+PlatinumDust.name=Platinum Dust
+ZirconiumDust.name=Zirconium Dust
+
+AventurineDust.name=Aventurine Dust
+RubyDust.name=Ruby Dust
+SapphireDust.name=Sapphire Dust
+RutileDust.name=Rutile Dust

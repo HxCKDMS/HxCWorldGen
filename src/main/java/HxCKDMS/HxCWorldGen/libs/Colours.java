@@ -47,42 +47,39 @@ public class Colours {
     }
 
     public static int[] oreColour(int meta) {
-        int[] colours;
         switch (meta) {
-            case 1 : colours = getColours("Tin"); break;
-            case 2 : colours = getColours("Silver"); break;
-            case 3 : colours = getColours("Lead"); break;
-            case 4 : colours = getColours("Nickel"); break;
-            case 5 : colours = getColours("Chromium"); break;
-            case 6 : colours = getColours("Aluminium"); break;
-            case 7 : colours = getColours("Ilmenite"); break;
-            case 8 : colours = getColours("Platinum"); break;
-            case 9 : colours = getColours("Aventurine"); break;
-            case 10 : colours = getColours("Ruby"); break;
-            case 11 : colours = getColours("Sapphire"); break;
-            case 12 : colours = getColours("Rutile"); break;
-            default : colours = getColours("Copper"); break;
+            case 1 : return getColours("Tin");
+            case 2 : return getColours("Silver");
+            case 3 : return getColours("Lead");
+            case 4 : return getColours("Nickel");
+            case 5 : return getColours("Chromium");
+            case 6 : return getColours("Aluminium");
+            case 7 : return getColours("Ilmenite");
+            case 8 : return getColours("Platinum");
+            case 9 : return getColours("Aventurine");
+            case 10 : return getColours("Ruby");
+            case 11 : return getColours("Sapphire");
+            case 12 : return getColours("Rutile");
+            case 13 : return getColours("Zircon");
+            default : return getColours("Copper");
         }
-        return colours;
     }
     public static int[] resourceColour(int meta) {
-        int[] colours;
         switch (meta) {
-            case 1 : colours = getColours("Tin"); break;
-            case 2 : colours = getColours("Silver"); break;
-            case 3 : colours = getColours("Lead"); break;
-            case 4 : colours = getColours("Nickel"); break;
-            case 5 : colours = getColours("Chromium"); break;
-            case 6 : colours = getColours("Aluminium"); break;
-            case 7 : colours = getColours("Titanium"); break;
-            case 8 : colours = getColours("Platinum"); break;
-            case 9 : colours = getColours("Aventurine"); break;
-            case 10 : colours = getColours("Ruby"); break;
-            case 11 : colours = getColours("Sapphire"); break;
-            case 12 : colours = getColours("Zircon"); break;
-            case 13 : colours = getColours("Zirconia"); break;
-            default : colours = getColours("Copper"); break;
+            case 1 : return getColours("Tin");
+            case 2 : return getColours("Silver");
+            case 3 : return getColours("Lead");
+            case 4 : return getColours("Nickel");
+            case 5 : return getColours("Chromium");
+            case 6 : return getColours("Aluminium");
+            case 7 : return getColours("Titanium");
+            case 8 : return getColours("Platinum");
+            case 9 : return getColours("Aventurine");
+            case 10 : return getColours("Ruby");
+            case 11 : return getColours("Sapphire");
+            case 12 : return getColours("Zircon");
+            case 13 : return getColours("Zirconia");
+            default : return getColours("Copper");
         }
-        return colours;
     }
 }

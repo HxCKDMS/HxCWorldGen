@@ -26,4 +26,8 @@ public class Reference {
     public static final String[] PIECES = new String[]{"nuggetCopper", "nuggetTin", "nuggetSilver", "nuggetLead", "nuggetNickel",
             "nuggetChromium", "nuggetAluminum", "nuggetTitanium", "nuggetPlatinum", "nuggetPeridot", "nuggetRuby",
             "nuggetSapphire", "nuggetZircon", "nuggetZirconia"};
+
+    public static final String[] DUSTS = new String[]{"dustCopper", "dustTin", "dustSilver", "dustLead", "dustNickel",
+            "dustChromium", "dustAluminum", "dustTitanium", "dustPlatinum", "dustPeridot", "dustRuby",
+            "dustSapphire", "dustZirconium"};
 }

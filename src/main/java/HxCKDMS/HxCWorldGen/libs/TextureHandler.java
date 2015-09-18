@@ -26,8 +26,8 @@ public class TextureHandler {
             case ("gemBlock") : return doSpecial ? "minecraft:diamond_block" : mod + resource + size;
             case ("chunk") : return mod + resource + size;
             case ("nugget") : return mod + resource + size;
-            case ("fragment") : return mod + mod + resource + "16";
-            case ("dust") : return mod + mod + resource + size;
+            case ("fragment") : return mod + resource + size;
+            case ("dust") : return mod + resource + size;
             default : return "minecraft:cake_top";
         }
     }

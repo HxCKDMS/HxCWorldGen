@@ -39,6 +39,7 @@ public class ModRegistry {
     public static Item itemResource = new ItemResource(moreWorldGenTab);
     public static Item itemOreChunk = new ItemOreChunk(moreWorldGenTab);
     public static Item itemFragment = new ItemResourcePiece(moreWorldGenTab);
+    public static Item itemDust = new ItemDust(moreWorldGenTab);
 
     public static void preInit(){
         registerBlocks();
@@ -59,6 +60,7 @@ public class ModRegistry {
     private static void registerItems(){
         GameRegistry.registerItem(itemResource, "itemResource");
         GameRegistry.registerItem(itemFragment, "itemFragment");
+        GameRegistry.registerItem(itemDust, "itemDust");
         if (Configurations.enableOreChunks)
             GameRegistry.registerItem(itemOreChunk, "itemOreChunk");
     }
@@ -81,10 +83,20 @@ public class ModRegistry {
             GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
         GameRegistry.addSmelting(new ItemStack(blockOre, 1, 12), new ItemStack(itemResource, 1, 7), 10F);
 
+        for (int i = 0; i < 12; i++)
+            GameRegistry.addSmelting(new ItemStack(itemDust, 1, i), new ItemStack(itemResource, 1, i), 10F);
+        GameRegistry.addSmelting(new ItemStack(itemDust, 1, 12), new ItemStack(itemResource, 1, 13), 10F);
+
         if (Configurations.enableOreChunks) {
-            for (int i = 0; i < 12; i++)
-                GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, i), new ItemStack(itemFragment, 6, i), 10F);
-            GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, 12), new ItemStack(itemFragment, 6, 7), 10F);
+            if (!Configurations.FragmentsToIngots) {
+                for (int i = 0; i < 12; i++)
+                    GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, i), new ItemStack(itemFragment, 6, i), 10F);
+                GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, 12), new ItemStack(itemFragment, 6, 7), 10F);
+            } else {
+                for (int i = 0; i < 12; i++)
+                    GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, i), new ItemStack(itemResource, 1, i), 10F);
+                GameRegistry.addSmelting(new ItemStack(itemOreChunk, 1, 12), new ItemStack(itemResource, 1, 7), 10F);
+            }
         }
     }
 
@@ -92,8 +104,11 @@ public class ModRegistry {
         //ores
         for (int i = 0; i < 12; i++)
             OreDictionary.registerOre(Reference.ORES[i], new ItemStack(blockOre, 1, i));
-
         OreDictionary.registerOre("oreAluminum", new ItemStack(blockOre, 1, 6));
+
+        for (int i = 0; i < 12; i++)
+            OreDictionary.registerOre(Reference.DUSTS[i], new ItemStack(itemDust, 1, i));
+        OreDictionary.registerOre("dustAluminum", new ItemStack(itemDust, 1, 6));
 
         //ingots
         for (int i = 0; i < 13; i++)
