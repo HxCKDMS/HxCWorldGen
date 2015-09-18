@@ -3,6 +3,9 @@ package HxCKDMS.HxCWorldGen;
 import HxCKDMS.HxCCore.HxCCore;
 import HxCKDMS.HxCCore.api.Configuration.Category;
 import HxCKDMS.HxCCore.api.Configuration.HxCConfig;
+import HxCKDMS.HxCWorldGen.ModSupport.IC2Support;
+import HxCKDMS.HxCWorldGen.ModSupport.TConstructMessages;
+import HxCKDMS.HxCWorldGen.ModSupport.TinkersConfigs;
 import HxCKDMS.HxCWorldGen.libs.*;
 import HxCKDMS.HxCWorldGen.proxy.IProxy;
 import cpw.mods.fml.common.Loader;
@@ -29,8 +32,11 @@ public class HxCWorldGen {
         registerColourConfig(new HxCConfig());
         proxy.preInit();
         ModRegistry.preInit();
+
         if (Configurations.enableTinkerMaterials && Loader.isModLoaded("TConstruct"))
             registerTinkerConfig(new HxCConfig());
+//        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
+//            registerIC2Config(new HxCConfig());
     }
 
     @Mod.EventHandler
@@ -39,6 +45,8 @@ public class HxCWorldGen {
 
         if (Configurations.enableTinkerMaterials && Loader.isModLoaded("TConstruct"))
             TConstructMessages.registerTinkerMats();
+        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
+            IC2Support.init();
     }
 
     @Mod.EventHandler

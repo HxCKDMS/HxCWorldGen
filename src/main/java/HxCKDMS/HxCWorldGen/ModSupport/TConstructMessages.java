@@ -1,8 +1,8 @@
-package HxCKDMS.HxCWorldGen.libs;
+package HxCKDMS.HxCWorldGen.ModSupport;
 
 import HxCKDMS.HxCCore.api.Utils.LogHelper;
+import HxCKDMS.HxCWorldGen.libs.*;
 import cpw.mods.fml.common.event.FMLInterModComms;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;

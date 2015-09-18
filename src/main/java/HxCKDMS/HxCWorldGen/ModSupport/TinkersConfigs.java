@@ -1,4 +1,4 @@
-package HxCKDMS.HxCWorldGen.libs;
+package HxCKDMS.HxCWorldGen.ModSupport;
 
 import HxCKDMS.HxCCore.api.Configuration.Config;
 

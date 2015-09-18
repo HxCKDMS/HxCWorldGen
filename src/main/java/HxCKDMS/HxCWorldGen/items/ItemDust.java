@@ -37,62 +37,60 @@ public class ItemDust extends Item {
         return getIntFromColor(colors[0], colors[1], colors[2]);
     }
 
-    public ItemDust(CreativeTabs creativeTabs){
+    public ItemDust(CreativeTabs creativeTabs) {
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
         setMaxDurability(0);
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack){
-        String name;
-
-        switch(itemStack.getCurrentDurability()){
-            case 0: name = "CopperDust"; break;
-            case 1: name = "TinDust"; break;
-            case 2: name = "SilverDust"; break;
-            case 3: name = "LeadDust"; break;
-            case 4: name = "NickelDust"; break;
-            case 5: name = "ChromiumDust"; break;
-            case 6: name = "AluminiumDust"; break;
-            case 7: name = "IlmeniteDust"; break;
-            case 8: name = "PlatinumDust"; break;
-            case 9: name = "AventurineDust"; break;
-            case 10: name = "RubyDust"; break;
-            case 11: name = "SapphireDust"; break;
-            case 12: name = "RutileDust"; break;
-            case 13: name = "ZirconiumDust"; break;
-            default: name = "error"; break;
+    public String getUnlocalizedName(ItemStack itemStack) {
+        switch(itemStack.getCurrentDurability()) {
+            case 0: return "CopperDust";
+            case 1: return "TinDust";
+            case 2: return "SilverDust";
+            case 3: return "LeadDust";
+            case 4: return "NickelDust";
+            case 5: return "ChromiumDust";
+            case 6: return "AluminiumDust";
+            case 7: return "IlmeniteDust";
+            case 8: return "PlatinumDust";
+            case 9: return "AventurineDust";
+            case 10: return "RubyDust";
+            case 11: return "SapphireDust";
+            case 12: return "RutileDust";
+            case 13: return "ZirconiumDust";
+            case 14: return "TitaniumDust";
+            default: return "error";
         }
-        return name;
     }
 
     @Override
-    public int getMetadata(int metadata){
+    public int getMetadata(int metadata) {
         return metadata;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister){
+    public void registerIcons(IIconRegister iconRegister) {
         icon = iconRegister.registerIcon(TextureHandler.getTexturePath("dust"));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int metadata){
+    public IIcon getIconFromDamage(int metadata) {
         return icon;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 14; i++){
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list) {
+        for(int i = 0; i < 15; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }
 
-    public int getIntFromColor(int Red, int Green, int Blue){
+    public int getIntFromColor(int Red, int Green, int Blue) {
         Red = (Red << 16) & 0x00FF0000;
         Green = (Green << 8) & 0x0000FF00;
         Blue = Blue & 0x000000FF;

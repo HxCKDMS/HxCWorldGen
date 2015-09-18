@@ -61,6 +61,7 @@ public class Colours {
             case 11 : return getColours("Sapphire");
             case 12 : return getColours("Rutile");
             case 13 : return getColours("Zircon");
+            case 14 : return getColours("Titanium");
             default : return getColours("Copper");
         }
     }

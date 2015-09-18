@@ -16,7 +16,7 @@ public class Configurations {
     public static String oreResource = "ore";
 
     @Config.Boolean
-    public static boolean enableOreChunks = true, enableTinkerMaterials = true, FragmentsToIngots, tryToBlendIn;
+    public static boolean enableOreChunks = true, enableTinkerMaterials = true, enableIC2Recipes = true,FragmentsToIngots, tryToBlendIn;
 
     @Config.Integer(description = "16/32/64 are my resources")
     public static int ResourceSize = 32;
