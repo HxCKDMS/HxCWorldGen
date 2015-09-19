@@ -246,7 +246,7 @@ public class TConstructMessages {
             item = new NBTTagCompound();
             (new ItemStack(ModRegistry.blockOre, 1, i)).writeToNBT(item);
             tag.setTag("Block", item);
-            (new FluidStack(FluidRegistry.getFluid(Reference.ORES[i].toLowerCase().replace("ore", "").replace("ilmenite", "titanium").replace("aluminium", "aluminum") + ".molten"), 1296)).writeToNBT(tag);
+            (new FluidStack(FluidRegistry.getFluid(Reference.ORES[i].toLowerCase().replace("ore", "").replace("ilmenite", "titanium").replace("aluminium", "aluminum") + ".molten"), 244)).writeToNBT(tag);
             tag.setInteger("Temperature", 800);
             FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
         }
