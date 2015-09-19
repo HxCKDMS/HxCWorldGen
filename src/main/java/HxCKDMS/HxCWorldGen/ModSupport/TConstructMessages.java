@@ -73,6 +73,8 @@ public class TConstructMessages {
         FMLInterModComms.sendMessage("TConstruct", "addMaterial", newMatTag);
 
         if (!fluids.contains(obs[15])) {
+            if (((String)obs[15]).equalsIgnoreCase("ilmenite"))
+                TinkerSmeltery.registerFluid("titanium");
             TinkerSmeltery.registerFluid((String) obs[15]);
         }
 
@@ -200,9 +202,8 @@ public class TConstructMessages {
                 tag.setTag("Block", item);
                 String tmp = stack.getUnlocalizedName().replace("Chunk", "").toLowerCase();
 
-                fluid = (!tmp.contains("ilmenite") || !tmp.contains("aluminium")) ? tmp + ".molten" :
+                fluid = (!tmp.contains("ilmenite") && !tmp.contains("aluminium")) ? tmp + ".molten" :
                         ((tmp.contains("aluminium") ? "aluminum.molten" : "titanium.molten"));
-
                 if (!Configurations.FragmentsToIngots) (new FluidStack(FluidRegistry.getFluid(fluid), 144)).writeToNBT(tag);
                 else (new FluidStack(FluidRegistry.getFluid(fluid), 288)).writeToNBT(tag);
                 tag.setInteger("Temperature", 400);
