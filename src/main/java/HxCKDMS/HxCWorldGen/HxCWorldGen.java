@@ -3,16 +3,17 @@ package HxCKDMS.HxCWorldGen;
 import HxCKDMS.HxCCore.HxCCore;
 import HxCKDMS.HxCCore.api.Configuration.Category;
 import HxCKDMS.HxCCore.api.Configuration.HxCConfig;
-import HxCKDMS.HxCWorldGen.ModSupport.IC2Support;
 import HxCKDMS.HxCWorldGen.ModSupport.TConstructMessages;
 import HxCKDMS.HxCWorldGen.ModSupport.TinkersConfigs;
-import HxCKDMS.HxCWorldGen.libs.*;
+import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
+import HxCKDMS.HxCWorldGen.libs.ModRegistry;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.proxy.IProxy;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
@@ -45,12 +46,13 @@ public class HxCWorldGen {
 
         if (Configurations.enableTinkerMaterials && Loader.isModLoaded("TConstruct"))
             TConstructMessages.registerTinkerMats();
-        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
-            IC2Support.init();
     }
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {}
+    /*@Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
+            IC2Support.init();
+    }*/
 
     public void registerConfig(HxCConfig config) {
         config.registerCategory(new Category("General", "General Configs"));
