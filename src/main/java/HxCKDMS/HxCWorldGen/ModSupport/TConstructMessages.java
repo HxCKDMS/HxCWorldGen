@@ -110,7 +110,7 @@ public class TConstructMessages {
         item = new NBTTagCompound();
         (new ItemStack(ModRegistry.blockStorage, 1, (int)obs[16])).writeToNBT(item);
         tag.setTag("Block", item);
-        (new FluidStack(FluidRegistry.getFluid(obs[15] + ".molten"), 144*9)).writeToNBT(tag);
+        (new FluidStack(FluidRegistry.getFluid(obs[15] + ".molten"), 1296)).writeToNBT(tag);
         tag.setInteger("Temperature", (int) obs[17]*5);
         FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
     }
@@ -167,27 +167,21 @@ public class TConstructMessages {
             FluidStack fstack, nfstack, bfstack;
             if (stack.getUnlocalizedName().replace("Ingot", "").equalsIgnoreCase("aluminium")) fstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144);
             else fstack = new FluidStack(FluidRegistry.getFluid(stack.getUnlocalizedName().replace("Ingot", "").toLowerCase() + ".molten"), 144);
-            if (nstack.getUnlocalizedName().replace("Nugget", "").equalsIgnoreCase("aluminium")) nfstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144/9);
-            else nfstack = new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Nugget", "").toLowerCase() + ".molten"), 144/9);
-            if (bstack.getUnlocalizedName().replace("Block", "").equalsIgnoreCase("aluminium")) bfstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 144*9);
-            else bfstack = new FluidStack(FluidRegistry.getFluid(bstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 144*9);
-            System.out.println("Ingot Casting : " + stack.getUnlocalizedName() + "registering!");
+            if (nstack.getUnlocalizedName().replace("Nugget", "").equalsIgnoreCase("aluminium")) nfstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 16);
+            else nfstack = new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Nugget", "").toLowerCase() + ".molten"), 16);
+            if (bstack.getUnlocalizedName().replace("Block", "").equalsIgnoreCase("aluminium")) bfstack = new FluidStack(FluidRegistry.getFluid("aluminum.molten"), 1296);
+            else bfstack = new FluidStack(FluidRegistry.getFluid(bstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 1296);
             TConstructRegistry.getTableCasting().addCastingRecipe(stack, fstack, new ItemStack(TinkerSmeltery.metalPattern, 1, 0), false, 20, null);
-            System.out.println("Nugget Casting : " + nstack.getUnlocalizedName() + "registering!");
             TConstructRegistry.getTableCasting().addCastingRecipe(nstack, nfstack, new ItemStack(TinkerSmeltery.metalPattern, 1, 27), false, 20, null);
-            System.out.println("Block Casting : " + bstack.getUnlocalizedName() + "registering!");
             TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, bfstack, null, true, 120, null);
         }
         for (int i = 9; i < 12; i++) {
             ItemStack stack = new ItemStack(ModRegistry.itemResource, 1, i);
             ItemStack nstack = new ItemStack(ModRegistry.itemFragment, 1, i);
             ItemStack bstack = new ItemStack(ModRegistry.blockStorage, 1, i);
-            System.out.println("Gem Casting : " + stack.getUnlocalizedName() + "registering!");
             TConstructRegistry.getTableCasting().addCastingRecipe(stack, new FluidStack(FluidRegistry.getFluid(stack.getUnlocalizedName().replace("Gem", "").toLowerCase() + ".molten"), 144), new ItemStack(TinkerSmeltery.metalPattern, 1, 26), false, 20, null);
-            System.out.println("Gem Fragment Casting : " + nstack.getUnlocalizedName() + "registering!");
             TConstructRegistry.getTableCasting().addCastingRecipe(nstack, new FluidStack(FluidRegistry.getFluid(nstack.getUnlocalizedName().replace("Fragment", "").toLowerCase() + ".molten"), 144 / 9), new ItemStack(TinkerSmeltery.metalPattern, 1, 27), false, 20, null);
-            System.out.println("Gem Block Casting : " + bstack.getUnlocalizedName() + "registering!");
-            TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, new FluidStack(FluidRegistry.getFluid(bstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 144/9), null, true, 120, null);
+            TConstructRegistry.getBasinCasting().addCastingRecipe(bstack, new FluidStack(FluidRegistry.getFluid(bstack.getUnlocalizedName().replace("Block", "").toLowerCase() + ".molten"), 16), null, true, 120, null);
         }
 
         NBTTagCompound tag;
@@ -204,10 +198,13 @@ public class TConstructMessages {
                 item = new NBTTagCompound();
                 (new ItemStack(ModRegistry.blockStorage, 1, i)).writeToNBT(item);
                 tag.setTag("Block", item);
-                if (stack.getUnlocalizedName().replace("Chunk", "").equalsIgnoreCase("aluminium"))
-                    fluid = "aluminum.molten";
-                else fluid = stack.getUnlocalizedName().replace("Chunk", "").toLowerCase() + ".molten";
-                (new FluidStack(FluidRegistry.getFluid(fluid), 144)).writeToNBT(tag);
+                String tmp = stack.getUnlocalizedName().replace("Chunk", "").toLowerCase();
+
+                fluid = (!tmp.contains("ilmenite") || !tmp.contains("aluminium")) ? tmp + ".molten" :
+                        ((tmp.contains("aluminium") ? "aluminum.molten" : "titanium.molten"));
+
+                if (!Configurations.FragmentsToIngots) (new FluidStack(FluidRegistry.getFluid(fluid), 144)).writeToNBT(tag);
+                else (new FluidStack(FluidRegistry.getFluid(fluid), 288)).writeToNBT(tag);
                 tag.setInteger("Temperature", 400);
                 FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
             }
@@ -222,7 +219,7 @@ public class TConstructMessages {
             tag.setTag("Block", item);
             if (stack.getUnlocalizedName().replace("Nugget", "").replace("Fragment", "").equalsIgnoreCase("aluminium"))fluid = "aluminum.molten";
             else fluid = stack.getUnlocalizedName().replace("Nugget", "").replace("Fragment", "").toLowerCase() + ".molten";
-            (new FluidStack(FluidRegistry.getFluid(fluid), 144/9)).writeToNBT(tag);
+            (new FluidStack(FluidRegistry.getFluid(fluid), 16)).writeToNBT(tag);
             tag.setInteger("Temperature", 400);
             FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
         }
@@ -238,6 +235,19 @@ public class TConstructMessages {
             tag.setTag("Block", item);
             (new FluidStack(FluidRegistry.getFluid("titanium.molten"), 144)).writeToNBT(tag);
             tag.setInteger("Temperature", 400);
+            FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+        }
+
+        for (int i = 0; i < 12; i++) {
+            tag = new NBTTagCompound();
+            item = new NBTTagCompound();
+            (new ItemStack(ModRegistry.blockOre, 1, i)).writeToNBT(item);
+            tag.setTag("Item", item);
+            item = new NBTTagCompound();
+            (new ItemStack(ModRegistry.blockOre, 1, i)).writeToNBT(item);
+            tag.setTag("Block", item);
+            (new FluidStack(FluidRegistry.getFluid(Reference.ORES[i].replace("ore", "").toLowerCase() + ".molten"), 1296)).writeToNBT(tag);
+            tag.setInteger("Temperature", 800);
             FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
         }
     }
