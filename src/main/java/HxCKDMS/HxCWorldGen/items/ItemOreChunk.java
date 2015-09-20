@@ -54,7 +54,7 @@ public class ItemOreChunk extends Item {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for (int i = 0; i < Reference.CHUNKS.length; i++) {
+        for (int i = 0; i < Reference.ORES.length; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }
