@@ -12,6 +12,6 @@ public class IC2Support {
             Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(ModRegistry.itemOreChunk, 1, i), 1),
                     new NBTTagCompound(), new ItemStack(ModRegistry.itemDust, 1, i));
         Recipes.oreWashing.addRecipe(new RecipeInputItemStack(new ItemStack(ModRegistry.itemDust, 1, 7), 1),
-                ((new NBTTagCompound()).setInteger("minHeat", 400)).setInteger("amount", 250), new ItemStack(ModRegistry.itemDust, 1, 14), new ItemStack(ModRegistry.itemDust, 1, 13));
+                new NBTTagCompound(), new ItemStack(ModRegistry.itemDust, 1, 14), new ItemStack(ModRegistry.itemDust, 1, 13));
     }
 }
