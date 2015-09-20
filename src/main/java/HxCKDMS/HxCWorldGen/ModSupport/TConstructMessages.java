@@ -1,7 +1,10 @@
 package HxCKDMS.HxCWorldGen.ModSupport;
 
 import HxCKDMS.HxCCore.api.Utils.LogHelper;
-import HxCKDMS.HxCWorldGen.libs.*;
+import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
+import HxCKDMS.HxCWorldGen.libs.ModRegistry;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,7 +15,6 @@ import tconstruct.library.TConstructRegistry;
 import tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 public class TConstructMessages {
@@ -22,33 +24,31 @@ public class TConstructMessages {
 
     public static void registerTinkerMats() {
         LogHelper.info("Tinkers' Construct Detected! Registering Tinkers' Materials!", Reference.MOD_NAME);
-        for (LinkedHashMap<String, String> mat : TinkersConfigs.mats) {
-            if (mat.get("Enabled").equals("true")) {
-                Object[] data = new Object[18];
-                data[0] = Integer.parseInt(mat.get("Id"));
-                data[1] = mat.get("Name");
-                data[2] = Integer.parseInt(mat.get("HarvestLevel"));
-                data[3] = Integer.parseInt(mat.get("Durability"));
-                data[4] = Integer.parseInt(mat.get("MiningSpeed"));
-                data[5] = Integer.parseInt(mat.get("Attack"));
-                data[6] = Float.parseFloat(mat.get("HandleModifier"));
-                data[7] = Integer.parseInt(mat.get("Reinforced"));
-                data[8] = Float.parseFloat(mat.get("Stonebound"));
-                data[9] = mat.get("Style");
-                if (!mat.get("Color").equals("0x00000000"))data[10] = Integer.parseInt(mat.get("Color"));
-                else data[10] = Colours.getColourFromRGB(Colours.getColours(mat.get("Name")));
-                data[11] = Integer.parseInt(mat.get("Bow_DrawSpeed"));
-                data[12] = Float.parseFloat(mat.get("Bow_ProjectileSpeed"));
-                data[13] = Float.parseFloat(mat.get("Projectile_Mass"));
-                data[14] = Float.parseFloat(mat.get("Projectile_Fragility"));
-                if (!mat.get("Name").equalsIgnoreCase("Aluminium"))data[15] = mat.get("Name").toLowerCase();
-                else data[15] = "aluminum";
-                data[16] = Integer.parseInt(mat.get("Id")) + 1;
-                data[17] = Integer.parseInt(mat.get("Temperature"));
-                if (!mat.get("Name").equalsIgnoreCase("Zirconia"))registerTinkerMat(data);
-                else registerZirconia(data);
-            }
-        }
+        TinkersConfigs.mats.stream().filter(mat -> mat.get("Enabled").equals("true")).forEach(mat -> {
+            Object[] data = new Object[18];
+            data[0] = Integer.parseInt(mat.get("Id"));
+            data[1] = mat.get("Name");
+            data[2] = Integer.parseInt(mat.get("HarvestLevel"));
+            data[3] = Integer.parseInt(mat.get("Durability"));
+            data[4] = Integer.parseInt(mat.get("MiningSpeed"));
+            data[5] = Integer.parseInt(mat.get("Attack"));
+            data[6] = Float.parseFloat(mat.get("HandleModifier"));
+            data[7] = Integer.parseInt(mat.get("Reinforced"));
+            data[8] = Float.parseFloat(mat.get("Stonebound"));
+            data[9] = mat.get("Style");
+            if (!mat.get("Color").equals("0x00000000")) data[10] = Integer.parseInt(mat.get("Color"));
+            else data[10] = Colours.getColourFromRGB(Colours.getColours(mat.get("Name")));
+            data[11] = Integer.parseInt(mat.get("Bow_DrawSpeed"));
+            data[12] = Float.parseFloat(mat.get("Bow_ProjectileSpeed"));
+            data[13] = Float.parseFloat(mat.get("Projectile_Mass"));
+            data[14] = Float.parseFloat(mat.get("Projectile_Fragility"));
+            if (!mat.get("Name").equalsIgnoreCase("Aluminium")) data[15] = mat.get("Name").toLowerCase();
+            else data[15] = "aluminum";
+            data[16] = Integer.parseInt(mat.get("Id")) + 1;
+            data[17] = Integer.parseInt(mat.get("Temperature"));
+            if (!mat.get("Name").equalsIgnoreCase("Zirconia")) registerTinkerMat(data);
+            else registerZirconia(data);
+        });
         registerTinkerRecipes();
         LogHelper.info("Completed registering Tinkers' Materials", Reference.MOD_NAME);
     }
@@ -246,7 +246,7 @@ public class TConstructMessages {
             item = new NBTTagCompound();
             (new ItemStack(ModRegistry.blockOre, 1, i)).writeToNBT(item);
             tag.setTag("Block", item);
-            (new FluidStack(FluidRegistry.getFluid(Reference.ORES[i].toLowerCase().replace("ore", "").replace("ilmenite", "titanium").replace("aluminium", "aluminum") + ".molten"), 244)).writeToNBT(tag);
+            (new FluidStack(FluidRegistry.getFluid(Reference.OREDICTIONARYORES[i].toLowerCase().replace("ore", "").replace("ilmenite", "titanium").replace("aluminium", "aluminum") + ".molten"), 244)).writeToNBT(tag);
             tag.setInteger("Temperature", 800);
             FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
         }

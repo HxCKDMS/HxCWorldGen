@@ -1,5 +1,6 @@
 package HxCKDMS.HxCWorldGen.items;
 
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -32,55 +33,8 @@ public class ItemBlockOre extends ItemBlock {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack){
-        String name;
-
-        switch(itemStack.getCurrentDurability()){
-            case 0:
-                name = "CopperOre";
-                break;
-            case 1:
-                name = "TinOre";
-                break;
-            case 2:
-                name = "SilverOre";
-                break;
-            case 3:
-                name = "LeadOre";
-                break;
-            case 4:
-                name = "NickelOre";
-                break;
-            case 5:
-                name = "ChromiumOre";
-                break;
-            case 6:
-                name = "AluminiumOre";
-                break;
-            case 7:
-                name = "IlmeniteOre";
-                break;
-            case 8:
-                name = "PlatinumOre";
-                break;
-            case 9:
-                name = "AventurineOre";
-                break;
-            case 10:
-                name = "RubyOre";
-                break;
-            case 11:
-                name = "SapphireOre";
-                break;
-            case 12:
-                name = "RutileOre";
-                break;
-            default:
-                name = "error";
-                break;
-        }
-
-        return name;
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return Reference.ORES[itemStack.getCurrentDurability()];
     }
 
     @Override

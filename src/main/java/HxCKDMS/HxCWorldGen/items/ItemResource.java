@@ -1,6 +1,8 @@
 package HxCKDMS.HxCWorldGen.items;
 
 import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.ModRegistry;
+import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,35 +12,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ItemResource extends Item {
-/**
- 0 = Copper
- 1 = Tin
- 2 = Silver
- 3 = Lead
- 4 = Nickel
- 5 = Chromium
- 6 = Aluminium
- 7 = Titanium / Ilmenite
- 8 = Platinum
- 9 = Aventurine
- 10 = Ruby
- 11 = Sapphire
- 12 = Rutile //blocks
- 12 = Zircon //items
- 13 = Zirconia //items
- **/
-    @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
-
-    @Override
-    public int getColorFromItemStack(ItemStack stack, int meta) {
-        int[] colors = Colours.resourceColour(stack.getCurrentDurability());
-        return getIntFromColor(colors[0], colors[1], colors[2]);
-    }
-
     public ItemResource(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
@@ -46,28 +23,13 @@ public class ItemResource extends Item {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack){
-        String name;
+    public String getUnlocalizedName(ItemStack itemStack) {
+        return Reference.RESOURCES[itemStack.getCurrentDurability()];
+    }
 
-        switch(itemStack.getCurrentDurability()){
-            case 0: name = "CopperIngot"; break;
-            case 1: name = "TinIngot"; break;
-            case 2: name = "SilverIngot"; break;
-            case 3: name = "LeadIngot"; break;
-            case 4: name = "NickelIngot"; break;
-            case 5: name = "ChromiumIngot"; break;
-            case 6: name = "AluminiumIngot"; break;
-            case 7: name = "TitaniumIngot"; break;
-            case 8: name = "PlatinumIngot"; break;
-            case 9: name = "AventurineGem"; break;
-            case 10: name = "RubyGem"; break;
-            case 11: name = "SapphireGem"; break;
-            case 12: name = "Zircon"; break;
-            case 13: name = "Zirconia"; break;
-            default: name = "error"; break;
-        }
-
-        return name;
+    @Override
+    public int getColorFromItemStack(ItemStack stack, int meta) {
+        return Colours.getColour(stack.getUnlocalizedName());
     }
 
     @Override
@@ -75,35 +37,30 @@ public class ItemResource extends Item {
         return metadata;
     }
 
+    @SideOnly(Side.CLIENT)
+    private HashMap<String, IIcon> icons = new HashMap<>();
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[15];
-        for (int i = 0; i < 9; i++) icons[i] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
-        for (int j = 9; j <= 12; j++) icons[j] = iconRegister.registerIcon(TextureHandler.getTexturePath("gem"));
-        icons[13] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
-        icons[14] = iconRegister.registerIcon(TextureHandler.getTexturePath("ingot"));
+        icons.put("ingot", iconRegister.registerIcon(TextureHandler.getTexturePath("ingot")));
+        icons.put("gem", iconRegister.registerIcon(TextureHandler.getTexturePath("gem")));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int metadata){
-        return icons[metadata];
+        ItemStack stack = new ItemStack(ModRegistry.itemResource, 1, metadata);
+        String type = (this.getUnlocalizedName(stack).toLowerCase().contains("gem") ? "gem" : "ingot");
+        return icons.get(type);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for(int i = 0; i < 14; i++){
+        for (int i = 0; i < Reference.RESOURCES.length; i++) {
             list.add(new ItemStack(item, 1, i));
         }
-    }
-
-    public int getIntFromColor(int Red, int Green, int Blue){
-        Red = (Red << 16) & 0x00FF0000;
-        Green = (Green << 8) & 0x0000FF00;
-        Blue = Blue & 0x000000FF;
-        //0xFF000000 for 100% Alpha.
-        return 0xFF000000 | Red | Green | Blue;
     }
 }

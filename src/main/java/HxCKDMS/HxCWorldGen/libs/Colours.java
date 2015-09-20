@@ -27,14 +27,22 @@ public class Colours {
         Colours.put("Titanium", "190, 210, 215");
         Colours.put("Zircon", "150, 140, 130");
         Colours.put("Zirconia", "190, 195, 198");
+        Colours.put("Steel", "140, 145, 150");
+        Colours.put("Bronze", "170, 160, 30");
+        Colours.put("Zinc", "200, 200, 190");
+        Colours.put("Brass", "170, 220, 100");
     }
 
     public static int[] getColours(String key) {
+        key = key.replace("Chunk", "").replace("Nugget", "").replace("Fragment", "")
+                .replace("Ore", "").replace("Block", "").replace("Dust", "")
+                .replace("Ingot", "").replace("Gem", "").trim();
+
         String[] tmp = Colours.get(key).split(", ");
         int[] tmp2 = new int[3];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
             tmp2[i] = Integer.parseInt(tmp[i]);
-        }
+
         return tmp2;
     }
 
@@ -46,41 +54,7 @@ public class Colours {
         return new Color(red, green, blue).getRGB();
     }
 
-    public static int[] oreColour(int meta) {
-        switch (meta) {
-            case 1 : return getColours("Tin");
-            case 2 : return getColours("Silver");
-            case 3 : return getColours("Lead");
-            case 4 : return getColours("Nickel");
-            case 5 : return getColours("Chromium");
-            case 6 : return getColours("Aluminium");
-            case 7 : return getColours("Ilmenite");
-            case 8 : return getColours("Platinum");
-            case 9 : return getColours("Aventurine");
-            case 10 : return getColours("Ruby");
-            case 11 : return getColours("Sapphire");
-            case 12 : return getColours("Rutile");
-            case 13 : return getColours("Zircon");
-            case 14 : return getColours("Titanium");
-            default : return getColours("Copper");
-        }
-    }
-    public static int[] resourceColour(int meta) {
-        switch (meta) {
-            case 1 : return getColours("Tin");
-            case 2 : return getColours("Silver");
-            case 3 : return getColours("Lead");
-            case 4 : return getColours("Nickel");
-            case 5 : return getColours("Chromium");
-            case 6 : return getColours("Aluminium");
-            case 7 : return getColours("Titanium");
-            case 8 : return getColours("Platinum");
-            case 9 : return getColours("Aventurine");
-            case 10 : return getColours("Ruby");
-            case 11 : return getColours("Sapphire");
-            case 12 : return getColours("Zircon");
-            case 13 : return getColours("Zirconia");
-            default : return getColours("Copper");
-        }
+    public static int getColour(String name) {
+        return getColourFromRGB(getColours(name));
     }
 }

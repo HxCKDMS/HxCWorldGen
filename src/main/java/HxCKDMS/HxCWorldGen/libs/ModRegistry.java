@@ -38,7 +38,7 @@ public class ModRegistry {
     public static Block blockStorage = new BlockStorage(Material.iron, moreWorldGenTab);
     public static Item itemResource = new ItemResource(moreWorldGenTab);
     public static Item itemOreChunk = new ItemOreChunk(moreWorldGenTab);
-    public static Item itemFragment = new ItemResourcePiece(moreWorldGenTab);
+    public static Item itemFragment = new ItemResourceNugget(moreWorldGenTab);
     public static Item itemDust = new ItemDust(moreWorldGenTab);
 
     public static void preInit(){
@@ -68,15 +68,15 @@ public class ModRegistry {
     private static void registerRecipes(){
         //blocking
         for (int i = 0; i < 12; i++)
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', Reference.RESOURCES[i]));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', Reference.OREDICTIONARYRESOURCES[i]));
         for (int i = 0; i < 12; i++)
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', Reference.PIECES[i]));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', Reference.OREDICTIONARYNUGGETS[i]));
 
         //unblocking
         for (int i = 0; i < 12; i++)
-            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), Reference.BLOCKS[i]));
+            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), Reference.OREDICTIONARYBLOCKS[i]));
         for (int i = 0; i < 12; i++)
-            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), Reference.RESOURCES[i]));
+            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), Reference.OREDICTIONARYRESOURCES[i]));
 
         //smelting
         for (int i = 0; i < 12; i++)
@@ -103,21 +103,21 @@ public class ModRegistry {
     private static void registerOreDictionary(){
         //ores
         for (int i = 0; i < 12; i++)
-            OreDictionary.registerOre(Reference.ORES[i], new ItemStack(blockOre, 1, i));
+            OreDictionary.registerOre(Reference.OREDICTIONARYORES[i], new ItemStack(blockOre, 1, i));
         OreDictionary.registerOre("oreAluminum", new ItemStack(blockOre, 1, 6));
 
         for (int i = 0; i < 12; i++)
-            OreDictionary.registerOre(Reference.DUSTS[i], new ItemStack(itemDust, 1, i));
+            OreDictionary.registerOre(Reference.OREDICTIONARYDUSTS[i], new ItemStack(itemDust, 1, i));
         OreDictionary.registerOre("dustAluminum", new ItemStack(itemDust, 1, 6));
 
         //ingots
         for (int i = 0; i < 13; i++)
-            OreDictionary.registerOre(Reference.RESOURCES[i], new ItemStack(itemResource, 1, i));
+            OreDictionary.registerOre(Reference.OREDICTIONARYRESOURCES[i], new ItemStack(itemResource, 1, i));
         for (int i = 0; i < 13; i++)
-            OreDictionary.registerOre(Reference.PIECES[i], new ItemStack(itemFragment, 1, i));
+            OreDictionary.registerOre(Reference.OREDICTIONARYNUGGETS[i], new ItemStack(itemFragment, 1, i));
 
         //Storage blocks
         for (int i = 0; i < 12; i++)
-            OreDictionary.registerOre(Reference.BLOCKS[i], new ItemStack(blockStorage, 1, i));
+            OreDictionary.registerOre(Reference.OREDICTIONARYBLOCKS[i], new ItemStack(blockStorage, 1, i));
     }
 }

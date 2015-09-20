@@ -20,29 +20,7 @@ import java.util.Random;
 
 import static HxCKDMS.HxCWorldGen.libs.ModRegistry.*;
 
-
-/**
- 0 = Copper
- 1 = Tin
- 2 = Silver
- 3 = Lead
- 4 = Nickel
- 5 = Chromium
- 6 = Aluminium
- 7 = Titanium / Ilmenite
- 8 = Platinum
- 9 = Aventurine
- 10 = Ruby
- 11 = Sapphire
- 12 = Rutile //blocks
- 12 = Zircon //items
- 13 = Zirconia //items
- **/
-
 public class BlockOre extends Block {
-    @SideOnly(Side.CLIENT)
-    private IIcon icon;
-
     public BlockOre(Material material, CreativeTabs creativeTabs) {
         super(material);
         setHardness(3F);
@@ -51,7 +29,7 @@ public class BlockOre extends Block {
         miningLevel();
     }
 
-    private void miningLevel(){
+    private void miningLevel() {
         //stone
         setHarvestLevel("pickaxe", 1, 0);
         setHarvestLevel("pickaxe", 1, 1);
@@ -70,22 +48,7 @@ public class BlockOre extends Block {
         //diamond
         setHarvestLevel("pickaxe", 3, 7);
         setHarvestLevel("pickaxe", 3, 12);
-    }
-
-    @Override
-    public int getRenderType() {
-        return Reference.ORE_RENDER_ID;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
-        icon = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
-    }
-
-    @Override
-    public IIcon getIcon(int side, int metadata) {
-        return icon;
+        setHarvestLevel("pickaxe", 3, 13);
     }
 
     @Override
@@ -94,19 +57,10 @@ public class BlockOre extends Block {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    @SuppressWarnings("unchecked")
-    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for(int i = 0; i < 13; i++) {
-            list.add(new ItemStack(item, 1, i));
-        }
-    }
-
-    @Override
     public int quantityDroppedWithBonus(int fortune, Random rand) {
         if (Configurations.enableOreChunks) {
-            if (Configurations.FragmentsToIngots)return rand.nextInt(fortune) +1;
-            else return rand.nextInt(fortune + 3) +1;
+            if (Configurations.FragmentsToIngots) return rand.nextInt(fortune) + 1;
+            else return rand.nextInt(fortune + 3) + 1;
         }
         else return 1;
     }
@@ -118,9 +72,8 @@ public class BlockOre extends Block {
 
     @Override
     public Item getItemDropped(int metadata, Random random, int fortune){
-        if (Configurations.enableOreChunks) {
+        if (Configurations.enableOreChunks)
             return itemOreChunk;
-        }
         else
             switch(metadata) {
                 case 9:
@@ -132,5 +85,33 @@ public class BlockOre extends Block {
                 default:
                     return Item.getItemFromBlock(blockOre);
             }
+    }
+
+    @Override
+    public int getRenderType() {
+        return Reference.ORE_RENDER_ID;
+    }
+
+    @Override
+    public IIcon getIcon(int side, int metadata) {
+        return icon;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private IIcon icon;
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister iconRegister) {
+        icon = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    @SuppressWarnings("unchecked")
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
+        for (int i = 0; i < Reference.ORES.length; i++) {
+            list.add(new ItemStack(item, 1, i));
+        }
     }
 }

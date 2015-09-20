@@ -28,10 +28,10 @@ repositories {
 
 apply plugin: 'forge'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-version = "1.7.10-1.5.4"
+version = "1.7.10-1.6.0"
 group= "HxCKDMS.HxCWorldGen"
 archivesBaseName = "HxCWorldGen"
 

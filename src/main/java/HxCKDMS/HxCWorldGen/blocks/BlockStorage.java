@@ -12,35 +12,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
+import java.util.HashMap;
 import java.util.List;
 
-/**
- 0 = Copper
- 1 = Tin
- 2 = Silver
- 3 = Lead
- 4 = Nickel
- 5 = Chromium
- 6 = Aluminium
- 7 = Titanium / Ilmenite
- 8 = Platinum
- 9 = Aventurine
- 10 = Ruby
- 11 = Sapphire
- 12 = Rutile //blocks
- 12 = Zircon //items
- 13 = Zirconia //items
- **/
-
 public class BlockStorage extends Block {
-    @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
-
-    @Override
-    public int getRenderType() {
-        return Reference.BLOCK_RENDER_ID;
-    }
-
     public BlockStorage(Material material, CreativeTabs creativeTabs) {
         super(material);
         setHardness(3F);
@@ -50,22 +25,29 @@ public class BlockStorage extends Block {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister){
-        icons = new IIcon[2];
-        icons[0] = iconRegister.registerIcon(TextureHandler.getTexturePath("metalBlock"));
-        icons[1] = iconRegister.registerIcon(TextureHandler.getTexturePath("gemBlock"));
+    public int damageDropped(int metadata){
+        return metadata;
     }
 
     @Override
     public IIcon getIcon(int side, int metadata){
-        if (metadata < 9) return icons[0];
-        return icons[1];
+        if (metadata >= 9 && metadata <= 11) return icons.get("gemBlock");
+        return icons.get("metalBlock");
     }
 
     @Override
-    public int damageDropped(int metadata){
-        return metadata;
+    public int getRenderType() {
+        return Reference.BLOCK_RENDER_ID;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private HashMap<String, IIcon> icons = new HashMap<>();
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister iconRegister){
+        icons.put("metalBlock", iconRegister.registerIcon(TextureHandler.getTexturePath("metalBlock")));
+        icons.put("gemBlock", iconRegister.registerIcon(TextureHandler.getTexturePath("gemBlock")));
     }
 
     @Override
@@ -75,13 +57,5 @@ public class BlockStorage extends Block {
         for(int i = 0; i < 13; i++){
             list.add(new ItemStack(item, 1, i));
         }
-    }
-
-    public int getIntFromColor(int Red, int Green, int Blue){
-        Red = (Red << 16) & 0x00FF0000;
-        Green = (Green << 8) & 0x0000FF00;
-        Blue = Blue & 0x000000FF;
-        //0xFF000000 for 100% Alpha.
-        return 0xFF000000 | Red | Green | Blue;
     }
 }

@@ -1,6 +1,7 @@
 package HxCKDMS.HxCWorldGen.items;
 
 import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.ModRegistry;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -11,10 +12,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class ItemOreChunk extends Item {
-    public ItemOreChunk(CreativeTabs creativeTabs){
+public class ItemResourceNugget extends Item {
+    public ItemResourceNugget(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
         setMaxDurability(0);
@@ -22,7 +24,7 @@ public class ItemOreChunk extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Reference.ORES[itemStack.getCurrentDurability()].replace("Ore", "Chunk");
+        return Reference.RESOURCES[itemStack.getCurrentDurability()].replace("Gem", "Fragment").replace("Ingot", "Nugget");
     }
 
     @Override
@@ -36,25 +38,28 @@ public class ItemOreChunk extends Item {
     }
 
     @SideOnly(Side.CLIENT)
-    private IIcon icon;
+    private HashMap<String, IIcon> icons = new HashMap<>();
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
-        icon = iconRegister.registerIcon(TextureHandler.getTexturePath("chunk"));
+        icons.put("nugget", iconRegister.registerIcon(TextureHandler.getTexturePath("nugget")));
+        icons.put("fragment", iconRegister.registerIcon(TextureHandler.getTexturePath("fragment")));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int metadata){
-        return icon;
+        ItemStack stack = new ItemStack(ModRegistry.itemFragment, 1, metadata);
+        String type = (this.getUnlocalizedName(stack).contains("Nugget") ? "nugget" : "fragment");
+        return icons.get(type);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for (int i = 0; i < Reference.CHUNKS.length; i++) {
+        for (int i = 0; i < Reference.RESOURCES.length; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }

@@ -15,41 +15,43 @@ public class BlockRenderer implements ISimpleBlockRenderingHandler {
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
         IIcon icon = block.getIcon(0, metadata);
 
+        int[] colour = Colours.getColours(block.getUnlocalizedName());
+        
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.resourceColour(metadata)[0], Colours.resourceColour(metadata)[1], Colours.resourceColour(metadata)[2]);
+        tessellator.setColorOpaque(colour[0], colour[1], colour[2]);
         tessellator.setNormal(0.0F, -1.0F, 0.0F);
         renderer.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, icon);
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.resourceColour(metadata)[0], Colours.resourceColour(metadata)[1], Colours.resourceColour(metadata)[2]);
+        tessellator.setColorOpaque(colour[0], colour[1], colour[2]);
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
         renderer.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, icon);
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.resourceColour(metadata)[0], Colours.resourceColour(metadata)[1], Colours.resourceColour(metadata)[2]);
+        tessellator.setColorOpaque(colour[0], colour[1], colour[2]);
         tessellator.setNormal(0.0F, 0.0F, -1.0F);
         renderer.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, icon);
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.resourceColour(metadata)[0], Colours.resourceColour(metadata)[1], Colours.resourceColour(metadata)[2]);
+        tessellator.setColorOpaque(colour[0], colour[1], colour[2]);
         tessellator.setNormal(0.0F, 0.0F, 1.0F);
         renderer.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, icon);
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.resourceColour(metadata)[0], Colours.resourceColour(metadata)[1], Colours.resourceColour(metadata)[2]);
+        tessellator.setColorOpaque(colour[0], colour[1], colour[2]);
         tessellator.setNormal(-1.0F, 0.0F, 0.0F);
         renderer.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, icon);
         tessellator.draw();
 
         tessellator.startDrawingQuads();
-        tessellator.setColorOpaque(Colours.resourceColour(metadata)[0], Colours.resourceColour(metadata)[1], Colours.resourceColour(metadata)[2]);
+        tessellator.setColorOpaque(colour[0], colour[1], colour[2]);
         tessellator.setNormal(1.0F, 0.0F, 0.0F);
         renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, icon);
         tessellator.draw();
@@ -59,12 +61,13 @@ public class BlockRenderer implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-        render(block, x, y, z, world.getBlockMetadata(x, y, z), renderer);
+        render(block, x, y, z, renderer);
         return true;
     }
 
-    public static void render(Block block, int x, int y, int z, int meta, RenderBlocks renderer){
-        renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, Colours.resourceColour(meta)[0] / 255F, Colours.resourceColour(meta)[1] / 255F, Colours.resourceColour(meta)[2] / 255F);
+    public static void render(Block block, int x, int y, int z, RenderBlocks renderer){
+        int[] colour = Colours.getColours(block.getUnlocalizedName());
+        renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, colour[0] / 255F, colour[1] / 255F, colour[2] / 255F);
     }
 
     @Override
