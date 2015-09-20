@@ -11,11 +11,11 @@ public class TinkersConfigs {
     public static LinkedHashMap<String, String> TinData = new LinkedHashMap<>(), SilverData = new LinkedHashMap<>(),
             LeadData = new LinkedHashMap<>(), NickelData = new LinkedHashMap<>(), ChromiumData = new LinkedHashMap<>(),
             AluminiumData = new LinkedHashMap<>(), TitaniumData = new LinkedHashMap<>(), PlatinumData = new LinkedHashMap<>(),
-            AventurineData = new LinkedHashMap<>(), RubyData = new LinkedHashMap<>(), SapphireData = new LinkedHashMap<>()/*,
+            PeridotData = new LinkedHashMap<>(), RubyData = new LinkedHashMap<>(), SapphireData = new LinkedHashMap<>()/*,
             ZirconiaData = new LinkedHashMap<>()*/;
 
     public static List<LinkedHashMap<String, String>> mats = Arrays.asList(TinData, SilverData, LeadData, NickelData, ChromiumData,
-            AluminiumData, TitaniumData, PlatinumData, AventurineData, RubyData, SapphireData);
+            AluminiumData, TitaniumData, PlatinumData, PeridotData, RubyData, SapphireData);
 
     static {
         TinData.put("Enabled", "true"); //boolean
@@ -162,23 +162,23 @@ public class TinkersConfigs {
         PlatinumData.put("Projectile_Fragility", "0.7");
         PlatinumData.put("Temperature", "750");
 
-        AventurineData.put("Enabled", "true");
-        AventurineData.put("Id", "8");
-        AventurineData.put("Name", "Aventurine");
-        AventurineData.put("HarvestLevel", "4");
-        AventurineData.put("Durability", "3000");
-        AventurineData.put("MiningSpeed", "1200");
-        AventurineData.put("Attack", "3");
-        AventurineData.put("HandleModifier", "2.0");
-        AventurineData.put("Reinforced", "2");
-        AventurineData.put("Stonebound", "0");
-        AventurineData.put("Style", "green");
-        AventurineData.put("Color", "0x00000000");
-        AventurineData.put("Bow_DrawSpeed", "100");
-        AventurineData.put("Bow_ProjectileSpeed", "1.0");
-        AventurineData.put("Projectile_Mass", "1.1");
-        AventurineData.put("Projectile_Fragility", "0.9");
-        AventurineData.put("Temperature", "1200");
+        PeridotData.put("Enabled", "true");
+        PeridotData.put("Id", "8");
+        PeridotData.put("Name", "Peridot");
+        PeridotData.put("HarvestLevel", "4");
+        PeridotData.put("Durability", "3000");
+        PeridotData.put("MiningSpeed", "1200");
+        PeridotData.put("Attack", "3");
+        PeridotData.put("HandleModifier", "2.0");
+        PeridotData.put("Reinforced", "2");
+        PeridotData.put("Stonebound", "0");
+        PeridotData.put("Style", "green");
+        PeridotData.put("Color", "0x00000000");
+        PeridotData.put("Bow_DrawSpeed", "100");
+        PeridotData.put("Bow_ProjectileSpeed", "1.0");
+        PeridotData.put("Projectile_Mass", "1.1");
+        PeridotData.put("Projectile_Fragility", "0.9");
+        PeridotData.put("Temperature", "1200");
 
         RubyData.put("Enabled", "true");
         RubyData.put("Id", "9");

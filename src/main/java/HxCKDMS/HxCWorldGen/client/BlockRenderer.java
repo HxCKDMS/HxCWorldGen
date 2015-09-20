@@ -15,7 +15,7 @@ public class BlockRenderer implements ISimpleBlockRenderingHandler {
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
         IIcon icon = block.getIcon(0, metadata);
 
-        int[] colour = Colours.getColours(block.getUnlocalizedName());
+        int[] colour = Colours.getColours(Reference.RESOURCES[metadata].replace("Ingot", "Block").replace("Gem", "Block"));
         
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -61,12 +61,12 @@ public class BlockRenderer implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-        render(block, x, y, z, renderer);
+        render(block, x, y, z, world.getBlockMetadata(x, y, z),renderer);
         return true;
     }
 
-    public static void render(Block block, int x, int y, int z, RenderBlocks renderer){
-        int[] colour = Colours.getColours(block.getUnlocalizedName());
+    public static void render(Block block, int x, int y, int z, int metadata, RenderBlocks renderer){
+        int[] colour = Colours.getColours(Reference.RESOURCES[metadata].replace("Ingot", "Block").replace("Gem", "Block"));
         renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, colour[0] / 255F, colour[1] / 255F, colour[2] / 255F);
     }
 

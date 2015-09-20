@@ -20,24 +20,25 @@ public class Colours {
         Colours.put("Aluminium", "235, 235, 240");
         Colours.put("Ilmenite", "133, 95, 90");
         Colours.put("Platinum", "160, 250, 255");
-        Colours.put("Aventurine", "0, 160, 120");
+        Colours.put("Peridot", "0, 160, 120");
         Colours.put("Sapphire", "30, 120, 200");
         Colours.put("Ruby", "200, 10, 10");
         Colours.put("Rutile", "100, 56, 18");
+        Colours.put("Zinc", "200, 200, 190");
         Colours.put("Titanium", "190, 210, 215");
         Colours.put("Zircon", "150, 140, 130");
         Colours.put("Zirconia", "190, 195, 198");
         Colours.put("Steel", "140, 145, 150");
-        Colours.put("Bronze", "170, 160, 30");
-        Colours.put("Zinc", "200, 200, 190");
-        Colours.put("Brass", "170, 220, 100");
+        Colours.put("Bronze", "210, 160, 0");
+        Colours.put("Brass", "200, 200, 0");
+        Colours.put("ERROR", "255, 0, 0");
     }
 
     public static int[] getColours(String key) {
         key = key.replace("Chunk", "").replace("Nugget", "").replace("Fragment", "")
                 .replace("Ore", "").replace("Block", "").replace("Dust", "")
-                .replace("Ingot", "").replace("Gem", "").trim();
-
+                .replace("Ingot", "").replace("Gem", "").replace("tile.null", "ERROR")
+                .replace("Zirconium", "Zircon").trim();
         String[] tmp = Colours.get(key).split(", ");
         int[] tmp2 = new int[3];
         for (int i = 0; i < 3; i++)

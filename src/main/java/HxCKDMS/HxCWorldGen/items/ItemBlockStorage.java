@@ -15,7 +15,7 @@ public class ItemBlockStorage extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Reference.BLOCKS[itemStack.getCurrentDurability()];
+        return Reference.RESOURCES[itemStack.getCurrentDurability()].replace("Ingot", "Block").replace("Gem", "Block");
     }
 
     @Override
