@@ -48,12 +48,12 @@ public class HxCWorldGen {
 
         if (Configurations.enableTinkerMaterials && Loader.isModLoaded("TConstruct"))
             TConstructMessages.registerTinkerMats();
+        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
+            IC2Support.init();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
-            IC2Support.init();
     }
 
     public void registerConfig(HxCConfig config) {

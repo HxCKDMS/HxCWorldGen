@@ -26,7 +26,7 @@ public class Reference {
     public static final String[] RESOURCES = new String[]{"CopperIngot", "TinIngot", "SilverIngot", "LeadIngot", "NickelIngot",
             "ChromiumIngot", "AluminumIngot", "TitaniumIngot", "PlatinumIngot", "PeridotGem", "RubyGem",
             "SapphireGem", "ZincIngot", "BronzeIngot", "BrassIngot", "SteelIngot", "ZirconIngot", "ZirconGem"};
-    
+
     public static final String[] ORES = new String[]{"CopperOre", "TinOre", "SilverOre", "LeadOre", "NickelOre",
             "ChromiumOre", "AluminumOre", "IlmeniteOre", "PlatinumOre", "PeridotOre", "RubyOre",
             "SapphireOre", "ZincOre", "RutileOre"};

@@ -15,6 +15,36 @@ SapphireOre.name=Sapphire Ore
 RutileOre.name=Rutile Ore
 ZincOre.name=Zinc Ore
 
+CopperCrushed.name=Crushed Copper
+TinCrushed.name=Crushed Tin
+SilverCrushed.name=Crushed Silver
+LeadCrushed.name=Crushed Lead
+NickelCrushed.name=Crushed Nickel
+ChromiumCrushed.name=Crushed Chromium
+AluminumCrushed.name=Crushed Aluminium
+IlmeniteCrushed.name=Crushed Ilmenite
+PlatinumCrushed.name=Crushed Platinum
+PeridotCrushed.name=Crushed Peridot
+RubyCrushed.name=Crushed Ruby
+SapphireCrushed.name=Crushed Sapphire
+RutileCrushed.name=Crushed Rutile
+ZincCrushed.name=Crushed Zinc
+
+CopperPureCrushed.name=Purified Crushed Copper
+TinPureCrushed.name=Purified Crushed Tin
+SilverPureCrushed.name=Purified Crushed Silver
+LeadPureCrushed.name=Purified Crushed Lead
+NickelPureCrushed.name=Purified Crushed Nickel
+ChromiumPureCrushed.name=Purified Crushed Chromium
+AluminumPureCrushed.name=Purified Crushed Aluminium
+IlmenitePureCrushed.name=Purified Crushed Ilmenite
+PlatinumPureCrushed.name=Purified Crushed Platinum
+PeridotPureCrushed.name=Purified Crushed Peridot
+RubyPureCrushed.name=Purified Crushed Ruby
+SapphirePureCrushed.name=Purified Crushed Sapphire
+RutilePureCrushed.name=Purified Crushed Rutile
+ZincPureCrushed.name=Purified Crushed Zinc
+
 CopperBlock.name=Block of Copper
 TinBlock.name=Block of Tin
 SilverBlock.name=Block of Silver
@@ -118,6 +148,38 @@ BrassDust.name=Brass Dust
 BronzeDust.name=Bronze Dust
 SteelDust.name=Stainless Steel Dust
 ZincDust.name=Zinc Dust
+
+DiamondDust.name=Diamond Dust
+EmeraldDust.name=Emerald Dust
+IronDust.name=Iron Dust
+GoldDust.name=Gold Dust
+SulfurDust.name=Sulfur Dust
+CoalDust.name=Coal Dust
+CharcoalDust.name=Charcoal Dust
+
+CopperTinyDust.name=Copper Tiny Dust
+TinTinyDust.name=Tin Tiny Dust
+SilverTinyDust.name=Silver Tiny Dust
+LeadTinyDust.name=Lead Tiny Dust
+NickelTinyDust.name=Nickel Tiny Dust
+ChromiumTinyDust.name=Chromium Tiny Dust
+AluminumTinyDust.name=Aluminium Tiny Dust
+TitaniumTinyDust.name=Titanium Tiny Dust
+IlmeniteTinyDust.name=Ilmenite Tiny Dust
+PlatinumTinyDust.name=Platinum Tiny Dust
+ZirconiumTinyDust.name=Zirconium Tiny Dust
+BrassTinyDust.name=Brass Tiny Dust
+BronzeTinyDust.name=Bronze Tiny Dust
+SteelTinyDust.name=Stainless Steel Tiny Dust
+ZincTinyDust.name=Zinc Tiny Dust
+
+DiamondTinyDust.name=Diamond TinyDust
+EmeraldTinyDust.name=Emerald TinyDust
+IronTinyDust.name=Iron TinyDust
+GoldTinyDust.name=Gold TinyDust
+SulfurTinyDust.name=Sulfur TinyDust
+CoalTinyDust.name=Coal TinyDust
+CharcoalTinyDust.name=Charcoal TinyDust
 
 PeridotDust.name=Peridot Dust
 RubyDust.name=Ruby Dust

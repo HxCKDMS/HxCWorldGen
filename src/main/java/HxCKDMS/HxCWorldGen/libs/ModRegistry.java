@@ -24,6 +24,10 @@ public class ModRegistry {
     public static Item itemFragment = new ItemResourceNugget(moreWorldGenTab);
     public static Item itemDust = new ItemDust(moreWorldGenTab);
 
+    public static Item itemTinyDust = new ItemTinyDust(moreWorldGenTab);
+    public static Item itemCrushed = new ItemCrushed(moreWorldGenTab);
+    public static Item itemPureCrushed = new ItemPureCrushed(moreWorldGenTab);
+
     public static void preInit(){
         registerBlocks();
         registerItems();
@@ -44,6 +48,9 @@ public class ModRegistry {
         GameRegistry.registerItem(itemResource, "itemResource");
         GameRegistry.registerItem(itemFragment, "itemFragment");
         GameRegistry.registerItem(itemDust, "itemDust");
+        GameRegistry.registerItem(itemTinyDust, "itemTinyDust");
+        GameRegistry.registerItem(itemCrushed, "itemCrushed");
+        GameRegistry.registerItem(itemPureCrushed, "itemPureCrushed");
         if (Configurations.enableOreChunks)
             GameRegistry.registerItem(itemOreChunk, "itemOreChunk");
     }
@@ -85,12 +92,17 @@ public class ModRegistry {
 
     private static void registerOreDictionary(){
         //ores
-        for (int i = 0; i < ORES.length; i++)
+        for (int i = 0; i < ORES.length; i++) {
             OreDictionary.registerOre("ore" + ORES[i].replace("Ore", ""), new ItemStack(blockOre, 1, i));
+            OreDictionary.registerOre("crushed" + ORES[i].replace("Ore", ""), new ItemStack(itemCrushed, 1, i));
+            OreDictionary.registerOre("pureCrushed" + ORES[i].replace("Ore", ""), new ItemStack(itemPureCrushed, 1, i));
+            OreDictionary.registerOre("oreChunk" + ORES[i].replace("Ore", ""), new ItemStack(itemOreChunk, 1, i));
+        }
 
-        for (int i = 0; i < DUSTS.length; i++)
+        for (int i = 0; i < DUSTS.length; i++) {
             OreDictionary.registerOre("dust" + DUSTS[i].replace("Dust", ""), new ItemStack(itemDust, 1, i));
-
+            OreDictionary.registerOre("dustTiny" + DUSTS[i].replace("Dust", ""), new ItemStack(itemTinyDust, 1, i));
+        }
         //ingots
         for (int i = 0; i < RESOURCES.length; i++) {
             if (RESOURCES[i].contains("Gem"))OreDictionary.registerOre("gem" + RESOURCES[i].replace("Gem", ""), new ItemStack(itemResource, 1, i));

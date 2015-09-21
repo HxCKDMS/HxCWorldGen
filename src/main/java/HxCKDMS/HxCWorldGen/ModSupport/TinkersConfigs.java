@@ -11,11 +11,11 @@ public class TinkersConfigs {
     public static LinkedHashMap<String, String> TinData = new LinkedHashMap<>(), SilverData = new LinkedHashMap<>(),
             LeadData = new LinkedHashMap<>(), NickelData = new LinkedHashMap<>(), ChromiumData = new LinkedHashMap<>(),
             AluminumData = new LinkedHashMap<>(), TitaniumData = new LinkedHashMap<>(), PlatinumData = new LinkedHashMap<>(),
-            PeridotData = new LinkedHashMap<>(), RubyData = new LinkedHashMap<>(), SapphireData = new LinkedHashMap<>()/*,
-            ZirconiaData = new LinkedHashMap<>()*/;
+            PeridotData = new LinkedHashMap<>(), RubyData = new LinkedHashMap<>(), SapphireData = new LinkedHashMap<>(),
+            ZirconiaData = new LinkedHashMap<>();
 
     public static List<LinkedHashMap<String, String>> mats = Arrays.asList(TinData, SilverData, LeadData, NickelData, ChromiumData,
-            AluminumData, TitaniumData, PlatinumData, PeridotData, RubyData, SapphireData);
+            AluminumData, TitaniumData, PlatinumData, PeridotData, RubyData, SapphireData, ZirconiaData);
 
     static {
         TinData.put("Enabled", "true"); //boolean
@@ -215,7 +215,7 @@ public class TinkersConfigs {
         SapphireData.put("Projectile_Mass", "1.1");
         SapphireData.put("Projectile_Fragility", "0.9");
         SapphireData.put("Temperature", "1200");
-/*
+
         ZirconiaData.put("Enabled", "false");
         ZirconiaData.put("Id", "11");
         ZirconiaData.put("Name", "Zirconia");
@@ -231,6 +231,6 @@ public class TinkersConfigs {
         ZirconiaData.put("Bow_DrawSpeed", "100");
         ZirconiaData.put("Bow_ProjectileSpeed", "1.0");
         ZirconiaData.put("Projectile_Mass", "1.1");
-        ZirconiaData.put("Projectile_Fragility", "0.9");*/
+        ZirconiaData.put("Projectile_Fragility", "0.9");
     }
 }

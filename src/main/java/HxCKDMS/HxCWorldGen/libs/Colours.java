@@ -47,7 +47,8 @@ public class Colours {
         key = key.replace("Chunk", "").replace("Nugget", "").replace("Fragment", "")
                 .replace("Ore", "").replace("Block", "").replace("Dust", "")
                 .replace("Ingot", "").replace("Gem", "").replace("tile.null", "ERROR")
-                .replace("Zirconium", "Zircon").trim();
+                .replace("Zirconium", "Zircon").replace("Crushed", "").replace("Tiny", "")
+                .replace("Pure", "").trim();
         String[] tmp;
         try {
             tmp = Colours.get(key).split(", ");
