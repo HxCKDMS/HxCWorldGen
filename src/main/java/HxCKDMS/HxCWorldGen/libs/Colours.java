@@ -1,6 +1,7 @@
 package HxCKDMS.HxCWorldGen.libs;
 
 import HxCKDMS.HxCCore.api.Configuration.Config;
+import HxCKDMS.HxCCore.api.Utils.LogHelper;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class Colours {
         Colours.put("Lead", "160, 150, 160");
         Colours.put("Nickel", "200, 200, 152");
         Colours.put("Chromium", "210, 250, 255");
-        Colours.put("Aluminium", "235, 235, 240");
+        Colours.put("Aluminum", "235, 235, 240");
         Colours.put("Ilmenite", "133, 95, 90");
         Colours.put("Platinum", "160, 250, 255");
         Colours.put("Peridot", "0, 160, 120");
@@ -29,8 +30,16 @@ public class Colours {
         Colours.put("Zircon", "150, 140, 130");
         Colours.put("Zirconia", "190, 195, 198");
         Colours.put("Steel", "140, 145, 150");
-        Colours.put("Bronze", "210, 160, 0");
-        Colours.put("Brass", "200, 200, 0");
+        Colours.put("Bronze", "160, 105, 61");
+        Colours.put("Brass", "181, 166, 66");
+        Colours.put("Diamond", "200, 200, 250");
+        Colours.put("Emerald", "0, 255, 0");
+        Colours.put("Iron", "180, 180, 180");
+        Colours.put("Gold", "255, 215, 0");
+        Colours.put("Coal", "40, 40, 40");
+        Colours.put("Charcoal", "70, 70, 70");
+        Colours.put("Nether", "120, 40, 0");
+        Colours.put("Sulfur", "255, 240, 0");
         Colours.put("ERROR", "255, 0, 0");
     }
 
@@ -39,7 +48,13 @@ public class Colours {
                 .replace("Ore", "").replace("Block", "").replace("Dust", "")
                 .replace("Ingot", "").replace("Gem", "").replace("tile.null", "ERROR")
                 .replace("Zirconium", "Zircon").trim();
-        String[] tmp = Colours.get(key).split(", ");
+        String[] tmp;
+        try {
+            tmp = Colours.get(key).split(", ");
+        } catch (Exception ignored) {
+            LogHelper.warn("Colour for " + key + " not found, please report this to mod author and add it to Config/HxCKDMS/HxCWorldGen_Colours.cfg", Reference.MOD_NAME);
+            tmp = Colours.get("ERROR").split(", ");
+        }
         int[] tmp2 = new int[3];
         for (int i = 0; i < 3; i++)
             tmp2[i] = Integer.parseInt(tmp[i]);

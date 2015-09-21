@@ -10,12 +10,12 @@ public class TinkersConfigs {
     @Config.Map
     public static LinkedHashMap<String, String> TinData = new LinkedHashMap<>(), SilverData = new LinkedHashMap<>(),
             LeadData = new LinkedHashMap<>(), NickelData = new LinkedHashMap<>(), ChromiumData = new LinkedHashMap<>(),
-            AluminiumData = new LinkedHashMap<>(), TitaniumData = new LinkedHashMap<>(), PlatinumData = new LinkedHashMap<>(),
+            AluminumData = new LinkedHashMap<>(), TitaniumData = new LinkedHashMap<>(), PlatinumData = new LinkedHashMap<>(),
             PeridotData = new LinkedHashMap<>(), RubyData = new LinkedHashMap<>(), SapphireData = new LinkedHashMap<>()/*,
             ZirconiaData = new LinkedHashMap<>()*/;
 
     public static List<LinkedHashMap<String, String>> mats = Arrays.asList(TinData, SilverData, LeadData, NickelData, ChromiumData,
-            AluminiumData, TitaniumData, PlatinumData, PeridotData, RubyData, SapphireData);
+            AluminumData, TitaniumData, PlatinumData, PeridotData, RubyData, SapphireData);
 
     static {
         TinData.put("Enabled", "true"); //boolean
@@ -108,23 +108,23 @@ public class TinkersConfigs {
         ChromiumData.put("Projectile_Fragility", "0.2");
         ChromiumData.put("Temperature", "900");
 
-        AluminiumData.put("Enabled", "true");
-        AluminiumData.put("Id", "5");
-        AluminiumData.put("Name", "Aluminium");
-        AluminiumData.put("HarvestLevel", "2");
-        AluminiumData.put("Durability", "500");
-        AluminiumData.put("MiningSpeed", "225");
-        AluminiumData.put("Attack", "1");
-        AluminiumData.put("HandleModifier", "1.1");
-        AluminiumData.put("Reinforced", "0");
-        AluminiumData.put("Stonebound", "0");
-        AluminiumData.put("Style", "gray");
-        AluminiumData.put("Color", "0x00000000");
-        AluminiumData.put("Bow_DrawSpeed", "500");
-        AluminiumData.put("Bow_ProjectileSpeed", "1.0");
-        AluminiumData.put("Projectile_Mass", "0.4");
-        AluminiumData.put("Projectile_Fragility", "0.6");
-        AluminiumData.put("Temperature", "100");
+        AluminumData.put("Enabled", "true");
+        AluminumData.put("Id", "5");
+        AluminumData.put("Name", "Aluminum");
+        AluminumData.put("HarvestLevel", "2");
+        AluminumData.put("Durability", "500");
+        AluminumData.put("MiningSpeed", "225");
+        AluminumData.put("Attack", "1");
+        AluminumData.put("HandleModifier", "1.1");
+        AluminumData.put("Reinforced", "0");
+        AluminumData.put("Stonebound", "0");
+        AluminumData.put("Style", "gray");
+        AluminumData.put("Color", "0x00000000");
+        AluminumData.put("Bow_DrawSpeed", "500");
+        AluminumData.put("Bow_ProjectileSpeed", "1.0");
+        AluminumData.put("Projectile_Mass", "0.4");
+        AluminumData.put("Projectile_Fragility", "0.6");
+        AluminumData.put("Temperature", "100");
 
         TitaniumData.put("Enabled", "true");
         TitaniumData.put("Id", "6");

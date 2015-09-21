@@ -3,6 +3,7 @@ package HxCKDMS.HxCWorldGen;
 import HxCKDMS.HxCCore.HxCCore;
 import HxCKDMS.HxCCore.api.Configuration.Category;
 import HxCKDMS.HxCCore.api.Configuration.HxCConfig;
+import HxCKDMS.HxCWorldGen.ModSupport.IC2Support;
 import HxCKDMS.HxCWorldGen.ModSupport.TConstructMessages;
 import HxCKDMS.HxCWorldGen.ModSupport.TinkersConfigs;
 import HxCKDMS.HxCWorldGen.libs.Colours;
@@ -14,6 +15,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
@@ -36,8 +38,8 @@ public class HxCWorldGen {
 
         if (Configurations.enableTinkerMaterials && Loader.isModLoaded("TConstruct"))
             registerTinkerConfig(new HxCConfig());
-//        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
-//            registerIC2Config(new HxCConfig());
+        if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
+            registerIC2Config(new HxCConfig());
     }
 
     @Mod.EventHandler
@@ -48,11 +50,11 @@ public class HxCWorldGen {
             TConstructMessages.registerTinkerMats();
     }
 
-    /*@Mod.EventHandler
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         if (Configurations.enableIC2Recipes && Loader.isModLoaded("IC2"))
             IC2Support.init();
-    }*/
+    }
 
     public void registerConfig(HxCConfig config) {
         config.registerCategory(new Category("General", "General Configs"));
@@ -65,5 +67,9 @@ public class HxCWorldGen {
     public void registerTinkerConfig(HxCConfig config) {
         config.registerCategory(new Category("General", "DO NOT CHANGE (Name, ItemID). Color leave alone unless you want custom colours. \n# If colour is 0x00000000 then it uses same colour as ingots."));
         config.handleConfig(TinkersConfigs.class, new File(HxCCore.HxCConfigDir, "HxCWorldGen_Tinkers'Materials.cfg"));
+    }
+    public void registerIC2Config(HxCConfig config) {
+        config.registerCategory(new Category("General"));
+        config.handleConfig(Colours.class, new File(HxCCore.HxCConfigDir, "HxCWorldGen_IC2.cfg"));
     }
 }

@@ -24,6 +24,7 @@ public class TConstructMessages {
 
     public static void registerTinkerMats() {
         LogHelper.info("Tinkers' Construct Detected! Registering Tinkers' Materials!", Reference.MOD_NAME);
+        registerTinkerFluids();
         TinkersConfigs.mats.stream().filter(mat -> mat.get("Enabled").equals("true")).forEach(mat -> {
             Object[] data = new Object[18];
             data[0] = Integer.parseInt(mat.get("Id"));
@@ -37,7 +38,7 @@ public class TConstructMessages {
             data[8] = Float.parseFloat(mat.get("Stonebound"));
             data[9] = mat.get("Style");
             if (!mat.get("Color").equals("0x00000000")) data[10] = Integer.parseInt(mat.get("Color"));
-            else data[10] = Colours.getColourFromRGB(Colours.getColours(mat.get("Name")));
+            else data[10] = Colours.getColour(mat.get("Name"));
             data[11] = Integer.parseInt(mat.get("Bow_DrawSpeed"));
             data[12] = Float.parseFloat(mat.get("Bow_ProjectileSpeed"));
             data[13] = Float.parseFloat(mat.get("Projectile_Mass"));
@@ -51,6 +52,17 @@ public class TConstructMessages {
         });
         registerTinkerRecipes();
         LogHelper.info("Completed registering Tinkers' Materials", Reference.MOD_NAME);
+    }
+
+    public static void registerTinkerFluids() {
+        for (String ore : Reference.ORES) {
+            ore = ore.toLowerCase().replace("ore", "");
+            if (!fluids.contains(ore)) {
+                if ((ore).equals("ilmenite"))
+                    TinkerSmeltery.registerFluid("titanium");
+                TinkerSmeltery.registerFluid(ore);
+            }
+        }
     }
 
     public static void registerTinkerMat(Object[] obs) {
@@ -71,12 +83,6 @@ public class TConstructMessages {
         newMatTag.setFloat("Projectile_Mass", (float) obs[13]);
         newMatTag.setFloat("Projectile_Fragility", (float) obs[14]);
         FMLInterModComms.sendMessage("TConstruct", "addMaterial", newMatTag);
-
-        if (!fluids.contains(obs[15])) {
-            if (((String)obs[15]).equalsIgnoreCase("ilmenite"))
-                TinkerSmeltery.registerFluid("titanium");
-            TinkerSmeltery.registerFluid((String) obs[15]);
-        }
 
         NBTTagCompound newPartBuilderMat = new NBTTagCompound();
         newPartBuilderMat.setInteger("MaterialId", ID + (int) obs[0]);
@@ -246,7 +252,7 @@ public class TConstructMessages {
             item = new NBTTagCompound();
             (new ItemStack(ModRegistry.blockOre, 1, i)).writeToNBT(item);
             tag.setTag("Block", item);
-            (new FluidStack(FluidRegistry.getFluid(Reference.OREDICTIONARYORES[i].toLowerCase().replace("ore", "").replace("ilmenite", "titanium").replace("aluminium", "aluminum") + ".molten"), 244)).writeToNBT(tag);
+            (new FluidStack(FluidRegistry.getFluid(Reference.ORES[i].toLowerCase().replace("ore", "").replace("ilmenite", "titanium").replace("rutile", "titanium") + ".molten"), 244)).writeToNBT(tag);
             tag.setInteger("Temperature", 800);
             FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
         }

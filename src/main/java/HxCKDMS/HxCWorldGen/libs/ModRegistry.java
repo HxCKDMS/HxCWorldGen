@@ -14,24 +14,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import static HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab.moreWorldGenTab;
-
-/**
- 0 = Copper
- 1 = Tin
- 2 = Silver
- 3 = Lead
- 4 = Nickel
- 5 = Chromium
- 6 = Aluminium
- 7 = Titanium / Ilmenite
- 8 = Platinum
- 9 = Aventurine
- 10 = Ruby
- 11 = Sapphire
- 12 = Rutile //blocks
- 12 = Zircon //items
- 13 = Zirconia //items
- **/
+import static HxCKDMS.HxCWorldGen.libs.Reference.*;
 
 public class ModRegistry {
     public static Block blockOre = new BlockOre(Material.rock, moreWorldGenTab);
@@ -44,12 +27,12 @@ public class ModRegistry {
     public static void preInit(){
         registerBlocks();
         registerItems();
-        registerRecipes();
         GameRegistry.registerWorldGenerator(new OreGenHandler(), 1);
     }
     
     public static void init(){
         registerOreDictionary();
+        registerRecipes();
     }
 
     private static void registerBlocks(){
@@ -66,20 +49,26 @@ public class ModRegistry {
     }
 
     private static void registerRecipes(){
-        for (int i = 0; i < Reference.RESOURCES.length; i++) {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', Reference.OREDICTIONARYRESOURCES[i]));
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', Reference.OREDICTIONARYNUGGETS[i]));
-            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), Reference.OREDICTIONARYBLOCKS[i]));
-            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), Reference.OREDICTIONARYRESOURCES[i]));
+        for (int i = 0; i < RESOURCES.length; i++) {
+            if (RESOURCES[i].contains("Gem"))GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', "gem" + RESOURCES[i].replace("Gem", "")));
+            if (RESOURCES[i].contains("Ingot"))GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', "ingot" + RESOURCES[i].replace("Ingot", "")));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', "nugget" + RESOURCES[i].replace("Gem", "").replace("Ingot", "")));
+            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), "block" + RESOURCES[i].replace("Gem", "").replace("Ingot", "")));
+            if (RESOURCES[i].contains("Gem"))GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), "gem" + RESOURCES[i].replace("Gem", "")));
+            if (RESOURCES[i].contains("Ingot"))GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), "ingot" + RESOURCES[i].replace("Ingot", "")));
         }
 
-        //smelting
-        for (int i = 0; i < Reference.ORES.length-1; i++)
-            GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, Reference.ORES.length-1), new ItemStack(itemResource, 1, 7), 10F);
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemDust, 9, 17), "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustChromium"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemDust, 4, 15), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemDust, 9, 16), "dustZinc", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper"));
 
-        for (int i = 0; i < Reference.DUSTS.length; i++)
-            GameRegistry.addSmelting(new ItemStack(itemDust, 1, i), new ItemStack(itemResource, 1, i), 10F);
+        //smelting
+        for (int i = 0; i < ORES.length-1; i++)
+            GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, ORES.length - 1), new ItemStack(itemResource, 1, 7), 10F);
+
+        for (int i = 0; i < DUSTOUTPUTS.length; i++)
+            GameRegistry.addSmelting(new ItemStack(itemDust, 1, i), OreDictionary.getOres(DUSTOUTPUTS[i]).get(0), 10F);
 
         if (Configurations.enableOreChunks) {
             if (!Configurations.FragmentsToIngots) {
@@ -96,18 +85,19 @@ public class ModRegistry {
 
     private static void registerOreDictionary(){
         //ores
-        for (int i = 0; i < Reference.ORES.length; i++)
-            OreDictionary.registerOre(Reference.OREDICTIONARYORES[i], new ItemStack(blockOre, 1, i));
-        OreDictionary.registerOre("oreAluminum", new ItemStack(blockOre, 1, 6));
+        for (int i = 0; i < ORES.length; i++)
+            OreDictionary.registerOre("ore" + ORES[i].replace("Ore", ""), new ItemStack(blockOre, 1, i));
 
-        for (int i = 0; i < Reference.DUSTS.length; i++)
-            OreDictionary.registerOre(Reference.OREDICTIONARYDUSTS[i], new ItemStack(itemDust, 1, i));
+        for (int i = 0; i < DUSTS.length; i++)
+            OreDictionary.registerOre("dust" + DUSTS[i].replace("Dust", ""), new ItemStack(itemDust, 1, i));
 
         //ingots
-        for (int i = 0; i < Reference.RESOURCES.length; i++) {
-            OreDictionary.registerOre(Reference.OREDICTIONARYRESOURCES[i], new ItemStack(itemResource, 1, i));
-            OreDictionary.registerOre(Reference.OREDICTIONARYNUGGETS[i], new ItemStack(itemFragment, 1, i));
-            OreDictionary.registerOre(Reference.OREDICTIONARYBLOCKS[i], new ItemStack(blockStorage, 1, i));
+        for (int i = 0; i < RESOURCES.length; i++) {
+            if (RESOURCES[i].contains("Gem"))OreDictionary.registerOre("gem" + RESOURCES[i].replace("Gem", ""), new ItemStack(itemResource, 1, i));
+            if (RESOURCES[i].contains("Ingot"))OreDictionary.registerOre("ingot" + RESOURCES[i].replace("Ingot", ""), new ItemStack(itemResource, 1, i));
+
+            OreDictionary.registerOre("nugget" + RESOURCES[i].replace("Ingot", "").replace("Gem", ""), new ItemStack(itemFragment, 1, i));
+            OreDictionary.registerOre("block" + RESOURCES[i].replace("Ingot", "").replace("Gem", ""), new ItemStack(blockStorage, 1, i));
         }
     }
 }

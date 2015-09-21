@@ -12,34 +12,22 @@ public class Reference {
     public static int ORE_RENDER_ID = 0;
     public static int BLOCK_RENDER_ID = 1;
 
-    public static final String[] OREDICTIONARYORES = new String[]{"oreCopper", "oreTin", "oreSilver", "oreLead", "oreNickel", "oreChromium",
-            "oreAluminium", "oreTitanium", "orePlatinum", "orePeridot", "oreRuby", "oreSapphire", "oreZinc", "oreRutile"};
-
-    public static final String[] OREDICTIONARYBLOCKS = new String[]{"blockCopper", "blockTin", "blockSilver", "blockLead", "blockNickel",
-            "blockChromium", "blockAluminum", "blockTitanium", "blockPlatinum", "blockPeridot", "blockRuby",
-            "blockSapphire", "blockZinc", "blockBronze", "blockBrass", "blockSteel", "blockZircon", "blockZircon"};
-
-    public static final String[] OREDICTIONARYRESOURCES = new String[]{"ingotCopper", "ingotTin", "ingotSilver", "ingotLead", "ingotNickel",
-            "ingotChromium", "ingotAluminum", "ingotTitanium", "ingotPlatinum", "gemPeridot", "gemRuby", "gemSapphire", "ingotZinc",
-            "ingotBronze", "ingotBrass", "ingotSteel", "ingotZirconia", "gemZircon"};
-
-    public static final String[] OREDICTIONARYNUGGETS = new String[]{"nuggetCopper", "nuggetTin", "nuggetSilver", "nuggetLead", "nuggetNickel",
-            "nuggetChromium", "nuggetAluminum", "nuggetTitanium", "nuggetPlatinum", "nuggetPeridot", "nuggetRuby",
-            "nuggetSapphire", "nuggetZinc", "nuggetBronze", "nuggetBrass", "nuggetSteel", "nuggetZircon", "nuggetZirconia"};
-
-    public static final String[] OREDICTIONARYDUSTS = new String[]{"dustCopper", "dustTin", "dustSilver", "dustLead", "dustNickel",
-            "dustChromium", "dustAluminum", "dustTitanium", "dustPlatinum", "dustPeridot", "dustRuby",
-            "dustSapphire", "dustZinc", "dustRutile", "dustTitanium", "dustBronze", "dustBrass", "dustSteel", "dustZirconium"};
-
     public static final String[] DUSTS = new String[]{"CopperDust", "TinDust", "SilverDust", "LeadDust", "NickelDust",
-            "ChromiumDust", "AluminiumDust", "IlmeniteDust", "PlatinumDust", "PeridotDust", "RubyDust",
-            "SapphireDust", "ZincDust", "RutileDust", "TitaniumDust", "BronzeDust", "BrassDust", "SteelDust", "ZirconiumDust"};
+            "ChromiumDust", "AluminumDust", "IlmeniteDust", "PlatinumDust", "PeridotDust", "RubyDust",
+            "SapphireDust", "ZincDust", "RutileDust", "TitaniumDust", "BronzeDust", "BrassDust", "SteelDust",
+            "ZirconiumDust", "IronDust", "GoldDust", "EmeraldDust", "DiamondDust", "CoalDust", "CharcoalDust",
+            "NetherDust", "SulfurDust"};
+
+    public static final String[] DUSTOUTPUTS = new String[]{"ingotCopper", "ingotTin", "ingotSilver", "ingotLead",
+            "ingotNickel", "ingotChromium", "ingotAluminum", "ingotTitanium", "ingotPlatinum", "gemPeridot",
+            "gemRuby", "gemSapphire", "ingotZinc", "ingotTitanium", "ingotTitanium", "ingotBronze", "ingotBrass",
+            "ingotSteel", "ingotZircon", "ingotIron", "ingotGold", "gemEmerald", "gemDiamond"};
     
     public static final String[] RESOURCES = new String[]{"CopperIngot", "TinIngot", "SilverIngot", "LeadIngot", "NickelIngot",
-            "ChromiumIngot", "AluminiumIngot", "TitaniumIngot", "PlatinumIngot", "PeridotGem", "RubyGem",
+            "ChromiumIngot", "AluminumIngot", "TitaniumIngot", "PlatinumIngot", "PeridotGem", "RubyGem",
             "SapphireGem", "ZincIngot", "BronzeIngot", "BrassIngot", "SteelIngot", "ZirconIngot", "ZirconGem"};
     
     public static final String[] ORES = new String[]{"CopperOre", "TinOre", "SilverOre", "LeadOre", "NickelOre",
-            "ChromiumOre", "AluminiumOre", "IlmeniteOre", "PlatinumOre", "PeridotOre", "RubyOre",
+            "ChromiumOre", "AluminumOre", "IlmeniteOre", "PlatinumOre", "PeridotOre", "RubyOre",
             "SapphireOre", "ZincOre", "RutileOre"};
 }
