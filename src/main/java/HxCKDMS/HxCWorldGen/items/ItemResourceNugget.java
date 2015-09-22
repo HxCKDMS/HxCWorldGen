@@ -38,11 +38,12 @@ public class ItemResourceNugget extends Item {
     }
 
     @SideOnly(Side.CLIENT)
-    private HashMap<String, IIcon> icons = new HashMap<>();
+    private HashMap<String, IIcon> icons;
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
+        icons = new HashMap<>();
         icons.put("nugget", iconRegister.registerIcon(TextureHandler.getTexturePath("nugget")));
         icons.put("fragment", iconRegister.registerIcon(TextureHandler.getTexturePath("fragment")));
     }

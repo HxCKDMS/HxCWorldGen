@@ -38,11 +38,12 @@ public class ItemResource extends Item {
     }
 
     @SideOnly(Side.CLIENT)
-    private HashMap<String, IIcon> icons = new HashMap<>();
+    private HashMap<String, IIcon> icons;
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
+        icons = new HashMap<>();
         icons.put("ingot", iconRegister.registerIcon(TextureHandler.getTexturePath("ingot")));
         icons.put("gem", iconRegister.registerIcon(TextureHandler.getTexturePath("gem")));
     }

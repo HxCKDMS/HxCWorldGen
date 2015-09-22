@@ -41,11 +41,12 @@ public class BlockStorage extends Block {
     }
 
     @SideOnly(Side.CLIENT)
-    private HashMap<String, IIcon> icons = new HashMap<>();
+    private HashMap<String, IIcon> icons;
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister){
+        icons = new HashMap<>();
         icons.put("metalBlock", iconRegister.registerIcon(TextureHandler.getTexturePath("metalBlock")));
         icons.put("gemBlock", iconRegister.registerIcon(TextureHandler.getTexturePath("gemBlock")));
     }
@@ -53,7 +54,7 @@ public class BlockStorage extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
-    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
         for(int i = 0; i < Reference.RESOURCES.length; i++){
             list.add(new ItemStack(item, 1, i));
         }

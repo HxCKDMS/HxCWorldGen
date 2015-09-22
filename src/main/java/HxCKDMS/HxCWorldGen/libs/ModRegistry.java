@@ -4,6 +4,7 @@ import HxCKDMS.HxCWorldGen.blocks.BlockOre;
 import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
 import HxCKDMS.HxCWorldGen.items.*;
 import HxCKDMS.HxCWorldGen.world.OreGenHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -48,9 +49,12 @@ public class ModRegistry {
         GameRegistry.registerItem(itemResource, "itemResource");
         GameRegistry.registerItem(itemFragment, "itemFragment");
         GameRegistry.registerItem(itemDust, "itemDust");
-        GameRegistry.registerItem(itemTinyDust, "itemTinyDust");
-        GameRegistry.registerItem(itemCrushed, "itemCrushed");
-        GameRegistry.registerItem(itemPureCrushed, "itemPureCrushed");
+
+        if (Loader.isModLoaded("IC2")) {
+            GameRegistry.registerItem(itemTinyDust, "itemTinyDust");
+            GameRegistry.registerItem(itemCrushed, "itemCrushed");
+            GameRegistry.registerItem(itemPureCrushed, "itemPureCrushed");
+        }
         if (Configurations.enableOreChunks)
             GameRegistry.registerItem(itemOreChunk, "itemOreChunk");
     }
@@ -94,14 +98,18 @@ public class ModRegistry {
         //ores
         for (int i = 0; i < ORES.length; i++) {
             OreDictionary.registerOre("ore" + ORES[i].replace("Ore", ""), new ItemStack(blockOre, 1, i));
-            OreDictionary.registerOre("crushed" + ORES[i].replace("Ore", ""), new ItemStack(itemCrushed, 1, i));
-            OreDictionary.registerOre("pureCrushed" + ORES[i].replace("Ore", ""), new ItemStack(itemPureCrushed, 1, i));
+            if (Loader.isModLoaded("IC2")) {
+                OreDictionary.registerOre("crushed" + ORES[i].replace("Ore", ""), new ItemStack(itemCrushed, 1, i));
+                OreDictionary.registerOre("pureCrushed" + ORES[i].replace("Ore", ""), new ItemStack(itemPureCrushed, 1, i));
+            }
             OreDictionary.registerOre("oreChunk" + ORES[i].replace("Ore", ""), new ItemStack(itemOreChunk, 1, i));
         }
 
         for (int i = 0; i < DUSTS.length; i++) {
             OreDictionary.registerOre("dust" + DUSTS[i].replace("Dust", ""), new ItemStack(itemDust, 1, i));
-            OreDictionary.registerOre("dustTiny" + DUSTS[i].replace("Dust", ""), new ItemStack(itemTinyDust, 1, i));
+
+            if (Loader.isModLoaded("IC2"))
+                OreDictionary.registerOre("dustTiny" + DUSTS[i].replace("Dust", ""), new ItemStack(itemTinyDust, 1, i));
         }
         //ingots
         for (int i = 0; i < RESOURCES.length; i++) {

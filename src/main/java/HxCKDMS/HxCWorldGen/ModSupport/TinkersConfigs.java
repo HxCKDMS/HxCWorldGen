@@ -222,7 +222,7 @@ public class TinkersConfigs {
         ZirconiaData.put("HarvestLevel", "6");
         ZirconiaData.put("Durability", "3500");
         ZirconiaData.put("MiningSpeed", "1400");
-        ZirconiaData.put("Attack", "5");
+        ZirconiaData.put("Attack", "7");
         ZirconiaData.put("HandleModifier", "3.0");
         ZirconiaData.put("Reinforced", "5");
         ZirconiaData.put("Stonebound", "0");
