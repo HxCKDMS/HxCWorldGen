@@ -28,11 +28,6 @@ public class IC2Support {
             Recipes.centrifuge.addRecipe(new RecipeInputItemStack(new ItemStack(ModRegistry.itemPureCrushed, 1, i), 1), c, OreDictionary.getOres("dust" + Reference.ORES[i].replace("Ore", "")).get(0), new ItemStack(OreDictionary.getOres("dustTiny" + Reference.ORES[i].replace("Ore", "")).get(0).getItem(), 3, OreDictionary.getOres("dustTiny" + Reference.ORES[i].replace("Ore", "")).get(0).getMetadata()));
         }
 
-        //I'm going to modify Atomic Stryker's stuff
-        try {
-            Recipes.macerator.getRecipes().remove(new RecipeInputItemStack(new ItemStack(Blocks.netherrack, 1)), new RecipeOutput(new NBTTagCompound(), new ItemStack(Blocks.netherrack)));
-        } catch (Exception ignored) {}
-
         Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(Blocks.netherrack, 1)), new NBTTagCompound(), OreDictionary.getOres("dustNether").get(0));
         Recipes.compressor.addRecipe(new RecipeInputOreDict("dustZirconium", 9), new NBTTagCompound(), OreDictionary.getOres("gemZircon").get(0));
         Recipes.oreWashing.addRecipe(new RecipeInputOreDict("dustIlmenite", 1), new NBTTagCompound(), OreDictionary.getOres("dustTitanium").get(0), OreDictionary.getOres("dustZirconium").get(0));
