@@ -1,4 +1,4 @@
-<p align="center"><img src="http://media-elerium.cursecdn.com/avatars/23/941/635750245750324931.png" width="320" height="320"></p>
+<p align="center"><img src="http://media-elerium.cursecdn.com/avatars/23/941/635750245750324931.png" width="350" height="320"></p>
 <p align="center">
   <a href="http://github.com/HxCKDMS/HxCWorldGen/">
       <img src="http://67.187.15.252:8080/buildStatus/icon?job=HxCWorldGen" alt="Build Status"></a>
