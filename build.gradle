@@ -31,19 +31,18 @@ apply plugin: 'forge'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-version = "1.7.10-1.6.0"
-group= "HxCKDMS.HxCWorldGen"
+version = "1.7.10-2.0.0"
+group= "hxckdms.hxcworldgen"
 archivesBaseName = "HxCWorldGen"
 
 minecraft {
-    version = "1.7.10-10.13.4.1448-1.7.10"
-    runDir = "eclipse"
-    mappings = "stable_12"
+    version = "1.7.10-10.13.4.1558-1.7.10"
+    runDir = "run"
 }
-
-dependencies {
-    compile "tconstruct:TConstruct:1.7.10-1.8.6b.build977:deobf"
-}
+//
+//dependencies {
+//    compile "tconstruct:TConstruct:1.7.10-1.8.6b.build977:deobf"
+//}
 
 processResources
 {

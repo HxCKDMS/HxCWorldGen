@@ -1,7 +1,6 @@
 package HxCKDMS.HxCWorldGen.items;
 
-import HxCKDMS.HxCWorldGen.libs.Colours;
-import HxCKDMS.HxCWorldGen.libs.Reference;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,12 +16,12 @@ public class ItemTinyDust extends Item {
     public ItemTinyDust(CreativeTabs creativeTabs) {
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
-        setMaxDurability(0);
+        setMaxDamage(0);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Reference.DUSTS[itemStack.getCurrentDurability()].replace("Dust", "TinyDust");
+        return Configurations.DUSTS[itemStack.getItemDamage()].replace("Dust", "TinyDust");
     }
 
     @Override
@@ -32,7 +31,7 @@ public class ItemTinyDust extends Item {
 
     @Override
     public int getColorFromItemStack(ItemStack stack, int meta) {
-        return Colours.getColour(stack.getUnlocalizedName());
+        return Configurations.getColourINT(stack.getUnlocalizedName());
     }
 
     @SideOnly(Side.CLIENT)
@@ -54,7 +53,7 @@ public class ItemTinyDust extends Item {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < Reference.DUSTS.length; i++) {
+        for (int i = 0; i < Configurations.DUSTS.length; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }

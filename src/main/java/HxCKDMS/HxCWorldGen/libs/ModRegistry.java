@@ -15,7 +15,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import static HxCKDMS.HxCWorldGen.creativeTabs.MWGcreativeTab.moreWorldGenTab;
-import static HxCKDMS.HxCWorldGen.libs.Reference.*;
+import static HxCKDMS.HxCWorldGen.libs.Configurations.*;
 
 public class ModRegistry {
     public static Block blockOre = new BlockOre(Material.rock, moreWorldGenTab);

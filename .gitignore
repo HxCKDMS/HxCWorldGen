@@ -5,6 +5,7 @@
 *.ipr
 *.db
 *.log
+trashbin
 eclipse
 out
 build

@@ -1,92 +1,152 @@
 package HxCKDMS.HxCWorldGen.libs;
 
-import HxCKDMS.HxCCore.api.Configuration.Config;
+import hxckdms.hxcconfig.Config;
 
-import java.util.*;
+import java.awt.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 
+@Config
+@SuppressWarnings({"unused","WeakerAccess"})
 public class Configurations {
-    @Config.Map(description = "Requires a meta data, if it doesn't have a meta put 0 else it will crash")
-    public static HashMap<String, String> Ores = new LinkedHashMap<>();
-
-    @Config.Map
-    public static HashMap<String, Integer> nodeSizes = new LinkedHashMap<>(),
-            oreDepth = new LinkedHashMap<>(), oreRarity = new LinkedHashMap<>();
-
-    @Config.String
+    public static HashMap<String, ore> Ores = new LinkedHashMap<>();
     public static String oreResource = "ore";
-
-    @Config.Boolean
     public static boolean enableOreChunks = true, enableTinkerMaterials = true, enableIC2Recipes = true, FragmentsToIngots, tryToBlendIn;
-
-    @Config.Integer(description = "16/32/64 are my resources")
     public static int ResourceSize = 32;
-
-    @Config.Integer
     public static int TConstructStartingID = 240, OreNodeSizeMultiplier = 1;
-
-    @Config.List
     public static List<Integer> validDimensions = Arrays.asList(0, 1, -1, 6, 7, -100, -19), specialDimensions = Arrays.asList(1, -1, 6, 7, -100, -19);
 
+    public void init() {
+        if (Ores.isEmpty()) initHashMap();
+    }
+
+    public static String[] DUSTS = new String[]{"CopperDust", "TinDust", "SilverDust", "LeadDust", "NickelDust",
+            "ChromiumDust", "AluminumDust", "IlmeniteDust", "PlatinumDust", "PeridotDust", "RubyDust",
+            "SapphireDust", "ZincDust", "RutileDust", "TitaniumDust", "BronzeDust", "BrassDust", "SteelDust",
+            "ZirconiumDust", "IronDust", "GoldDust", "EmeraldDust", "DiamondDust", "CoalDust", "CharcoalDust",
+            "NetherDust", "SulfurDust"};
+
+    public static String[] DUSTOUTPUTS = new String[]{"ingotCopper", "ingotTin", "ingotSilver", "ingotLead",
+            "ingotNickel", "ingotChromium", "ingotAluminum", "ingotTitanium", "ingotPlatinum", "gemPeridot",
+            "gemRuby", "gemSapphire", "ingotZinc", "ingotTitanium", "ingotTitanium", "ingotBronze", "ingotBrass",
+            "ingotSteel", "ingotZircon", "ingotIron", "ingotGold", "gemEmerald", "gemDiamond"};
+
+    public static String[] RESOURCES = new String[]{"CopperIngot", "TinIngot", "SilverIngot", "LeadIngot", "NickelIngot",
+            "ChromiumIngot", "AluminumIngot", "TitaniumIngot", "PlatinumIngot", "PeridotGem", "RubyGem",
+            "SapphireGem", "ZincIngot", "BronzeIngot", "BrassIngot", "SteelIngot", "ZirconIngot", "ZirconGem"};
+
+    public static String[] ORES = new String[]{"CopperOre", "TinOre", "SilverOre", "LeadOre", "NickelOre",
+            "ChromiumOre", "AluminumOre", "IlmeniteOre", "PlatinumOre", "PeridotOre", "RubyOre",
+            "SapphireOre", "ZincOre", "RutileOre"};
+
+    public static HashMap<String, int[]> Colours = new LinkedHashMap<>();
+
     static {
-        Ores.put("CopperOre", "HxCWorldGen:blockOre:0");
-        Ores.put("TinOre", "HxCWorldGen:blockOre:1");
-        Ores.put("SilverOre", "HxCWorldGen:blockOre:2");
-        Ores.put("LeadOre", "HxCWorldGen:blockOre:3");
-        Ores.put("NickelOre", "HxCWorldGen:blockOre:4");
-        Ores.put("ChromiumOre", "HxCWorldGen:blockOre:5");
-        Ores.put("AluminumOre", "HxCWorldGen:blockOre:6");
-        Ores.put("IlmeniteOre", "HxCWorldGen:blockOre:7");
-        Ores.put("PlatinumOre", "HxCWorldGen:blockOre:8");
-        Ores.put("PeridotOre", "HxCWorldGen:blockOre:9");
-        Ores.put("RubyOre", "HxCWorldGen:blockOre:10");
-        Ores.put("SapphireOre", "HxCWorldGen:blockOre:11");
-        Ores.put("RutileOre", "HxCWorldGen:blockOre:12");
-        Ores.put("ZincOre", "HxCWorldGen:blockOre:13");
+        Colours.put("Titanium", new int[]{190, 210, 215});
+        Colours.put("Zircon", new int[]{150, 140, 130});
+        Colours.put("Zirconia", new int[]{190, 195, 198});
+        Colours.put("Steel", new int[]{140, 145, 150});
+        Colours.put("Bronze", new int[]{160, 105, 61});
+        Colours.put("Brass", new int[]{181, 166, 66});
+        Colours.put("Diamond", new int[]{200, 200, 250});
+        Colours.put("Emerald", new int[]{0, 255, 0});
+        Colours.put("Iron", new int[]{180, 180, 180});
+        Colours.put("Gold", new int[]{255, 215, 0});
+        Colours.put("Coal", new int[]{40, 40, 40});
+        Colours.put("Charcoal", new int[]{70, 70, 70});
+        Colours.put("Nether", new int[]{120, 40, 0});
+        Colours.put("Sulfur", new int[]{255, 240, 0});
+        Colours.put("ERROR", new int[]{255, 0, 0});
+    }
 
-        //Thinking of changing to String, String for "size, depth, rarity" in same line
-        nodeSizes.put("CopperOre", 6);
-        nodeSizes.put("TinOre", 7);
-        nodeSizes.put("SilverOre", 4);
-        nodeSizes.put("LeadOre", 4);
-        nodeSizes.put("NickelOre", 3);
-        nodeSizes.put("ChromiumOre", 3);
-        nodeSizes.put("AluminumOre", 4);
-        nodeSizes.put("IlmeniteOre", 3);
-        nodeSizes.put("PlatinumOre", 1);
-        nodeSizes.put("PeridotOre", 4);
-        nodeSizes.put("RubyOre", 4);
-        nodeSizes.put("SapphireOre", 4);
-        nodeSizes.put("RutileOre", 2);
-        nodeSizes.put("ZincOre", 2);
+    public static int[] getColourRGB(String key) {
+        if (Ores.containsKey(key)) return new int[]{new Color(Ores.get(key).oreColour).getRed(), new Color(Ores.get(key).oreColour).getGreen(), new Color(Ores.get(key).oreColour).getBlue()};
+        final int[] arr = new int[1], arr1 = new int[1], arr2 = new int[2];
+        Colours.forEach((nam, v) -> {
+            if (nam.equalsIgnoreCase(key)) {
+                arr[0] = Colours.get(nam)[0];
+                arr1[0] = Colours.get(nam)[1];
+                arr2[0] = Colours.get(nam)[2];
+            }
+        });
 
-        oreDepth.put("CopperOre", 64);
-        oreDepth.put("TinOre", 60);
-        oreDepth.put("SilverOre", 20);
-        oreDepth.put("LeadOre", 16);
-        oreDepth.put("NickelOre", 18);
-        oreDepth.put("ChromiumOre", 12);
-        oreDepth.put("AluminumOre", 80);
-        oreDepth.put("IlmeniteOre", 10);
-        oreDepth.put("PlatinumOre", 10);
-        oreDepth.put("PeridotOre", 20);
-        oreDepth.put("RubyOre", 28);
-        oreDepth.put("SapphireOre", 24);
-        oreDepth.put("RutileOre", 12);
-        oreDepth.put("ZincOre", 16);
+        if (arr[0] == 0 && arr1[0] == 0 && arr2[0] == 0)
+            return new int[]{255, 0, 0};
 
-        oreRarity.put("CopperOre", 6);
-        oreRarity.put("TinOre", 6);
-        oreRarity.put("SilverOre", 4);
-        oreRarity.put("LeadOre", 3);
-        oreRarity.put("NickelOre", 2);
-        oreRarity.put("ChromiumOre", 2);
-        oreRarity.put("AluminumOre", 5);
-        oreRarity.put("IlmeniteOre", 2);
-        oreRarity.put("PlatinumOre", 1);
-        oreRarity.put("PeridotOre", 4);
-        oreRarity.put("RubyOre", 5);
-        oreRarity.put("SapphireOre", 4);
-        oreRarity.put("RutileOre", 2);
-        oreRarity.put("ZincOre", 3);
+        return new int[]{arr[0], arr1[0], arr2[0]};
+    }
+
+    public static int getColourINT(String key) {
+        int[] arr = getColourRGB(key);
+        return new Color(arr[0], arr[1], arr[2]).getRGB();
+    }
+
+    public class ore {
+        public String oreBlockID;
+        public byte oreMetadata;
+        public short nodeSize;
+        public short nodeDepth;
+        public short nodeRarity;
+        public int oreColour = 0x00000000;
+        public int resourceColour = 0x00000000;
+
+        public ore() {}
+
+        public ore(String id, byte meta, short size, short depth, short rarity, int colour) {
+            oreBlockID = id;
+            oreMetadata = meta;
+            nodeSize = size;
+            nodeDepth = depth;
+            nodeRarity = rarity;
+            oreColour = colour;
+        }
+
+        public ore(String id, byte meta, short size, short depth, short rarity, int[] colour) {
+            oreBlockID = id;
+            oreMetadata = meta;
+            nodeSize = size;
+            nodeDepth = depth;
+            nodeRarity = rarity;
+            oreColour = new Color(colour[0], colour[1], colour[2]).getRGB();
+        }
+
+        public ore(String id, byte meta, short size, short depth, short rarity, int colour, int itemColour) {
+            oreBlockID = id;
+            oreMetadata = meta;
+            nodeSize = size;
+            nodeDepth = depth;
+            nodeRarity = rarity;
+            oreColour = colour;
+            resourceColour = itemColour;
+        }
+
+        public ore(String id, byte meta, short size, short depth, short rarity, int[] colour, int[] itemColour) {
+            oreBlockID = id;
+            oreMetadata = meta;
+            nodeSize = size;
+            nodeDepth = depth;
+            nodeRarity = rarity;
+            oreColour = new Color(colour[0], colour[1], colour[2]).getRGB();
+            oreColour = new Color(itemColour[0], itemColour[1], itemColour[2]).getRGB();
+        }
+    }
+
+    public void initHashMap() {
+        Ores.put("copper", new ore(Reference.MOD_ID + ":blockOre", (byte) 0, (short) 6, (short) 64,(short) 8, new int[]{0, 105, 0}, new int[]{174, 105, 41}));
+        Ores.put("tin", new ore(Reference.MOD_ID + ":blockOre", (byte) 1, (short) 7, (short) 55,(short) 6, new int[]{220, 230, 255}));
+        Ores.put("silver", new ore(Reference.MOD_ID + ":blockOre", (byte) 2, (short) 4, (short) 20,(short) 4, new int[]{200, 240, 255}));
+        Ores.put("lead", new ore(Reference.MOD_ID + ":blockOre", (byte) 3, (short) 4, (short) 16,(short) 3, new int[]{160, 150, 160}));
+        Ores.put("nickel", new ore(Reference.MOD_ID + ":blockOre", (byte) 4, (short) 3, (short) 18,(short) 2, new int[]{200, 200, 152}));
+        Ores.put("chromium", new ore(Reference.MOD_ID + ":blockOre", (byte) 5, (short) 3, (short) 12,(short) 2, new int[]{210, 250, 255}));
+        Ores.put("aluminum", new ore(Reference.MOD_ID + ":blockOre", (byte) 6, (short) 4, (short) 80,(short) 5, new int[]{235, 235, 240}));
+        Ores.put("ilmenite", new ore(Reference.MOD_ID + ":blockOre", (byte) 7, (short) 3, (short) 10,(short) 2, new int[]{133, 95, 90}));
+        Ores.put("platinum", new ore(Reference.MOD_ID + ":blockOre", (byte) 8, (short) 1, (short) 10,(short) 1, new int[]{160, 250, 255}));
+        Ores.put("peridot", new ore(Reference.MOD_ID + ":blockOre", (byte) 9, (short) 4, (short) 20,(short) 4, new int[]{0, 160, 120}));
+        Ores.put("ruby", new ore(Reference.MOD_ID + ":blockOre", (byte) 10, (short) 4, (short) 28,(short) 5, new int[]{200, 10, 10}));
+        Ores.put("sapphire", new ore(Reference.MOD_ID + ":blockOre", (byte) 11, (short) 4, (short) 28,(short) 4, new int[]{30, 120, 200}));
+        Ores.put("rutile", new ore(Reference.MOD_ID + ":blockOre", (byte) 12, (short) 2, (short) 12,(short) 2, new int[]{100, 56, 18}, new int[]{190, 210, 215}));
+        Ores.put("zinc", new ore(Reference.MOD_ID + ":blockOre", (byte) 13, (short) 2, (short) 16,(short) 3, new int[]{200, 200, 190}));
     }
 }

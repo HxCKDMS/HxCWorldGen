@@ -1,6 +1,6 @@
 package HxCKDMS.HxCWorldGen.items;
 
-import HxCKDMS.HxCWorldGen.libs.Reference;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -15,7 +15,7 @@ public class ItemBlockStorage extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Reference.RESOURCES[itemStack.getCurrentDurability()].replace("Ingot", "Block").replace("Gem", "Block");
+        return Configurations.RESOURCES[itemStack.getItemDamage()].replace("Ingot", "Block").replace("Gem", "Block");
     }
 
     @Override

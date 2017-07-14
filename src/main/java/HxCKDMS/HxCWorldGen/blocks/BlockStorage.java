@@ -1,5 +1,6 @@
 package HxCKDMS.HxCWorldGen.blocks;
 
+import HxCKDMS.HxCWorldGen.libs.Configurations;
 import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -31,7 +32,7 @@ public class BlockStorage extends Block {
 
     @Override
     public IIcon getIcon(int side, int metadata){
-        if (metadata >= 9 && metadata <= 11 || metadata == Reference.RESOURCES.length-1) return icons.get("gemBlock");
+        if (metadata >= 9 && metadata <= 11 || metadata == Configurations.RESOURCES.length-1) return icons.get("gemBlock");
         return icons.get("metalBlock");
     }
 
@@ -45,7 +46,7 @@ public class BlockStorage extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister){
+    public void registerBlockIcons(IIconRegister iconRegister){
         icons = new HashMap<>();
         icons.put("metalBlock", iconRegister.registerIcon(TextureHandler.getTexturePath("metalBlock")));
         icons.put("gemBlock", iconRegister.registerIcon(TextureHandler.getTexturePath("gemBlock")));
@@ -55,7 +56,7 @@ public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for(int i = 0; i < Reference.RESOURCES.length; i++){
+        for(int i = 0; i < Configurations.RESOURCES.length; i++){
             list.add(new ItemStack(item, 1, i));
         }
     }

@@ -102,7 +102,7 @@ public class BlockOre extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
+    public void registerBlockIcons(IIconRegister iconRegister) {
         icon = iconRegister.registerIcon(TextureHandler.getTexturePath("ore"));
     }
 
@@ -110,7 +110,7 @@ public class BlockOre extends Block {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
-        for (int i = 0; i < Reference.ORES.length; i++) {
+        for (int i = 0; i < Configurations.ORES.length; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }

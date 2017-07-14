@@ -1,8 +1,7 @@
 package HxCKDMS.HxCWorldGen.items;
 
-import HxCKDMS.HxCWorldGen.libs.Colours;
+import HxCKDMS.HxCWorldGen.libs.Configurations;
 import HxCKDMS.HxCWorldGen.libs.ModRegistry;
-import HxCKDMS.HxCWorldGen.libs.Reference;
 import HxCKDMS.HxCWorldGen.libs.TextureHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,12 +18,12 @@ public class ItemResourceNugget extends Item {
     public ItemResourceNugget(CreativeTabs creativeTabs){
         setCreativeTab(creativeTabs);
         setHasSubtypes(true);
-        setMaxDurability(0);
+        setMaxDamage(0);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Reference.RESOURCES[itemStack.getCurrentDurability()].replace("Gem", "Fragment").replace("Ingot", "Nugget");
+        return Configurations.RESOURCES[itemStack.getItemDamage()].replace("Gem", "Fragment").replace("Ingot", "Nugget");
     }
 
     @Override
@@ -34,7 +33,7 @@ public class ItemResourceNugget extends Item {
 
     @Override
     public int getColorFromItemStack(ItemStack stack, int meta) {
-        return Colours.getColour(stack.getUnlocalizedName());
+        return Configurations.getColourINT(stack.getUnlocalizedName());
     }
 
     @SideOnly(Side.CLIENT)
@@ -60,7 +59,7 @@ public class ItemResourceNugget extends Item {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for (int i = 0; i < Reference.RESOURCES.length; i++) {
+        for (int i = 0; i < Configurations.RESOURCES.length; i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }
