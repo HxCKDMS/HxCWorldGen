@@ -27,6 +27,9 @@ public class HxCWorldGen {
     public void preInit(FMLPreInitializationEvent event) {
         HxCConfig config = new HxCConfig(Configurations.class, Reference.MOD_ID, GlobalVariables.modConfigDir, "cfg", Reference.MOD_ID);
         config.initConfiguration();
+         Configurations c = new Configurations();
+        c.init();
+        config.initConfiguration();
 
         proxy.preInit();
         ModRegistry.preInit();

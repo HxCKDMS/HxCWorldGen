@@ -62,7 +62,8 @@ public class Configurations {
     }
 
     public static int[] getColourRGB(String key) {
-        if (Ores.containsKey(key)) return new int[]{new Color(Ores.get(key).oreColour).getRed(), new Color(Ores.get(key).oreColour).getGreen(), new Color(Ores.get(key).oreColour).getBlue()};
+        if (Ores.containsKey(key.replace("Ore", "").toLowerCase().trim()))
+            return new int[]{new Color(Ores.get(key.replace("Ore", "").toLowerCase().trim()).oreColour).getRed(), new Color(Ores.get(key.replace("Ore", "").toLowerCase().trim()).oreColour).getGreen(), new Color(Ores.get(key.replace("Ore", "").toLowerCase().trim()).oreColour).getBlue()};
         final int[] arr = new int[1], arr1 = new int[1], arr2 = new int[2];
         Colours.forEach((nam, v) -> {
             if (nam.equalsIgnoreCase(key)) {
