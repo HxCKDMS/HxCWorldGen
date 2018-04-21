@@ -23,7 +23,7 @@ public class ItemResourceNugget extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Configurations.RESOURCES[itemStack.getItemDamage()].replace("Gem", "Fragment").replace("Ingot", "Nugget");
+        return Configurations.RESOURCES.get(itemStack.getItemDamage()).replace("Gem", "Fragment").replace("Ingot", "Nugget");
     }
 
     @Override
@@ -59,7 +59,7 @@ public class ItemResourceNugget extends Item {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list){
-        for (int i = 0; i < Configurations.RESOURCES.length; i++) {
+        for (int i = 0; i < Configurations.RESOURCES.size(); i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }

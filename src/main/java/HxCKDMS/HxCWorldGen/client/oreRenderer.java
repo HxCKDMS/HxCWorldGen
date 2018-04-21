@@ -16,7 +16,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
         IIcon stoneIcon = Blocks.stone.getIcon(0, 0);
 
-        int[] colour = Configurations.getColourRGB(Configurations.ORES[metadata]);
+        int[] colour = Configurations.getColourRGB(Configurations.ORES.get(metadata));
 
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -105,7 +105,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
         Block block1 = dim == 1 ? Blocks.end_stone : (dim == 0 ? Blocks.stone : Blocks.netherrack);
         renderer.renderStandardBlock(block1, x, y, z);
         renderer.setOverrideBlockTexture(icon);
-        int[] colour = Configurations.getColourRGB(Configurations.ORES[metadata]);
+        int[] colour = Configurations.getColourRGB(Configurations.ORES.get(metadata));
         renderer.renderStandardBlockWithColorMultiplier(block1, x, y, z, colour[0] / 255F, colour[1] / 255F, colour[2] / 255F);
         renderer.clearOverrideBlockTexture();
     }

@@ -61,7 +61,7 @@ ZirconBlock.name=Block of Zircon
 BrassBlock.name=Block of Brass
 BronzeBlock.name=Block of Bronze
 ZincBlock.name=Block of Zinc
-SteelBlock.name=Block of Stainless Steel
+SteelBlock.name=Block of Steel
 
 CopperIngot.name=Copper Ingot
 TinIngot.name=Tin Ingot
@@ -76,7 +76,7 @@ ZirconIngot.name=Ceramic Zirconia
 BrassIngot.name=Brass Ingot
 BronzeIngot.name=Bronze Ingot
 ZincIngot.name=Zinc Ingot
-SteelIngot.name=Stainless Steel Ingot
+SteelIngot.name=Steel Ingot
 
 PeridotGem.name=Peridot
 RubyGem.name=Ruby

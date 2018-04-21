@@ -10,12 +10,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
+import java.awt.*;
+
 public class BlockRenderer implements ISimpleBlockRenderingHandler {
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
         IIcon icon = block.getIcon(0, metadata);
 
-        int[] colour = Configurations.getColourRGB(Configurations.RESOURCES[metadata].replace("Ingot", "Block").replace("Gem", "Block"));
+        int[] colour = new int[]{new Color(Configurations.getColourINT(Configurations.RESOURCES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getRed(),new Color(Configurations.getColourINT(Configurations.RESOURCES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getGreen(), new Color(Configurations.getColourINT(Configurations.RESOURCES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getBlue()};
         
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -66,7 +68,7 @@ public class BlockRenderer implements ISimpleBlockRenderingHandler {
     }
 
     public static void render(Block block, int x, int y, int z, int metadata, RenderBlocks renderer){
-        int[] colour = Configurations.getColourRGB(Configurations.RESOURCES[metadata].replace("Ingot", "Block").replace("Gem", "Block"));
+        int[] colour = Configurations.getColourRGB(Configurations.RESOURCES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"));
         renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, colour[0] / 255F, colour[1] / 255F, colour[2] / 255F);
     }
 

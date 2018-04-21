@@ -32,7 +32,7 @@ public class BlockStorage extends Block {
 
     @Override
     public IIcon getIcon(int side, int metadata){
-        if (metadata >= 9 && metadata <= 11 || metadata == Configurations.RESOURCES.length-1) return icons.get("gemBlock");
+        if (metadata >= 9 && metadata <= 11 || metadata == Configurations.RESOURCES.size()-1) return icons.get("gemBlock");
         return icons.get("metalBlock");
     }
 
@@ -56,7 +56,7 @@ public class BlockStorage extends Block {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-        for(int i = 0; i < Configurations.RESOURCES.length; i++){
+        for(int i = 0; i < Configurations.RESOURCES.size(); i++){
             list.add(new ItemStack(item, 1, i));
         }
     }

@@ -16,7 +16,7 @@ public class OreGenHandler implements IWorldGenerator {
         if(Configurations.validDimensions.contains(world.provider.dimensionId)){
             for (String ore : Configurations.ORES) {
                 ore = ore.replaceAll("Ore", "").toLowerCase().trim();
-                System.out.println(ore + " attempting to spawn");
+//                System.out.println(ore + " attempting to spawn");
 
                 for (int i = 0; i < (world.provider.dimensionId == 0 ? Configurations.Ores.get(ore).nodeRarity : Configurations.Ores.get(ore).nodeRarity*2); i++) {
                     int randPosX = (chunkX*16) + random.nextInt(16);

@@ -21,7 +21,7 @@ public class ItemDust extends Item {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Configurations.DUSTS[itemStack.getItemDamage()];
+        return Configurations.DUSTS.get(itemStack.getItemDamage());
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ItemDust extends Item {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < Configurations.DUSTS.length; i++) {
+        for (int i = 0; i < Configurations.DUSTS.size(); i++) {
             list.add(new ItemStack(item, 1, i));
         }
     }

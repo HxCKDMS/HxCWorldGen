@@ -12,6 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import hxckdms.hxcconfig.HxCConfig;
+import hxckdms.hxcconfig.handlers.SpecialHandlers;
 import hxckdms.hxccore.libraries.GlobalVariables;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
@@ -25,10 +26,9 @@ public class HxCWorldGen {
     /**Great coding song https://www.youtube.com/watch?v=6dOP5W_k_gw**/
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        SpecialHandlers.registerSpecialClass(Configurations.ore.class);
         HxCConfig config = new HxCConfig(Configurations.class, Reference.MOD_ID, GlobalVariables.modConfigDir, "cfg", Reference.MOD_ID);
-        config.initConfiguration();
-         Configurations c = new Configurations();
-        c.init();
+        Configurations.init();
         config.initConfiguration();
 
         proxy.preInit();

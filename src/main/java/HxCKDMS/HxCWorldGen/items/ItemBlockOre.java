@@ -34,7 +34,7 @@ public class ItemBlockOre extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return Configurations.ORES[itemStack.getItemDamage()];
+        return Configurations.ORES.get(itemStack.getItemDamage());
     }
 
     @Override

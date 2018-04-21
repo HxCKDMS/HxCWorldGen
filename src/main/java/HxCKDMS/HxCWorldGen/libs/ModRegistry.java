@@ -60,13 +60,13 @@ public class ModRegistry {
     }
 
     private static void registerRecipes(){
-        for (int i = 0; i < RESOURCES.length; i++) {
-            if (RESOURCES[i].contains("Gem"))GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', "gem" + RESOURCES[i].replace("Gem", "")));
-            if (RESOURCES[i].contains("Ingot"))GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', "ingot" + RESOURCES[i].replace("Ingot", "")));
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', "nugget" + RESOURCES[i].replace("Gem", "").replace("Ingot", "")));
-            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), "block" + RESOURCES[i].replace("Gem", "").replace("Ingot", "")));
-            if (RESOURCES[i].contains("Gem"))GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), "gem" + RESOURCES[i].replace("Gem", "")));
-            if (RESOURCES[i].contains("Ingot"))GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), "ingot" + RESOURCES[i].replace("Ingot", "")));
+        for (int i = 0; i < RESOURCES.size(); i++) {
+            if (RESOURCES.get(i).contains("Gem"))GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', "gem" + RESOURCES.get(i).replace("Gem", "")));
+            if (RESOURCES.get(i).contains("Ingot"))GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blockStorage, 1, i), "iii", "iii", "iii", 'i', "ingot" + RESOURCES.get(i).replace("Ingot", "")));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemResource, 1, i), "iii", "iii", "iii", 'i', "nugget" + RESOURCES.get(i).replace("Gem", "").replace("Ingot", "")));
+            GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemResource, 9, i), "block" + RESOURCES.get(i).replace("Gem", "").replace("Ingot", "")));
+            if (RESOURCES.get(i).contains("Gem"))GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), "gem" + RESOURCES.get(i).replace("Gem", "")));
+            if (RESOURCES.get(i).contains("Ingot"))GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemFragment, 9, i), "ingot" + RESOURCES.get(i).replace("Ingot", "")));
         }
 
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemDust, 9, 17), "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustChromium"));
@@ -74,12 +74,12 @@ public class ModRegistry {
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(itemDust, 9, 16), "dustZinc", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper", "dustCopper"));
 
         //smelting
-        for (int i = 0; i < ORES.length-1; i++)
+        for (int i = 0; i < ORES.size()-1; i++)
             GameRegistry.addSmelting(new ItemStack(blockOre, 1, i), new ItemStack(itemResource, 1, i), 10F);
-        GameRegistry.addSmelting(new ItemStack(blockOre, 1, ORES.length - 1), new ItemStack(itemResource, 1, 7), 10F);
+        GameRegistry.addSmelting(new ItemStack(blockOre, 1, ORES.size() - 1), new ItemStack(itemResource, 1, 7), 10F);
 
-        for (int i = 0; i < DUSTOUTPUTS.length; i++)
-            GameRegistry.addSmelting(new ItemStack(itemDust, 1, i), OreDictionary.getOres(DUSTOUTPUTS[i]).get(0), 10F);
+        for (int i = 0; i < DUSTOUTPUTS.size(); i++)
+            GameRegistry.addSmelting(new ItemStack(itemDust, 1, i), OreDictionary.getOres(DUSTOUTPUTS.get(i)).get(0), 10F);
 
         if (Configurations.enableOreChunks) {
             if (!Configurations.FragmentsToIngots) {
@@ -96,28 +96,28 @@ public class ModRegistry {
 
     private static void registerOreDictionary(){
         //ores
-        for (int i = 0; i < ORES.length; i++) {
-            OreDictionary.registerOre("ore" + ORES[i].replace("Ore", ""), new ItemStack(blockOre, 1, i));
+        for (int i = 0; i < ORES.size(); i++) {
+            OreDictionary.registerOre("ore" + ORES.get(i).replace("Ore", ""), new ItemStack(blockOre, 1, i));
             if (Loader.isModLoaded("IC2")) {
-                OreDictionary.registerOre("crushed" + ORES[i].replace("Ore", ""), new ItemStack(itemCrushed, 1, i));
-                OreDictionary.registerOre("pureCrushed" + ORES[i].replace("Ore", ""), new ItemStack(itemPureCrushed, 1, i));
+                OreDictionary.registerOre("crushed" + ORES.get(i).replace("Ore", ""), new ItemStack(itemCrushed, 1, i));
+                OreDictionary.registerOre("pureCrushed" + ORES.get(i).replace("Ore", ""), new ItemStack(itemPureCrushed, 1, i));
             }
-            OreDictionary.registerOre("oreChunk" + ORES[i].replace("Ore", ""), new ItemStack(itemOreChunk, 1, i));
+            OreDictionary.registerOre("oreChunk" + ORES.get(i).replace("Ore", ""), new ItemStack(itemOreChunk, 1, i));
         }
 
-        for (int i = 0; i < DUSTS.length; i++) {
-            OreDictionary.registerOre("dust" + DUSTS[i].replace("Dust", ""), new ItemStack(itemDust, 1, i));
+        for (int i = 0; i < DUSTS.size(); i++) {
+            OreDictionary.registerOre("dust" + DUSTS.get(i).replace("Dust", ""), new ItemStack(itemDust, 1, i));
 
             if (Loader.isModLoaded("IC2"))
-                OreDictionary.registerOre("dustTiny" + DUSTS[i].replace("Dust", ""), new ItemStack(itemTinyDust, 1, i));
+                OreDictionary.registerOre("dustTiny" + DUSTS.get(i).replace("Dust", ""), new ItemStack(itemTinyDust, 1, i));
         }
         //ingots
-        for (int i = 0; i < RESOURCES.length; i++) {
-            if (RESOURCES[i].contains("Gem"))OreDictionary.registerOre("gem" + RESOURCES[i].replace("Gem", ""), new ItemStack(itemResource, 1, i));
-            if (RESOURCES[i].contains("Ingot"))OreDictionary.registerOre("ingot" + RESOURCES[i].replace("Ingot", ""), new ItemStack(itemResource, 1, i));
+        for (int i = 0; i < RESOURCES.size(); i++) {
+            if (RESOURCES.get(i).contains("Gem"))OreDictionary.registerOre("gem" + RESOURCES.get(i).replace("Gem", ""), new ItemStack(itemResource, 1, i));
+            if (RESOURCES.get(i).contains("Ingot"))OreDictionary.registerOre("ingot" + RESOURCES.get(i).replace("Ingot", ""), new ItemStack(itemResource, 1, i));
 
-            OreDictionary.registerOre("nugget" + RESOURCES[i].replace("Ingot", "").replace("Gem", ""), new ItemStack(itemFragment, 1, i));
-            OreDictionary.registerOre("block" + RESOURCES[i].replace("Ingot", "").replace("Gem", ""), new ItemStack(blockStorage, 1, i));
+            OreDictionary.registerOre("nugget" + RESOURCES.get(i).replace("Ingot", "").replace("Gem", ""), new ItemStack(itemFragment, 1, i));
+            OreDictionary.registerOre("block" + RESOURCES.get(i).replace("Ingot", "").replace("Gem", ""), new ItemStack(blockStorage, 1, i));
         }
     }
 }
