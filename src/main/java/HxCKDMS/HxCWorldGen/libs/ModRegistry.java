@@ -2,6 +2,7 @@ package HxCKDMS.HxCWorldGen.libs;
 
 import HxCKDMS.HxCWorldGen.blocks.BlockOre;
 import HxCKDMS.HxCWorldGen.blocks.BlockStorage;
+import HxCKDMS.HxCWorldGen.blocks.TileStorageBlock;
 import HxCKDMS.HxCWorldGen.items.*;
 import HxCKDMS.HxCWorldGen.world.OreGenHandler;
 import cpw.mods.fml.common.Loader;
@@ -43,6 +44,7 @@ public class ModRegistry {
     private static void registerBlocks(){
         GameRegistry.registerBlock(blockOre, ItemBlockOre.class, "blockOre");
         GameRegistry.registerBlock(blockStorage, ItemBlockStorage.class, "blockStorage");
+        GameRegistry.registerTileEntity(TileStorageBlock.class, "tileResourceBlock");
     }
 
     private static void registerItems(){

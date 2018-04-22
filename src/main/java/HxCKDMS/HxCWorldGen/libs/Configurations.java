@@ -100,7 +100,6 @@ public class Configurations {
     }
 
     public static int[] getColourRGB(String key) {
-        System.out.println(key.toLowerCase().replace("ore", "").replace("nugget", "").replace("fragment", "").replace("ingot", "").replace("block", "").replace("chunk", "").replace("gem", "").replace("dust", ""));
         final int[] arr = new int[3];
         Colours.forEach((nam, v) -> {
             if (nam.equalsIgnoreCase(key.toLowerCase().replace("ore", "").replace("nugget", "").replace("fragment", "").replace("ingot", "").replace("block", "").replace("chunk", "").replace("gem", "").replace("dust", ""))) {

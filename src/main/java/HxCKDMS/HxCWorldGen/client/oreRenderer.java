@@ -11,12 +11,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
+import java.awt.*;
+
 public class oreRenderer implements ISimpleBlockRenderingHandler {
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
         IIcon stoneIcon = Blocks.stone.getIcon(0, 0);
 
-        int[] colour = Configurations.getColourRGB(Configurations.ORES.get(metadata));
+        int[] colour = new int[]{new Color(Configurations.getColourINT(Configurations.ORES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getRed(),new Color(Configurations.getColourINT(Configurations.ORES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getGreen(), new Color(Configurations.getColourINT(Configurations.ORES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getBlue()};
 
         Tessellator tessellator = Tessellator.instance;
         GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -105,7 +107,7 @@ public class oreRenderer implements ISimpleBlockRenderingHandler {
         Block block1 = dim == 1 ? Blocks.end_stone : (dim == 0 ? Blocks.stone : Blocks.netherrack);
         renderer.renderStandardBlock(block1, x, y, z);
         renderer.setOverrideBlockTexture(icon);
-        int[] colour = Configurations.getColourRGB(Configurations.ORES.get(metadata));
+        int[] colour = new int[]{new Color(Configurations.getColourINT(Configurations.ORES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getRed(),new Color(Configurations.getColourINT(Configurations.ORES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getGreen(), new Color(Configurations.getColourINT(Configurations.ORES.get(metadata).replace("Ingot", "Block").replace("Gem", "Block"))).getBlue()};
         renderer.renderStandardBlockWithColorMultiplier(block1, x, y, z, colour[0] / 255F, colour[1] / 255F, colour[2] / 255F);
         renderer.clearOverrideBlockTexture();
     }
